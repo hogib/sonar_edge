@@ -87,6 +87,8 @@ def main():
         pred, timing = parse_dets(Path(args.pred).read_text(), {}), []
         for p in paths:
             pred.setdefault(int(p.stem), [])
+        if args.tag:  # keep the parsed detections so `sonar-edge cv` can pool them across folds
+            (run / f"pred_{args.split}_{args.tag}.json").write_text(json.dumps({str(k): v for k, v in pred.items()}))
     else:
         pred, timing = run_cli(ROOT / args.bin, paths, repeat=args.repeat)
     aps, m = evaluate(pred, d.gt_boxes(), len(classes))

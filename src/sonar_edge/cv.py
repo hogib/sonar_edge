@@ -66,7 +66,7 @@ def cmd_cv(args):
     n_boxes = {c: sum(g[0] == i for gg in gts for gs in gg.values() for g in gs) for i, c in enumerate(classes)}
 
     out = {"prefix": args.prefix, "k": args.k, "scale": scale, "n_test_frames": sum(len(g) for g in gts)}
-    variants = {"float": "pred_test.json", "int8": "pred_test_int8.json"}
+    variants = {"float": "pred_test.json", "int8": "pred_test_int8.json", "pi4": "pred_test_pi4.json"}  # pi4: on-device (c_eval --pred --tag pi4)
     for name, fn in variants.items():
         if not all((r / fn).exists() for r in runs):
             continue
@@ -133,7 +133,7 @@ def seed_summary(cv_files):
     classes = list(runs[0]["n_test_boxes"])
     out = {"prefixes": [r["prefix"] for r in runs], "n_seeds": len(runs), "k": runs[0]["k"], "scale": runs[0]["scale"]}
     sd = (lambda x: float(np.std(x, ddof=1))) if len(runs) > 1 else (lambda x: None)
-    for v in ("float", "int8"):
+    for v in ("float", "int8", "pi4"):
         if not all(v in r for r in runs):
             continue
         pooled = [r[v]["map_pooled"] for r in runs]
@@ -154,7 +154,7 @@ def seed_summary(cv_files):
 def cmd_seeds(args):
     files = [ROOT / f"{p}_cv.json" for p in args.prefixes]
     out = seed_summary(files)
-    cols = [v for v in ("float", "int8") if v in out]
+    cols = [v for v in ("float", "int8", "pi4") if v in out]
     pm = lambda m, s: f"{100 * m:5.1f} +- {100 * s:3.1f}" if s is not None else f"{100 * m:5.1f}"
     print(f"{out['n_seeds']} seeds of {', '.join(out['prefixes'])}")
     for v in cols:

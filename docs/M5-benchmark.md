@@ -89,6 +89,8 @@ small_wide 2.6 MB, wide 3.4 MB.
 
 MCNN (sonar_cnn reimplementation, 305x305 crop): 2,797,706 parameters, 234.7 M
 MACs per crop (counted with forward hooks); x 2.08 boxes per frame = ~490 M MACs
+(corrected in M7: 2.08 includes Wall boxes, which MCNN does not classify; 1.51
+objects per frame gives 355 M)
 to classify the annotated objects of a frame, with no localisation. The deployed
 detector: 78.4 M MACs for detection and classification of the whole frame, 42,463
 parameters.
