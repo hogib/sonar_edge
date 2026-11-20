@@ -1,0 +1,67 @@
+{
+ "long_small_w1_f15_latest": {
+  "produced": 27000,
+  "processed": 26993,
+  "acked": 26993,
+  "processed_fps": 15.0,
+  "dropped_latest": 7,
+  "gaps": 0,
+  "dropped_pct": 0.03,
+  "latency_ms": {
+   "p50": 29.9,
+   "p95": 31.91,
+   "p99": 47.31,
+   "max": 352.41,
+   "mean": 29.49
+  },
+  "recv_to_done_ms": {
+   "p50": 21.26,
+   "p95": 21.86,
+   "p99": 38.36,
+   "max": 77.41
+  },
+  "wait_ms": {
+   "p50": 0.02,
+   "p95": 0.04
+  },
+  "proc_ms_mean": 21.805333790241914,
+  "stage_ms_mean": {
+   "frontend": 0.5490243025969695,
+   "network": 20.35286296447227,
+   "decode": 0.37760623124513765,
+   "seg": 1.4818656688771164e-07,
+   "total": 21.279550920609044
+  },
+  "deadline_ms": 66.66666666666667,
+  "deadline_met_pct_of_produced": 99.95,
+  "deadline_met_pct_of_processed": 99.98,
+  "queue_depth": {
+   "mean": 1.0001111399251659,
+   "max": 2
+  },
+  "temp_c": {
+   "start": 49.6,
+   "end": 53.5,
+   "max": 56.9
+  },
+  "arm_mhz": {
+   "min": 600.16992,
+   "median": 1800.457088
+  },
+  "throttled": [
+   "0x0"
+  ],
+  "cpu_pct_mean": 9.196677740863787,
+  "emission_lag": "mean 44 us, max 31258 us",
+  "board": "pi4",
+  "tag": "long_small_w1_f15_latest",
+  "model": "small",
+  "workers": 1,
+  "policy": "latest",
+  "fps": 15,
+  "duration_s": 1800.0,
+  "wall_s": 1814.3,
+  "temp_before_c": 49.1,
+  "cool_wait_s": 0
+ }
+}

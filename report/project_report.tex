@@ -1044,9 +1044,12 @@ appears as energy and heat rather than dropped frames.
         resolved.
   \item \textbf{Water tank only}: no frames from open water were evaluated;
         generalisation to field conditions is untested.
-  \item \textbf{Scope of ``end-to-end''}: timing starts from the Cartesian
-        image in memory. The projection from raw polar sonar data and the
-        resize to $360 \times 240$ (done in Python) are not included.
+  \item \textbf{Scope of ``end-to-end''}: the timings in this report start
+        from the $360 \times 240$ image in memory. The C pipeline has since
+        been extended end to end (a front end from the sonar software's fan
+        image, one network pass for boxes and mask, outputs in sonar
+        coordinates) and tested on a Raspberry Pi~4 and a Pi~2; see the
+        separate report \texttt{pipeline\_report.pdf}.
   \item \textbf{Throughput}: the four-core figures are independent copies;
         the runtime has no multi-threaded single-frame mode.
   \item \textbf{Thermal}: runs lasted 1--3 minutes without a fan; steady
@@ -1099,8 +1102,8 @@ appears as energy and heat rather than dropped frames.
   \item \textbf{Paper protocol for both}: train the detectors on a random
         90/10 split as MCNN was, to show the inflation symmetrically; paired
         test of the F1 difference over the 15 fold--seed pairs.
-  \item \textbf{Front end}: a lookup-table remap in C from raw polar beam
-        data directly to the $360 \times 240$ input, timed on the Pi.
+  \item \textbf{End-to-end pipeline}: done since; see
+        \texttt{pipeline\_report.pdf}.
   \item \textbf{Single-frame multi-core}: split each layer's rows across
         four threads (bit-exact) to report per-frame latency on four cores.
   \item \textbf{Sustained thermal run}: 30 minutes at both operating

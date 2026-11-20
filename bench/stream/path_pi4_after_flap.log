@@ -1,0 +1,6 @@
+{"bytes": 104857600, "seconds": 8.909399719996145, "mbit_s": 94.15458126963048, "sender_seconds": 8.91130486000111, "local": "192.168.1.113:48217"}
+30 packets transmitted, 30 received, 0% packet loss, time 6019ms
+rtt min/avg/max/mdev = 0.374/0.404/0.496/0.025 ms
+100
+0
+temp=49.1'C

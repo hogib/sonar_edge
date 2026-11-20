@@ -2,6 +2,9 @@
  *
  *   sonar-edge-run [-t THR] [-n REPEAT] [-m DIR] [-o DIR] frame.pgm ...
  *   sonar-edge-run [options] --polar BEAMSxSAMPLES [--beams FILE] raw.bin|-
+ *   sonar-edge-run [options] --aris [--fit metric|window] [--every N] [--first K] [--count N] rec.aris ...
+ *   sonar-edge-run [-t THR] --stream HOST:PORT [--policy latest|queue] [--workers N] [--qcap N]
+ *                  [--from SEQ] [--name NAME] [--fit metric|window]
  *
  * Inputs
  *   PGM (P5, 8-bit) at the network's size: used as is (no front end).
@@ -11,6 +14,14 @@
  *       (beam 0 leftmost), back to back in a file or on stdin ("-"); each is
  *       rendered to the network input with the se_fan_watertank geometry.
  *       --beams FILE: B beam angles in degrees (text), else uniform over the fov.
+ *   --aris: Sound Metrics ARIS recordings; each frame's beams are rendered with
+ *       the SDK's per-beam angles and the frame's range window (aris.h).
+ *       --fit metric (default): true fan shape, far edge on the training fan's
+ *       far radius, ranges in metres; --fit window: the range window stretched
+ *       onto the training fan's near and far radius, ranges in pixels.
+ *       --every N / --first K / --count N select frames (every Nth from K).
+ *   --stream: live frames from sonar-stream (stream/protocol.h); see
+ *       stream/stream_client.c for the worker processes and the two policies.
  *
  * Output: one JSON object per frame and line on stdout:
  *   {"frame": k, "source": ..., "mode": "net|fan|polar",
@@ -36,6 +47,7 @@
 #include <string.h>
 #include <time.h>
 
+#include "../aris.h"
 #include "../frontend.h"
 #include "../sonar_edge.h"
 
@@ -43,6 +55,7 @@
 
 enum { MODE_NET, MODE_FAN, MODE_POLAR };
 static const char *mode_name[] = {"net", "fan", "polar"};
+static const se_fan_geom_t *geom = &se_fan_watertank;   /* geometry of the current input (ARIS: per recording) */
 
 static double now_s(void)
 {
@@ -55,9 +68,12 @@ static void usage(const char *p)
 {
     fprintf(stderr,
             "usage: %s [-t THR] [-n REPEAT] [-m DIR] [-o DIR [--show P]] frame.pgm ...\n"
-            "       %s [-t THR] [-n REPEAT] [-m DIR] [-o DIR [--show P]] --polar BEAMSxSAMPLES [--beams FILE] raw.bin|-\n",
-            p, p);
+            "       %s [-t THR] [-n REPEAT] [-m DIR] [-o DIR [--show P]] --polar BEAMSxSAMPLES [--beams FILE] raw.bin|-\n"
+            "       %s [-t THR] [-n REPEAT] [-m DIR] [-o DIR [--show P]] --aris [--fit metric|window] [--every N] [--first K] [--count N] rec.aris ...\n"
+            "       %s [-t THR] --stream HOST:PORT [--policy latest|queue] [--workers N] [--qcap N] [--from SEQ] [--name NAME] [--fit metric|window]\n",
+            p, p, p, p);
 }
+
 
 /* Binary 8-bit PGM of any size; *buf is (re)allocated. */
 static int read_pgm(const char *path, uint8_t **buf, int *h, int *w)
@@ -165,7 +181,7 @@ typedef struct {
 } opts_t;
 
 /* Front end (unless mode is MODE_NET), network, decode, segmentation; print one JSON line. */
-static int process(const opts_t *o, int mode, const uint8_t *src, int src_w, int src_h, const char *source, int index)
+static int process(const opts_t *o, int mode, const uint8_t *src, int src_w, int src_h, const char *source, int index, FILE *out)
 {
     static uint8_t *net = NULL, *labels = NULL;
     const int H = se_input_height(), W = se_input_width();
@@ -194,15 +210,15 @@ static int process(const opts_t *o, int mode, const uint8_t *src, int src_w, int
     const double k = 1e3 / o->repeat;
     t_fe *= k; t_net *= k; t_dec *= k; t_seg *= k;
 
-    const se_fan_geom_t *g = &se_fan_watertank;
+    const se_fan_geom_t *g = geom;
     char tmp[32];
     float box_fan[MAX_DETS][4], box_net[MAX_DETS][4];
-    printf("{\"frame\": %d, \"source\": ", o->frame_no);
-    json_str(stdout, source);
-    if (index >= 0) printf(", \"index\": %d", index);
-    printf(", \"mode\": \"%s\", \"ms\": {\"frontend\": %.3f, \"network\": %.3f, \"decode\": %.3f, \"seg\": %.3f, \"total\": %.3f}",
+    fprintf(out, "{\"frame\": %d, \"source\": ", o->frame_no);
+    json_str(out, source);
+    if (index >= 0) fprintf(out, ", \"index\": %d", index);
+    fprintf(out, ", \"mode\": \"%s\", \"ms\": {\"frontend\": %.3f, \"network\": %.3f, \"decode\": %.3f, \"seg\": %.3f, \"total\": %.3f}",
            mode_name[mode], t_fe, t_net, t_dec, t_seg, t_fe + t_net + t_dec + t_seg);
-    printf(", \"range_unit\": \"%s\", \"detections\": [", g->m_per_px > 0 ? "m" : "px");
+    fprintf(out, ", \"range_unit\": \"%s\", \"detections\": [", g->m_per_px > 0 ? "m" : "px");
     for (int i = 0; i < n; i++) {
         const se_detection_t *d = &dets[i];
         float u0, v0, u1, v1, uc, vc, range, bearing;
@@ -213,30 +229,30 @@ static int process(const opts_t *o, int mode, const uint8_t *src, int src_w, int
         box_net[i][0] = d->x0; box_net[i][1] = d->y0; box_net[i][2] = d->x1; box_net[i][3] = d->y1;
         box_fan[i][0] = fminf(u0, u1); box_fan[i][1] = fminf(v0, v1);
         box_fan[i][2] = fmaxf(u0, u1); box_fan[i][3] = fmaxf(v0, v1);
-        printf("%s{\"cls\": %d, \"name\": ", i ? ", " : "", d->cls);
-        json_str(stdout, cls_name(d->cls, tmp, sizeof tmp));
-        printf(", \"score\": %.6f, \"prob\": %.6f, \"box\": [%.3f, %.3f, %.3f, %.3f], \"box_fan\": [%.2f, %.2f, %.2f, %.2f]"
+        fprintf(out, "%s{\"cls\": %d, \"name\": ", i ? ", " : "", d->cls);
+        json_str(out, cls_name(d->cls, tmp, sizeof tmp));
+        fprintf(out, ", \"score\": %.6f, \"prob\": %.6f, \"box\": [%.3f, %.3f, %.3f, %.3f], \"box_fan\": [%.2f, %.2f, %.2f, %.2f]"
                ", \"range\": %.4f, \"bearing_deg\": %.3f}",
                d->score, 1.0 / (1.0 + exp(-(double)d->score)), d->x0, d->y0, d->x1, d->y1,
                box_fan[i][0], box_fan[i][1], box_fan[i][2], box_fan[i][3], range, bearing);
     }
-    printf("]");
+    fprintf(out, "]");
     if (nl > 0) {
         long cnt[256] = {0};
         for (long i = 0; i < (long)lh * lw; i++) cnt[labels[i]]++;
-        printf(", \"mask\": {\"h\": %d, \"w\": %d, \"cells\": {", lh, lw);
+        fprintf(out, ", \"mask\": {\"h\": %d, \"w\": %d, \"cells\": {", lh, lw);
         int first = 1;
         for (int c = 0; c < nl; c++) {
             if (!cnt[c]) continue;
-            printf("%s", first ? "" : ", ");
-            json_str(stdout, c == 0 ? "background" : cls_name(c - 1, tmp, sizeof tmp));
-            printf(": %ld", cnt[c]);
+            fprintf(out, "%s", first ? "" : ", ");
+            json_str(out, c == 0 ? "background" : cls_name(c - 1, tmp, sizeof tmp));
+            fprintf(out, ": %ld", cnt[c]);
             first = 0;
         }
-        printf("}}");
+        fprintf(out, "}}");
     }
-    printf("}\n");
-    fflush(stdout);
+    fprintf(out, "}\n");
+    fflush(out);
 
     char name[512], path[4096];
     if (index >= 0) snprintf(name, sizeof name, "%s.%06d", base_name(source), index);
@@ -262,13 +278,74 @@ static int process(const opts_t *o, int mode, const uint8_t *src, int src_w, int
     return 0;
 }
 
+/* Every selected frame of each ARIS recording through the pipeline; the front
+ * end is (re)built per recording and whenever the range window changes. */
+static int run_aris(opts_t *o, int fit, long long every, long long first, long long count, int argc, char **argv, int i)
+{
+    static se_fan_geom_t g;
+    for (; i < argc; i++) {
+        se_aris_file_t a;
+        if (se_aris_open(&a, argv[i])) return 1;
+        const se_aris_frame_t *f0 = &a.first;
+        fprintf(stderr, "%s: ARIS %s, %d beams x %d samples, window %.2f-%.2f m, %.1f fps, %lld frames\n", argv[i],
+                f0->system_type == 1 ? "3000" : f0->system_type == 0 ? "1800" : f0->system_type == 2 ? "1200" : "?",
+                f0->n_beams, f0->n_samples, f0->window_start_m, f0->window_start_m + f0->n_samples * f0->sample_len_m,
+                f0->frame_rate, a.n_frames);
+        uint8_t *buf = malloc(a.frame_bytes);
+        float *ang = malloc(sizeof(float) * (size_t)f0->n_beams);
+        if (!buf || !ang) return 1;
+        se_aris_frame_t h, cur = {0};
+        int ready = 0;
+        long long done = 0;
+        for (long long k = first; k < a.n_frames && (count <= 0 || done < count); k += every) {
+            if (se_aris_read(&a, k, &h, buf)) { fprintf(stderr, "%s: frame %lld unreadable, stopping\n", argv[i], k); break; }
+            if (!ready || !se_aris_same_geom(&h, &cur)) {
+                const int have = se_aris_beam_deg(&h, ang) == 0;
+                if (!have) fprintf(stderr, "%s: no beam table for this system/lens; uniform beams\n", argv[i]);
+                se_aris_geom(&h, have ? ang : NULL, fit, &g);
+                if (se_fe_init_polar(&g, h.n_beams, h.n_samples, have ? ang : NULL) != 0) {
+                    fprintf(stderr, "%s: front end: bad polar geometry\n", argv[i]);
+                    return 1;
+                }
+                geom = &g;
+                cur = h;
+                ready = 1;
+            }
+            if (process(o, MODE_POLAR, buf, h.n_beams, h.n_samples, argv[i], (int)k, stdout)) return 1;
+            o->frame_no++;
+            done++;
+        }
+        free(buf);
+        free(ang);
+        se_aris_close(&a);
+    }
+    return 0;
+}
+
+#include "../stream/stream_client.c"
+
 int main(int argc, char **argv)
 {
     opts_t o = {-4.0f, 0.0f, 1, NULL, NULL, 0};
     float show = 0.3f;
-    int beams = 0, samples = 0, i = 1;
-    const char *beam_file = NULL;
+    int beams = 0, samples = 0, i = 1, aris = 0, fit = SE_ARIS_FIT_METRIC;
+    long long every = 1, first = 0, count = 0;
+    const char *beam_file = NULL, *stream = NULL, *sname = NULL;
+    int policy_latest = 1, workers = 1, qcap = 32;
+    uint64_t from = SS_LIVE;
     for (; i < argc && argv[i][0] == '-' && argv[i][1]; i++) {
+        if (!strcmp(argv[i], "--stream") && i + 1 < argc) { stream = argv[++i]; continue; }
+        if (!strcmp(argv[i], "--policy") && i + 1 < argc) {
+            const char *v = argv[++i];
+            if (!strcmp(v, "latest")) policy_latest = 1;
+            else if (!strcmp(v, "queue")) policy_latest = 0;
+            else { usage(argv[0]); return 2; }
+            continue;
+        }
+        if (!strcmp(argv[i], "--workers") && i + 1 < argc) { workers = atoi(argv[++i]); continue; }
+        if (!strcmp(argv[i], "--qcap") && i + 1 < argc) { qcap = atoi(argv[++i]); continue; }
+        if (!strcmp(argv[i], "--from") && i + 1 < argc) { from = (uint64_t)strtoull(argv[++i], NULL, 10); continue; }
+        if (!strcmp(argv[i], "--name") && i + 1 < argc) { sname = argv[++i]; continue; }
         if (!strcmp(argv[i], "-t") && i + 1 < argc) o.thr = (float)atof(argv[++i]);
         else if (!strcmp(argv[i], "-n") && i + 1 < argc) o.repeat = atoi(argv[++i]);
         else if (!strcmp(argv[i], "-m") && i + 1 < argc) o.maskdir = argv[++i];
@@ -276,15 +353,29 @@ int main(int argc, char **argv)
         else if (!strcmp(argv[i], "--polar") && i + 1 < argc) {
             if (sscanf(argv[++i], "%dx%d", &beams, &samples) != 2 || beams <= 0 || samples <= 0) { usage(argv[0]); return 2; }
         } else if (!strcmp(argv[i], "--beams") && i + 1 < argc) beam_file = argv[++i];
+        else if (!strcmp(argv[i], "--aris")) aris = 1;
+        else if (!strcmp(argv[i], "--fit") && i + 1 < argc) {
+            const char *v = argv[++i];
+            if (!strcmp(v, "metric")) fit = SE_ARIS_FIT_METRIC;
+            else if (!strcmp(v, "window")) fit = SE_ARIS_FIT_WINDOW;
+            else { usage(argv[0]); return 2; }
+        } else if (!strcmp(argv[i], "--every") && i + 1 < argc) every = atoll(argv[++i]);
+        else if (!strcmp(argv[i], "--first") && i + 1 < argc) first = atoll(argv[++i]);
+        else if (!strcmp(argv[i], "--count") && i + 1 < argc) count = atoll(argv[++i]);
         else if (!strcmp(argv[i], "--show") && i + 1 < argc) show = (float)atof(argv[++i]);
         else { usage(argv[0]); return 2; }
     }
-    if (i >= argc || o.repeat < 1 || show <= 0.0f || show >= 1.0f) { usage(argv[0]); return 2; }
+    if (stream) {
+        if (i < argc || o.repeat != 1 || o.maskdir || o.ovldir || beams || aris) { usage(argv[0]); return 2; }
+        return run_stream(&o, stream, policy_latest, workers, qcap, from, sname, fit);
+    }
+    if (i >= argc || o.repeat < 1 || show <= 0.0f || show >= 1.0f || every < 1 || first < 0 || (aris && beams)) { usage(argv[0]); return 2; }
     o.show_logit = logf(show / (1.0f - show));
     if (o.maskdir && se_seg_classes() <= 0) fprintf(stderr, "-m: the compiled-in model has no segmentation head; no masks written\n");
     const int H = se_input_height(), W = se_input_width();
     const se_fan_geom_t *g = &se_fan_watertank;
 
+    if (aris) return run_aris(&o, fit, every, first, count, argc, argv, i);
     if (beams) {   /* raw polar stream(s) */
         float *ang = NULL;
         if (beam_file) {
@@ -306,7 +397,7 @@ int main(int argc, char **argv)
                 const size_t got = fread(buf, 1, fb, f);
                 if (got == 0) break;
                 if (got != fb) { fprintf(stderr, "%s: partial frame %d (%zu of %zu bytes) ignored\n", argv[i], k, got, fb); break; }
-                if (process(&o, MODE_POLAR, buf, beams, samples, strcmp(argv[i], "-") ? argv[i] : "stdin", k)) return 1;
+                if (process(&o, MODE_POLAR, buf, beams, samples, strcmp(argv[i], "-") ? argv[i] : "stdin", k, stdout)) return 1;
                 o.frame_no++;
             }
             if (f != stdin) fclose(f);
@@ -331,7 +422,7 @@ int main(int argc, char **argv)
             if (se_fe_init_fan(g) != 0) { fprintf(stderr, "front end: bad fan geometry\n"); return 1; }
             fe_ready = 1;
         }
-        if (process(&o, mode, img, w, h, argv[i], -1)) return 1;
+        if (process(&o, mode, img, w, h, argv[i], -1, stdout)) return 1;
         o.frame_no++;
     }
     free(img);

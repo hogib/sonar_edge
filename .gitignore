@@ -25,3 +25,4 @@ runtime/tests/test_golden
 report/*.aux
 report/*.log
 report/*.out
+wip/

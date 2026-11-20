@@ -1,0 +1,62 @@
+{
+ "segdice_default_fan": {
+  "frames": 439,
+  "json_identical": 439,
+  "masks": 439,
+  "masks_identical": 439,
+  "ref_masks": 439,
+  "ms_mean": {
+   "frontend": 1.397,
+   "network": 21.202,
+   "decode": 0.4,
+   "seg": 0.241,
+   "total": 23.24
+  },
+  "map": 57.09
+ },
+ "segdice_default_polar": {
+  "frames": 439,
+  "json_identical": 439,
+  "masks": 439,
+  "masks_identical": 439,
+  "ref_masks": 439,
+  "ms_mean": {
+   "frontend": 0.538,
+   "network": 21.562,
+   "decode": 0.402,
+   "seg": 0.24,
+   "total": 22.742
+  },
+  "map": 52.32
+ },
+ "small360_default_fan": {
+  "frames": 439,
+  "json_identical": 439,
+  "masks": 0,
+  "masks_identical": 0,
+  "ref_masks": 0,
+  "ms_mean": {
+   "frontend": 1.395,
+   "network": 20.139,
+   "decode": 0.366,
+   "seg": 0.0,
+   "total": 21.9
+  },
+  "map": 63.81
+ },
+ "small360_default_polar": {
+  "frames": 439,
+  "json_identical": 439,
+  "masks": 0,
+  "masks_identical": 0,
+  "ref_masks": 0,
+  "ms_mean": {
+   "frontend": 0.526,
+   "network": 20.066,
+   "decode": 0.364,
+   "seg": 0.0,
+   "total": 20.956
+  },
+  "map": 63.17
+ }
+}

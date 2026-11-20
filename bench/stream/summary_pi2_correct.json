@@ -1,0 +1,132 @@
+{
+ "correct_small": {
+  "produced": 195,
+  "processed": 195,
+  "acked": 172,
+  "processed_fps": null,
+  "dropped_latest": 0,
+  "gaps": 0,
+  "dropped_pct": 0.0,
+  "latency_ms": {
+   "p50": 5971.86,
+   "p95": 11011.77,
+   "p99": 11449.81,
+   "max": 11558.61,
+   "mean": 5963.57
+  },
+  "recv_to_done_ms": {
+   "p50": 4359.89,
+   "p95": 4363.96,
+   "p99": 4365.22,
+   "max": 4365.7
+  },
+  "wait_ms": {
+   "p50": 4228.22,
+   "p95": 4232.18
+  },
+  "proc_ms_mean": 132.70348717948718,
+  "stage_ms_mean": {
+   "frontend": 3.554174358974359,
+   "network": 124.5238717948718,
+   "decode": 1.1979025641025642,
+   "seg": 0.0010205128205128206,
+   "total": 129.27671794871793
+  },
+  "deadline_ms": 66.66666666666667,
+  "deadline_met_pct_of_produced": 0.0,
+  "deadline_met_pct_of_processed": 0.0,
+  "queue_depth": {
+   "mean": 27.205128205128204,
+   "max": 32
+  },
+  "temp_c": {
+   "start": 40.1,
+   "end": 42.2,
+   "max": 42.2
+  },
+  "arm_mhz": {
+   "min": 900.0,
+   "median": 900.0
+  },
+  "throttled": [
+   "0x0"
+  ],
+  "cpu_pct_mean": 27.86923076923077,
+  "emission_lag": "mean 16 us, max 302 us",
+  "board": "pi2",
+  "tag": "correct_small",
+  "model": "small",
+  "workers": 1,
+  "policy": "queue",
+  "fps": 15.0,
+  "duration_s": 0,
+  "wall_s": 26.9,
+  "temp_before_c": 40.1,
+  "cool_wait_s": 1
+ },
+ "correct_segdice": {
+  "produced": 195,
+  "processed": 195,
+  "acked": 163,
+  "processed_fps": null,
+  "dropped_latest": 0,
+  "gaps": 0,
+  "dropped_pct": 0.0,
+  "latency_ms": {
+   "p50": 6279.01,
+   "p95": 11599.93,
+   "p99": 12072.74,
+   "max": 12188.59,
+   "mean": 6271.71
+  },
+  "recv_to_done_ms": {
+   "p50": 4606.26,
+   "p95": 4610.34,
+   "p99": 4611.54,
+   "max": 4611.73
+  },
+  "wait_ms": {
+   "p50": 4467.25,
+   "p95": 4470.99
+  },
+  "proc_ms_mean": 140.18077948717948,
+  "stage_ms_mean": {
+   "frontend": 3.4508512820512824,
+   "network": 129.77021025641025,
+   "decode": 1.3222410256410255,
+   "seg": 2.1642153846153844,
+   "total": 136.70744102564103
+  },
+  "deadline_ms": 66.66666666666667,
+  "deadline_met_pct_of_produced": 0.0,
+  "deadline_met_pct_of_processed": 0.0,
+  "queue_depth": {
+   "mean": 27.415384615384614,
+   "max": 32
+  },
+  "temp_c": {
+   "start": 42.2,
+   "end": 42.2,
+   "max": 42.8
+  },
+  "arm_mhz": {
+   "min": 700.0,
+   "median": 900.0
+  },
+  "throttled": [
+   "0x0"
+  ],
+  "cpu_pct_mean": 27.542857142857144,
+  "emission_lag": "mean 10 us, max 317 us",
+  "board": "pi2",
+  "tag": "correct_segdice",
+  "model": "segdice",
+  "workers": 1,
+  "policy": "queue",
+  "fps": 15.0,
+  "duration_s": 0,
+  "wall_s": 28.1,
+  "temp_before_c": 42.2,
+  "cool_wait_s": 1
+ }
+}

@@ -1,0 +1,67 @@
+{
+ "label": "laptop",
+ "cflags": "-std=c11 -O2 -Wall -Wextra -Werror -pedantic",
+ "uname": "Linux mousev 7.3.4-arch1-2 #1 SMP PREEMPT_DYNAMIC Thu, 12 Nov 2026 20:11:37 +0000 x86_64 GNU/Linux",
+ "throttled_start": null,
+ "runs": {
+  "small360_default": {
+   "cflags": "-std=c11 -O2 -Wall -Wextra -Werror -pedantic",
+   "build_rc": 0,
+   "build": "",
+   "test_rc": 0,
+   "test": "golden test passed: C head map is bit-identical to Python for 3 frames",
+   "test_frontend_rc": 0,
+   "test_frontend": "front-end test passed: fan mode bit-identical to the Python pipeline (5 frames, 240x360), geometry and polar checks ok",
+   "fan": {
+    "rc": 0,
+    "stderr": "-m: the compiled-in model has no segmentation head; no masks written",
+    "lines": 439,
+    "wall_s": 9.05,
+    "temp_start": null,
+    "temp_end": null,
+    "throttled_start": null,
+    "throttled_end": null
+   },
+   "polar": {
+    "rc": 0,
+    "stderr": "-m: the compiled-in model has no segmentation head; no masks written",
+    "lines": 439,
+    "wall_s": 8.9,
+    "temp_start": null,
+    "temp_end": null,
+    "throttled_start": null,
+    "throttled_end": null
+   }
+  },
+  "segdice_default": {
+   "cflags": "-std=c11 -O2 -Wall -Wextra -Werror -pedantic",
+   "build_rc": 0,
+   "build": "",
+   "test_rc": 0,
+   "test": "golden test passed: C head map is bit-identical to Python for 3 frames",
+   "test_frontend_rc": 0,
+   "test_frontend": "front-end test passed: fan mode bit-identical to the Python pipeline (5 frames, 240x360), geometry and polar checks ok",
+   "fan": {
+    "rc": 0,
+    "stderr": "",
+    "lines": 439,
+    "wall_s": 9.79,
+    "temp_start": null,
+    "temp_end": null,
+    "throttled_start": null,
+    "throttled_end": null
+   },
+   "polar": {
+    "rc": 0,
+    "stderr": "",
+    "lines": 439,
+    "wall_s": 10.26,
+    "temp_start": null,
+    "temp_end": null,
+    "throttled_start": null,
+    "throttled_end": null
+   }
+  }
+ },
+ "throttled_end": null
+}

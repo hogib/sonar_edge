@@ -1,0 +1,122 @@
+{
+ "segdice_neon1_fan": {
+  "frames": 439,
+  "json_identical": 439,
+  "masks": 439,
+  "masks_identical": 439,
+  "ref_masks": 439,
+  "ms_mean": {
+   "frontend": 5.44,
+   "network": 127.708,
+   "decode": 1.266,
+   "seg": 2.15,
+   "total": 136.564
+  },
+  "map": 57.09
+ },
+ "segdice_neon1_polar": {
+  "frames": 439,
+  "json_identical": 439,
+  "masks": 439,
+  "masks_identical": 439,
+  "ref_masks": 439,
+  "ms_mean": {
+   "frontend": 2.821,
+   "network": 127.315,
+   "decode": 1.273,
+   "seg": 2.147,
+   "total": 133.556
+  },
+  "map": 52.32
+ },
+ "segdice_neon4_fan": {
+  "frames": 439,
+  "json_identical": 439,
+  "masks": 439,
+  "masks_identical": 439,
+  "ref_masks": 439,
+  "ms_mean": {
+   "frontend": 5.466,
+   "network": 131.22,
+   "decode": 1.283,
+   "seg": 2.156,
+   "total": 140.126
+  },
+  "map": 57.09
+ },
+ "segdice_neon4_polar": {
+  "frames": 439,
+  "json_identical": 439,
+  "masks": 439,
+  "masks_identical": 439,
+  "ref_masks": 439,
+  "ms_mean": {
+   "frontend": 2.862,
+   "network": 132.704,
+   "decode": 1.275,
+   "seg": 2.165,
+   "total": 139.006
+  },
+  "map": 52.32
+ },
+ "small360_neon1_fan": {
+  "frames": 439,
+  "json_identical": 439,
+  "masks": 0,
+  "masks_identical": 0,
+  "ref_masks": 0,
+  "ms_mean": {
+   "frontend": 5.436,
+   "network": 121.913,
+   "decode": 1.148,
+   "seg": 0.001,
+   "total": 128.498
+  },
+  "map": 63.81
+ },
+ "small360_neon1_polar": {
+  "frames": 439,
+  "json_identical": 439,
+  "masks": 0,
+  "masks_identical": 0,
+  "ref_masks": 0,
+  "ms_mean": {
+   "frontend": 2.848,
+   "network": 121.655,
+   "decode": 1.149,
+   "seg": 0.001,
+   "total": 125.653
+  },
+  "map": 63.17
+ },
+ "small360_neon4_fan": {
+  "frames": 439,
+  "json_identical": 439,
+  "masks": 0,
+  "masks_identical": 0,
+  "ref_masks": 0,
+  "ms_mean": {
+   "frontend": 5.432,
+   "network": 125.758,
+   "decode": 1.164,
+   "seg": 0.001,
+   "total": 132.356
+  },
+  "map": 63.81
+ },
+ "small360_neon4_polar": {
+  "frames": 439,
+  "json_identical": 439,
+  "masks": 0,
+  "masks_identical": 0,
+  "ref_masks": 0,
+  "ms_mean": {
+   "frontend": 2.842,
+   "network": 127.093,
+   "decode": 1.154,
+   "seg": 0.001,
+   "total": 131.089
+  },
+  "map": 63.17
+ }
+}

@@ -1,0 +1,2 @@
+stream: connected to 192.168.1.113:5802, 1 worker(s), policy queue, 33 slots
+stream: 27.4 s, received 195, processed 195 (7.11 fps), dropped 0, gaps 0

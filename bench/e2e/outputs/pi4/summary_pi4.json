@@ -1,0 +1,67 @@
+{
+ "label": "pi4",
+ "cflags": "-std=c11 -O2 -Wall -Wextra -Werror -pedantic",
+ "uname": "Linux testpi4 6.18.60+rpt-rpi-v8 #1 SMP PREEMPT Debian 1:6.18.60-1+rpt1 (2026-11-03) aarch64 GNU/Linux",
+ "throttled_start": "0x0",
+ "runs": {
+  "small360_default": {
+   "cflags": "-std=c11 -O2 -Wall -Wextra -Werror -pedantic",
+   "build_rc": 0,
+   "build": "",
+   "test_rc": 0,
+   "test": "golden test passed: C head map is bit-identical to Python for 3 frames",
+   "test_frontend_rc": 0,
+   "test_frontend": "front-end test passed: fan mode bit-identical to the Python pipeline (5 frames, 240x360), geometry and polar checks ok",
+   "fan": {
+    "rc": 0,
+    "stderr": "-m: the compiled-in model has no segmentation head; no masks written",
+    "lines": 439,
+    "wall_s": 9.95,
+    "temp_start": 53.0,
+    "temp_end": 53.5,
+    "throttled_start": "0x0",
+    "throttled_end": "0x0"
+   },
+   "polar": {
+    "rc": 0,
+    "stderr": "-m: the compiled-in model has no segmentation head; no masks written",
+    "lines": 439,
+    "wall_s": 9.47,
+    "temp_start": 54.0,
+    "temp_end": 56.4,
+    "throttled_start": "0x0",
+    "throttled_end": "0x0"
+   }
+  },
+  "segdice_default": {
+   "cflags": "-std=c11 -O2 -Wall -Wextra -Werror -pedantic",
+   "build_rc": 0,
+   "build": "",
+   "test_rc": 0,
+   "test": "golden test passed: C head map is bit-identical to Python for 3 frames",
+   "test_frontend_rc": 0,
+   "test_frontend": "front-end test passed: fan mode bit-identical to the Python pipeline (5 frames, 240x360), geometry and polar checks ok",
+   "fan": {
+    "rc": 0,
+    "stderr": "",
+    "lines": 439,
+    "wall_s": 10.64,
+    "temp_start": 55.5,
+    "temp_end": 56.9,
+    "throttled_start": "0x0",
+    "throttled_end": "0x0"
+   },
+   "polar": {
+    "rc": 0,
+    "stderr": "",
+    "lines": 439,
+    "wall_s": 10.4,
+    "temp_start": 56.9,
+    "temp_end": 57.9,
+    "throttled_start": "0x0",
+    "throttled_end": "0x0"
+   }
+  }
+ },
+ "throttled_end": "0x0"
+}

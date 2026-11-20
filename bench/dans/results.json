@@ -1,0 +1,50 @@
+{
+ "dataset": "DANS 'Detection of plastic litter using an ARIS sonar', Radboud University 2021, doi:10.17026/dans-xee-n9rq, CC BY 4.0",
+ "recordings_processed": 28,
+ "frames_run_each_model": 4780,
+ "selection": "every Nth frame, <= 200 per recording (run_dans.py)",
+ "sonar": "ARIS 3000, 128 beams, 15 fps (13 fps for the 4.75 m window), window start 0.70 m, end 1.86-4.75 m",
+ "geometry_fit": "metric (default): true fan shape scaled so the far edge sits on the training fan's far radius (578 px); ranges in metres",
+ "reader_validation": {
+  "vs_numpy_sdk_projection": "max |diff| 1 grey level, 98.5% of 47,001 px identical, frames 0/100/190 of PlasticContainer",
+  "vs_pyARIS": "corr 0.93 raw, 0.984 after 5x5 blur, best at zero shift; mirrored 0.49 (beam order confirmed)"
+ },
+ "repo_identity_after_landing": "sonar-edge-run on 439 test-fold frames, network-size and native fan input, both models: identical to b06dc97 except ms; masks identical",
+ "pi4_vs_laptop_aris": "PlasticContainer, all 195 frames, both models: identical except ms and source path",
+ "timing_ms_laptop_idle_n20_10frames": {
+  "small360": {
+   "frontend": 0.098,
+   "network": 20.296,
+   "decode": 0.106,
+   "total": 20.5
+  },
+  "segdice": {
+   "frontend": 0.098,
+   "network": 20.312,
+   "decode": 0.105,
+   "seg": 0.044,
+   "total": 20.559
+  }
+ },
+ "timing_ms_pi4_n20_10frames": {
+  "small360": {
+   "frontend": 0.55,
+   "network": 20.14,
+   "decode": 0.37,
+   "total": 21.06
+  },
+  "segdice": {
+   "frontend": 0.55,
+   "network": 21.2,
+   "decode": 0.41,
+   "seg": 0.24,
+   "total": 22.4
+  }
+ },
+ "pi4_temp": {
+  "before": "57.4 C",
+  "after": "55.0 C",
+  "throttled": "0x0 before and after"
+ },
+ "per_recording": "summary.json"
+}

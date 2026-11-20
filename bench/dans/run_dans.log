@@ -1,0 +1,62 @@
+27
+2.1G	/home/hogib/Projects/sonar_edge/data/raw/dans_aris
+
+[exited with code 0]
+2021-04-16_023917_PlasticContainer         small360  195/195 fr, with det  195, per frame Chain 1.138, Wall 0.082, Can 0.015
+2021-04-16_023917_PlasticContainer         segdice   195/195 fr, with det  195, per frame Chain 1.338, Wall 0.01
+2021-04-16_024146_PlasticContainer2        small360  195/5063 fr, with det  111, per frame Chain 0.708, Can 0.159, Wall 0.021, Tire 0.005, Bottle 0.005
+2021-04-16_024146_PlasticContainer2        segdice   195/5063 fr, with det  119, per frame Chain 0.959, Can 0.01, Tire 0.005
+2021-04-16_024800_PlasticContainer3        small360   66/66 fr, with det    1, per frame Chain 0.015
+2021-04-16_024800_PlasticContainer3        segdice    66/66 fr, with det    0, per frame 
+2021-04-16_025047_Weight_control           small360  138/275 fr, with det    0, per frame 
+2021-04-16_025047_Weight_control           segdice   138/275 fr, with det    7, per frame Chain 0.043, Wall 0.007
+2021-04-16_025439_HalfPlasticContainer     small360  197/2166 fr, with det    2, per frame Can 0.01
+2021-04-16_025439_HalfPlasticContainer     segdice   197/2166 fr, with det    0, per frame 
+2021-04-16_030900_SideSmaller              small360  182/726 fr, with det   21, per frame Wall 0.099, Can 0.027
+2021-04-16_030900_SideSmaller              segdice   182/726 fr, with det   39, per frame Chain 0.198, Tire 0.022, Shampoo-bottle 0.005
+2021-04-16_031641_SideHalf                 small360  184/919 fr, with det   11, per frame Wall 0.06
+2021-04-16_031641_SideHalf                 segdice   184/919 fr, with det    4, per frame Chain 0.022
+2021-04-16_032137_Piece1                   small360  200/996 fr, with det  199, per frame Wall 0.995, Tire 0.005
+2021-04-16_032137_Piece1                   segdice   200/996 fr, with det   71, per frame Wall 0.34, Chain 0.03
+2021-04-16_032433_Piece1_2                 small360  195/975 fr, with det   49, per frame Wall 0.174, Tire 0.036, Can 0.026, Propeller 0.015, Chain 0.005
+2021-04-16_032433_Piece1_2                 segdice   195/975 fr, with det   33, per frame Chain 0.128, Wall 0.046
+2021-04-16_033017_Piece2                   small360  166/827 fr, with det   42, per frame Wall 0.253
+2021-04-16_033017_Piece2                   segdice   166/827 fr, with det   52, per frame Chain 0.307, Wall 0.006
+2021-04-16_033506_Piece3                   small360  179/1071 fr, with det   26, per frame Wall 0.14, Chain 0.006
+2021-04-16_033506_Piece3                   segdice   179/1071 fr, with det   67, per frame Chain 0.374
+2021-04-16_033922_Piece5                   small360  179/1603 fr, with det    2, per frame Chain 0.011
+2021-04-16_033922_Piece5                   segdice   179/1603 fr, with det  178, per frame Chain 2.369, Wall 0.106
+2021-04-16_034415_Piece6                   small360  154/460 fr, with det    1, per frame Chain 0.006
+2021-04-16_034415_Piece6                   segdice   154/460 fr, with det  154, per frame Chain 2.299, Wall 0.026
+2021-04-16_034806_Piece7                   small360  186/557 fr, with det   13, per frame Chain 0.075
+2021-04-16_034806_Piece7                   segdice   186/557 fr, with det  186, per frame Chain 2.016, Wall 0.011
+2021-04-16_035100_Rim                      small360  153/610 fr, with det    4, per frame Chain 0.026
+2021-04-16_035100_Rim                      segdice   153/610 fr, with det  153, per frame Chain 2.15
+2021-04-16_035403_Cup                      small360  194/968 fr, with det   17, per frame Chain 0.077, Can 0.01
+2021-04-16_035403_Cup                      segdice   194/968 fr, with det  188, per frame Chain 1.541, Wall 0.031, Can 0.005
+2021-04-16_035800_HalfCup                  small360  183/1094 fr, with det   39, per frame Chain 0.213, Tire 0.005
+2021-04-16_035800_HalfCup                  segdice   183/1094 fr, with det  177, per frame Chain 1.525, Wall 0.016, Tire 0.005
+2021-04-16_040226_QuarterCup               small360  160/640 fr, with det   64, per frame Chain 0.45
+2021-04-16_040226_QuarterCup               segdice   160/640 fr, with det  160, per frame Chain 2.312, Wall 0.069
+2021-04-16_040639_Piece2_Cup               small360  185/1293 fr, with det   49, per frame Chain 0.314
+2021-04-16_040639_Piece2_Cup               segdice   185/1293 fr, with det  185, per frame Chain 2.492, Wall 0.016
+2021-04-16_041233_Piece4_Cup               small360  120/239 fr, with det  115, per frame Chain 1.458
+2021-04-16_041233_Piece4_Cup               segdice   120/239 fr, with det  120, per frame Chain 2.325, Wall 0.083
+2021-04-16_041432_Piece4_Cup_2             small360  182/727 fr, with det  176, per frame Chain 1.549
+2021-04-16_041432_Piece4_Cup_2             segdice   182/727 fr, with det  182, per frame Chain 2.253, Wall 0.137
+2021-04-16_041904_PinAlone_Control         small360  196/1369 fr, with det  133, per frame Chain 0.964
+2021-04-16_041904_PinAlone_Control         segdice   196/1369 fr, with det  185, per frame Chain 2.316, Wall 0.24
+2021-04-19_122217_SideContainer            small360  180/1439 fr, with det    0, per frame 
+2021-04-19_122217_SideContainer            segdice   180/1439 fr, with det    0, per frame 
+2021-04-19_123042_cup                      small360  195/195 fr, with det    0, per frame 
+2021-04-19_123042_cup                      segdice   195/195 fr, with det    0, per frame 
+2021-04-19_132538_vegContainer             small360  159/633 fr, with det    0, per frame 
+2021-04-19_132538_vegContainer             segdice   159/633 fr, with det    0, per frame 
+2021-04-19_132650_golfball                 small360  166/497 fr, with det    0, per frame 
+2021-04-19_132650_golfball                 segdice   166/497 fr, with det    0, per frame 
+2021-04-19_132948_smallplasticcup          small360  143/285 fr, with det    0, per frame 
+2021-04-19_132948_smallplasticcup          segdice   143/285 fr, with det    0, per frame 
+2021-04-19_133118_kwarkbak                 small360  148/296 fr, with det    0, per frame 
+2021-04-19_133118_kwarkbak                 segdice   148/296 fr, with det    0, per frame 
+
+[exited with code 0]

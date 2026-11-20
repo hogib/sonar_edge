@@ -1,0 +1,14 @@
+== Pi 4
+{"bytes": 419430400, "seconds": 3.56404397598817, "mbit_s": 941.4707625962069, "sender_seconds": 3.565335948999973, "local": "192.168.1.113:47799"}
+{"bytes": 419430400, "seconds": 3.56395966099808, "mbit_s": 941.4930356030783, "sender_seconds": 3.566905831999975, "local": "192.168.1.113:39879"}
+{"bytes": 419430400, "seconds": 3.563996828015661, "mbit_s": 941.4832172755389, "sender_seconds": 3.565302827000096, "local": "192.168.1.113:51653"}
+50 packets transmitted, 50 received, 0% packet loss, time 10171ms
+rtt min/avg/max/mdev = 0.168/0.329/0.627/0.137 ms
+rtt min/avg/max/mdev = 0.104/0.190/0.460/0.095 ms
+== Pi 2
+{"bytes": 104857600, "seconds": 8.905812958000752, "mbit_s": 94.19250145450103, "sender_seconds": 8.912944444999994, "local": "192.168.1.113:34467"}
+{"bytes": 104857600, "seconds": 8.906085100999917, "mbit_s": 94.18962321680692, "sender_seconds": 8.913029284000004, "local": "192.168.1.113:55643"}
+{"bytes": 104857600, "seconds": 8.9057427129992, "mbit_s": 94.19324440796647, "sender_seconds": 8.912857211999835, "local": "192.168.1.113:57947"}
+50 packets transmitted, 50 received, 0% packet loss, time 10164ms
+rtt min/avg/max/mdev = 0.733/0.848/1.194/0.080 ms
+rtt min/avg/max/mdev = 0.391/0.494/0.748/0.068 ms

@@ -1,0 +1,6 @@
+sonar-stream: /home/hogib/Projects/sonar_edge/data/raw/dans_aris/2021-04-16_023917_PlasticContainer.aris: 195 frames, 128 x 823, 15.0 fps
+sonar-stream: listening on 192.168.1.113:5802, 1 source(s), ring 256
+sonar-stream: hello from correct_segdice
+sonar-stream: correct_segdice starts at seq 0
+sonar-stream: client correct_segdice closed (server stopping): sent 195, skipped 0, acks 163
+sonar-stream: produced 195 frames (0 dropped by injection) in 23.0 s; emission lag mean 10 us, max 317 us

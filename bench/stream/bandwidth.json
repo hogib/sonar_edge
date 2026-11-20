@@ -1,0 +1,14 @@
+{
+ "sw_segdice_w1_f15_latest.jsonl": {
+  "frames": 900,
+  "mean_bytes": 51.5,
+  "median_bytes": 2.0,
+  "max_bytes": 384
+ },
+ "sw_small_w1_f15_latest.jsonl": {
+  "frames": 900,
+  "mean_bytes": 13.3,
+  "median_bytes": 2.0,
+  "max_bytes": 189
+ }
+}

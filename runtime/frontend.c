@@ -35,7 +35,11 @@
 #pragma GCC diagnostic ignored "-Wunused-const-variable"
 #pragma GCC diagnostic ignored "-Wunused-variable"
 #endif
+#ifdef SE_WEIGHTS_H  /* make W=DIR: the same model header as sonar_edge.c */
+#include SE_WEIGHTS_H
+#else
 #include "weights.h"
+#endif
 #if defined(__GNUC__)
 #pragma GCC diagnostic pop
 #endif

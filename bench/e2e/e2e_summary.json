@@ -1,0 +1,520 @@
+{
+ "commit": "b06dc97",
+ "frames": 439,
+ "fold": "test fold 0 (val fold 1)",
+ "inputs": "native 320x480 fan PGMs (watertank-segmentation PNGs, converted to L); polar = the same frames back-projected with sonar_edge.polar (128 beams x 439 samples)",
+ "compare": "JSON lines identical with 'ms' removed and 'source' reduced to basename; masks byte-identical; reference = laptop x86 build",
+ "boards": {
+  "laptop": {
+   "compare": {
+    "segdice_default_fan": {
+     "frames": 439,
+     "json_identical": 439,
+     "masks": 439,
+     "masks_identical": 439,
+     "ref_masks": 439,
+     "ms_mean": {
+      "frontend": 0.283,
+      "network": 21.595,
+      "decode": 0.109,
+      "seg": 0.047,
+      "total": 22.034
+     },
+     "map": 57.09
+    },
+    "segdice_default_polar": {
+     "frames": 439,
+     "json_identical": 439,
+     "masks": 439,
+     "masks_identical": 439,
+     "ref_masks": 439,
+     "ms_mean": {
+      "frontend": 0.112,
+      "network": 22.858,
+      "decode": 0.113,
+      "seg": 0.05,
+      "total": 23.133
+     },
+     "map": 52.32
+    },
+    "small360_default_fan": {
+     "frames": 439,
+     "json_identical": 439,
+     "masks": 0,
+     "masks_identical": 0,
+     "ref_masks": 0,
+     "ms_mean": {
+      "frontend": 0.266,
+      "network": 20.036,
+      "decode": 0.103,
+      "seg": 0.0,
+      "total": 20.405
+     },
+     "map": 63.81
+    },
+    "small360_default_polar": {
+     "frames": 439,
+     "json_identical": 439,
+     "masks": 0,
+     "masks_identical": 0,
+     "ref_masks": 0,
+     "ms_mean": {
+      "frontend": 0.097,
+      "network": 19.929,
+      "decode": 0.102,
+      "seg": 0.0,
+      "total": 20.128
+     },
+     "map": 63.17
+    }
+   },
+   "run": {
+    "label": "laptop",
+    "cflags": "-std=c11 -O2 -Wall -Wextra -Werror -pedantic",
+    "uname": "Linux mousev 7.3.4-arch1-2 #1 SMP PREEMPT_DYNAMIC Thu, 12 Nov 2026 20:11:37 +0000 x86_64 GNU/Linux",
+    "throttled_start": null,
+    "runs": {
+     "small360_default": {
+      "cflags": "-std=c11 -O2 -Wall -Wextra -Werror -pedantic",
+      "build_rc": 0,
+      "build": "",
+      "test_rc": 0,
+      "test": "golden test passed: C head map is bit-identical to Python for 3 frames",
+      "test_frontend_rc": 0,
+      "test_frontend": "front-end test passed: fan mode bit-identical to the Python pipeline (5 frames, 240x360), geometry and polar checks ok",
+      "fan": {
+       "rc": 0,
+       "stderr": "-m: the compiled-in model has no segmentation head; no masks written",
+       "lines": 439,
+       "wall_s": 9.05,
+       "temp_start": null,
+       "temp_end": null,
+       "throttled_start": null,
+       "throttled_end": null
+      },
+      "polar": {
+       "rc": 0,
+       "stderr": "-m: the compiled-in model has no segmentation head; no masks written",
+       "lines": 439,
+       "wall_s": 8.9,
+       "temp_start": null,
+       "temp_end": null,
+       "throttled_start": null,
+       "throttled_end": null
+      }
+     },
+     "segdice_default": {
+      "cflags": "-std=c11 -O2 -Wall -Wextra -Werror -pedantic",
+      "build_rc": 0,
+      "build": "",
+      "test_rc": 0,
+      "test": "golden test passed: C head map is bit-identical to Python for 3 frames",
+      "test_frontend_rc": 0,
+      "test_frontend": "front-end test passed: fan mode bit-identical to the Python pipeline (5 frames, 240x360), geometry and polar checks ok",
+      "fan": {
+       "rc": 0,
+       "stderr": "",
+       "lines": 439,
+       "wall_s": 9.79,
+       "temp_start": null,
+       "temp_end": null,
+       "throttled_start": null,
+       "throttled_end": null
+      },
+      "polar": {
+       "rc": 0,
+       "stderr": "",
+       "lines": 439,
+       "wall_s": 10.26,
+       "temp_start": null,
+       "temp_end": null,
+       "throttled_start": null,
+       "throttled_end": null
+      }
+     }
+    },
+    "throttled_end": null
+   }
+  },
+  "pi4": {
+   "compare": {
+    "segdice_default_fan": {
+     "frames": 439,
+     "json_identical": 439,
+     "masks": 439,
+     "masks_identical": 439,
+     "ref_masks": 439,
+     "ms_mean": {
+      "frontend": 1.397,
+      "network": 21.202,
+      "decode": 0.4,
+      "seg": 0.241,
+      "total": 23.24
+     },
+     "map": 57.09
+    },
+    "segdice_default_polar": {
+     "frames": 439,
+     "json_identical": 439,
+     "masks": 439,
+     "masks_identical": 439,
+     "ref_masks": 439,
+     "ms_mean": {
+      "frontend": 0.538,
+      "network": 21.562,
+      "decode": 0.402,
+      "seg": 0.24,
+      "total": 22.742
+     },
+     "map": 52.32
+    },
+    "small360_default_fan": {
+     "frames": 439,
+     "json_identical": 439,
+     "masks": 0,
+     "masks_identical": 0,
+     "ref_masks": 0,
+     "ms_mean": {
+      "frontend": 1.395,
+      "network": 20.139,
+      "decode": 0.366,
+      "seg": 0.0,
+      "total": 21.9
+     },
+     "map": 63.81
+    },
+    "small360_default_polar": {
+     "frames": 439,
+     "json_identical": 439,
+     "masks": 0,
+     "masks_identical": 0,
+     "ref_masks": 0,
+     "ms_mean": {
+      "frontend": 0.526,
+      "network": 20.066,
+      "decode": 0.364,
+      "seg": 0.0,
+      "total": 20.956
+     },
+     "map": 63.17
+    }
+   },
+   "run": {
+    "label": "pi4",
+    "cflags": "-std=c11 -O2 -Wall -Wextra -Werror -pedantic",
+    "uname": "Linux testpi4 6.18.60+rpt-rpi-v8 #1 SMP PREEMPT Debian 1:6.18.60-1+rpt1 (2026-11-03) aarch64 GNU/Linux",
+    "throttled_start": "0x0",
+    "runs": {
+     "small360_default": {
+      "cflags": "-std=c11 -O2 -Wall -Wextra -Werror -pedantic",
+      "build_rc": 0,
+      "build": "",
+      "test_rc": 0,
+      "test": "golden test passed: C head map is bit-identical to Python for 3 frames",
+      "test_frontend_rc": 0,
+      "test_frontend": "front-end test passed: fan mode bit-identical to the Python pipeline (5 frames, 240x360), geometry and polar checks ok",
+      "fan": {
+       "rc": 0,
+       "stderr": "-m: the compiled-in model has no segmentation head; no masks written",
+       "lines": 439,
+       "wall_s": 9.95,
+       "temp_start": 53.0,
+       "temp_end": 53.5,
+       "throttled_start": "0x0",
+       "throttled_end": "0x0"
+      },
+      "polar": {
+       "rc": 0,
+       "stderr": "-m: the compiled-in model has no segmentation head; no masks written",
+       "lines": 439,
+       "wall_s": 9.47,
+       "temp_start": 54.0,
+       "temp_end": 56.4,
+       "throttled_start": "0x0",
+       "throttled_end": "0x0"
+      }
+     },
+     "segdice_default": {
+      "cflags": "-std=c11 -O2 -Wall -Wextra -Werror -pedantic",
+      "build_rc": 0,
+      "build": "",
+      "test_rc": 0,
+      "test": "golden test passed: C head map is bit-identical to Python for 3 frames",
+      "test_frontend_rc": 0,
+      "test_frontend": "front-end test passed: fan mode bit-identical to the Python pipeline (5 frames, 240x360), geometry and polar checks ok",
+      "fan": {
+       "rc": 0,
+       "stderr": "",
+       "lines": 439,
+       "wall_s": 10.64,
+       "temp_start": 55.5,
+       "temp_end": 56.9,
+       "throttled_start": "0x0",
+       "throttled_end": "0x0"
+      },
+      "polar": {
+       "rc": 0,
+       "stderr": "",
+       "lines": 439,
+       "wall_s": 10.4,
+       "temp_start": 56.9,
+       "temp_end": 57.9,
+       "throttled_start": "0x0",
+       "throttled_end": "0x0"
+      }
+     }
+    },
+    "throttled_end": "0x0"
+   }
+  },
+  "pi2": {
+   "compare": {
+    "segdice_neon1_fan": {
+     "frames": 439,
+     "json_identical": 439,
+     "masks": 439,
+     "masks_identical": 439,
+     "ref_masks": 439,
+     "ms_mean": {
+      "frontend": 5.44,
+      "network": 127.708,
+      "decode": 1.266,
+      "seg": 2.15,
+      "total": 136.564
+     },
+     "map": 57.09
+    },
+    "segdice_neon1_polar": {
+     "frames": 439,
+     "json_identical": 439,
+     "masks": 439,
+     "masks_identical": 439,
+     "ref_masks": 439,
+     "ms_mean": {
+      "frontend": 2.821,
+      "network": 127.315,
+      "decode": 1.273,
+      "seg": 2.147,
+      "total": 133.556
+     },
+     "map": 52.32
+    },
+    "segdice_neon4_fan": {
+     "frames": 439,
+     "json_identical": 439,
+     "masks": 439,
+     "masks_identical": 439,
+     "ref_masks": 439,
+     "ms_mean": {
+      "frontend": 5.466,
+      "network": 131.22,
+      "decode": 1.283,
+      "seg": 2.156,
+      "total": 140.126
+     },
+     "map": 57.09
+    },
+    "segdice_neon4_polar": {
+     "frames": 439,
+     "json_identical": 439,
+     "masks": 439,
+     "masks_identical": 439,
+     "ref_masks": 439,
+     "ms_mean": {
+      "frontend": 2.862,
+      "network": 132.704,
+      "decode": 1.275,
+      "seg": 2.165,
+      "total": 139.006
+     },
+     "map": 52.32
+    },
+    "small360_neon1_fan": {
+     "frames": 439,
+     "json_identical": 439,
+     "masks": 0,
+     "masks_identical": 0,
+     "ref_masks": 0,
+     "ms_mean": {
+      "frontend": 5.436,
+      "network": 121.913,
+      "decode": 1.148,
+      "seg": 0.001,
+      "total": 128.498
+     },
+     "map": 63.81
+    },
+    "small360_neon1_polar": {
+     "frames": 439,
+     "json_identical": 439,
+     "masks": 0,
+     "masks_identical": 0,
+     "ref_masks": 0,
+     "ms_mean": {
+      "frontend": 2.848,
+      "network": 121.655,
+      "decode": 1.149,
+      "seg": 0.001,
+      "total": 125.653
+     },
+     "map": 63.17
+    },
+    "small360_neon4_fan": {
+     "frames": 439,
+     "json_identical": 439,
+     "masks": 0,
+     "masks_identical": 0,
+     "ref_masks": 0,
+     "ms_mean": {
+      "frontend": 5.432,
+      "network": 125.758,
+      "decode": 1.164,
+      "seg": 0.001,
+      "total": 132.356
+     },
+     "map": 63.81
+    },
+    "small360_neon4_polar": {
+     "frames": 439,
+     "json_identical": 439,
+     "masks": 0,
+     "masks_identical": 0,
+     "ref_masks": 0,
+     "ms_mean": {
+      "frontend": 2.842,
+      "network": 127.093,
+      "decode": 1.154,
+      "seg": 0.001,
+      "total": 131.089
+     },
+     "map": 63.17
+    }
+   },
+   "run": {
+    "label": "pi2",
+    "cflags": "-std=c11 -O2 -Wall -Wextra -Werror -pedantic -mcpu=cortex-a7 -mfpu=neon-vfpv4",
+    "uname": "Linux vegsjumper 6.18.50+rpt-rpi-v7 #1 SMP Raspbian 1:6.18.50-1+rpt1 (2026-09-11) armv7l GNU/Linux",
+    "throttled_start": "0x0",
+    "runs": {
+     "small360_neon1": {
+      "cflags": "-std=c11 -O2 -Wall -Wextra -Werror -pedantic -mcpu=cortex-a7 -mfpu=neon-vfpv4 -DSE_NEON_1PX",
+      "build_rc": 0,
+      "build": "",
+      "test_rc": 0,
+      "test": "golden test passed: C head map is bit-identical to Python for 3 frames",
+      "test_frontend_rc": 0,
+      "test_frontend": "front-end test passed: fan mode bit-identical to the Python pipeline (5 frames, 240x360), geometry and polar checks ok",
+      "fan": {
+       "rc": 0,
+       "stderr": "-m: the compiled-in model has no segmentation head; no masks written",
+       "lines": 439,
+       "wall_s": 57.88,
+       "temp_start": 41.2,
+       "temp_end": 41.2,
+       "throttled_start": "0x0",
+       "throttled_end": "0x0"
+      },
+      "polar": {
+       "rc": 0,
+       "stderr": "-m: the compiled-in model has no segmentation head; no masks written",
+       "lines": 439,
+       "wall_s": 56.51,
+       "temp_start": 41.7,
+       "temp_end": 42.8,
+       "throttled_start": "0x0",
+       "throttled_end": "0x0"
+      }
+     },
+     "small360_neon4": {
+      "cflags": "-std=c11 -O2 -Wall -Wextra -Werror -pedantic -mcpu=cortex-a7 -mfpu=neon-vfpv4",
+      "build_rc": 0,
+      "build": "",
+      "test_rc": 0,
+      "test": "golden test passed: C head map is bit-identical to Python for 3 frames",
+      "test_frontend_rc": 0,
+      "test_frontend": "front-end test passed: fan mode bit-identical to the Python pipeline (5 frames, 240x360), geometry and polar checks ok",
+      "fan": {
+       "rc": 0,
+       "stderr": "-m: the compiled-in model has no segmentation head; no masks written",
+       "lines": 439,
+       "wall_s": 59.55,
+       "temp_start": 42.2,
+       "temp_end": 42.8,
+       "throttled_start": "0x0",
+       "throttled_end": "0x0"
+      },
+      "polar": {
+       "rc": 0,
+       "stderr": "-m: the compiled-in model has no segmentation head; no masks written",
+       "lines": 439,
+       "wall_s": 58.9,
+       "temp_start": 42.8,
+       "temp_end": 42.2,
+       "throttled_start": "0x0",
+       "throttled_end": "0x0"
+      }
+     },
+     "segdice_neon1": {
+      "cflags": "-std=c11 -O2 -Wall -Wextra -Werror -pedantic -mcpu=cortex-a7 -mfpu=neon-vfpv4 -DSE_NEON_1PX",
+      "build_rc": 0,
+      "build": "",
+      "test_rc": 0,
+      "test": "golden test passed: C head map is bit-identical to Python for 3 frames",
+      "test_frontend_rc": 0,
+      "test_frontend": "front-end test passed: fan mode bit-identical to the Python pipeline (5 frames, 240x360), geometry and polar checks ok",
+      "fan": {
+       "rc": 0,
+       "stderr": "",
+       "lines": 439,
+       "wall_s": 61.78,
+       "temp_start": 42.8,
+       "temp_end": 43.3,
+       "throttled_start": "0x0",
+       "throttled_end": "0x0"
+      },
+      "polar": {
+       "rc": 0,
+       "stderr": "",
+       "lines": 439,
+       "wall_s": 60.39,
+       "temp_start": 42.8,
+       "temp_end": 43.3,
+       "throttled_start": "0x0",
+       "throttled_end": "0x0"
+      }
+     },
+     "segdice_neon4": {
+      "cflags": "-std=c11 -O2 -Wall -Wextra -Werror -pedantic -mcpu=cortex-a7 -mfpu=neon-vfpv4",
+      "build_rc": 0,
+      "build": "",
+      "test_rc": 0,
+      "test": "golden test passed: C head map is bit-identical to Python for 3 frames",
+      "test_frontend_rc": 0,
+      "test_frontend": "front-end test passed: fan mode bit-identical to the Python pipeline (5 frames, 240x360), geometry and polar checks ok",
+      "fan": {
+       "rc": 0,
+       "stderr": "",
+       "lines": 439,
+       "wall_s": 63.35,
+       "temp_start": 43.3,
+       "temp_end": 42.8,
+       "throttled_start": "0x0",
+       "throttled_end": "0x0"
+      },
+      "polar": {
+       "rc": 0,
+       "stderr": "",
+       "lines": 439,
+       "wall_s": 62.8,
+       "temp_start": 42.8,
+       "temp_end": 42.8,
+       "throttled_start": "0x0",
+       "throttled_end": "0x0"
+      }
+     }
+    },
+    "throttled_end": "0x0"
+   }
+  }
+ }
+}

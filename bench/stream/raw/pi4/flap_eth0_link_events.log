@@ -1,0 +1,262 @@
+Nov 20 23:05:12 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:05:14 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:05:17 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:05:21 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:05:22 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:05:25 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:05:28 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:05:31 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:05:32 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:05:35 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:05:36 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:05:39 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:05:40 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:05:43 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:05:44 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:05:57 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:05:58 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:06:01 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:06:02 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:06:13 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:06:15 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:06:18 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:06:19 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:06:22 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:06:23 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:06:26 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:06:27 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:06:30 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:06:32 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:06:35 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:06:37 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:06:40 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:06:41 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:06:44 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:06:45 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:06:48 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:06:50 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:06:53 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:06:55 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:06:58 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:06:59 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:07:02 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:07:05 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:07:08 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:07:09 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:07:12 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:07:14 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:07:21 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:07:23 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:07:27 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:07:28 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:07:31 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:07:33 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:07:36 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:07:37 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:07:40 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:07:41 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:07:48 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:07:57 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:08:00 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:08:04 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:08:07 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:08:09 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:08:12 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:08:16 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:08:18 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:08:19 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:08:22 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:08:26 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:08:28 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:08:29 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:08:32 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:08:38 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:08:42 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:08:45 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:08:49 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:08:51 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:08:54 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:09:00 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:09:03 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:09:04 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:09:06 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:09:08 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:09:10 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:09:12 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:09:15 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:09:16 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:09:19 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:09:20 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:09:25 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:09:27 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:09:29 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:09:31 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:09:34 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:09:35 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:09:38 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:09:39 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:09:42 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:09:46 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:09:49 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:09:53 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:10:00 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:10:05 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:10:07 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:10:09 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:10:11 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:10:13 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:10:24 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:10:25 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:10:28 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:10:29 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:10:32 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:10:35 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:10:41 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:10:46 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:10:58 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:11:02 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:11:05 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:11:06 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:11:09 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:11:11 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:11:13 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:11:16 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:11:19 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:11:20 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:11:27 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:11:30 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:11:32 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:11:33 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:11:36 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:11:38 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:11:41 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:11:42 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:11:45 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:11:46 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:11:49 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:11:53 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:12:00 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:12:02 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:12:04 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:12:06 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:12:14 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:12:15 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:12:22 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:12:23 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:12:26 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:12:28 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:12:31 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:12:32 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:12:35 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:12:38 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:12:40 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:12:41 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:12:44 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:12:46 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:12:49 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:12:52 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:12:56 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:12:57 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:13:01 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:13:02 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:13:05 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:13:06 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:13:09 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:13:11 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:13:13 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:13:15 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:13:17 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:13:18 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:13:21 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:13:22 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:13:25 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:13:26 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:13:29 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:13:32 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:13:35 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:13:36 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:13:40 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:13:41 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:13:44 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:13:45 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:13:48 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:13:49 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:13:53 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:13:58 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:14:01 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:14:03 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:14:06 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:14:09 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:14:11 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:14:14 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:14:26 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:14:28 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:14:30 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:14:34 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:14:38 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:14:40 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:14:47 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:14:49 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:14:52 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:14:53 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:14:56 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:14:57 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:15:01 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:15:04 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:15:07 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:15:10 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:15:13 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:15:14 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:15:17 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:15:19 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:15:26 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:15:27 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:15:30 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:15:32 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:15:34 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:15:36 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:15:39 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:15:43 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:15:47 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:15:48 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:15:51 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:15:52 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:15:55 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:15:57 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:16:00 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:16:01 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:16:04 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:16:05 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:16:08 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:16:10 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:16:13 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:16:15 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:16:18 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:16:20 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:16:23 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:16:24 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:16:27 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:16:29 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:16:33 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:16:34 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:16:37 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:16:38 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:16:41 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:16:42 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:16:46 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:16:47 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:16:54 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:16:55 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:16:58 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:16:59 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:17:03 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:17:05 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:17:07 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:17:08 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:17:13 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:17:14 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:17:17 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:17:18 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:17:24 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+Nov 20 23:17:25 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Down
+Nov 20 23:17:27 testpi4 kernel: bcmgenet fd580000.ethernet eth0: Link is Up - 100Mbps/Full - flow control rx/tx

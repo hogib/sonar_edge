@@ -74,15 +74,22 @@ def cmd_train(args):
     device = "cuda" if torch.cuda.is_available() else "cpu"
     torch.manual_seed(args.seed)
     model = Detector(config=args.config, seg=args.seg, seg_up=args.seg_up).to(device)
-    ds, classes = dev_datasets(model.stride, args.scale, args.test_fold, args.val_fold, args.seed, args.aug,
-                               seg=args.seg, seg_up=model.seg_up)
+    if args.polar:  # back-projected beam x range frames (polar_data.py); box-only
+        from .polar_data import dev_polar_datasets
+        ds, classes = dev_polar_datasets(model.stride, args.test_fold, args.val_fold, args.seed, args.aug,
+                                         beams=args.polar_beams)
+    else:
+        ds, classes = dev_datasets(model.stride, args.scale, args.test_fold, args.val_fold, args.seed, args.aug,
+                                   seg=args.seg, seg_up=model.seg_up)
+    if device == "cuda" and args.gpu_mem_frac:
+        torch.cuda.set_per_process_memory_fraction(args.gpu_mem_frac)
     if args.limit:
         for d in ds.values():
             d.frames = d.frames[: args.limit]
             d.images = d.images[: args.limit]
     out = ROOT / args.out
     out.mkdir(parents=True, exist_ok=True)
-    print(f"config {args.config} scale {args.scale}{f' +seg(up {model.seg_up})' if args.seg else ''}: "
+    print(f"config {args.config} {'polar ' if args.polar else ''}scale {args.scale}{f' +seg(up {model.seg_up})' if args.seg else ''}: "
           f"{sum(p.numel() for p in model.parameters()):,} params, "
           f"{macs(model, ds['train'].h, ds['train'].w) / 1e6:.1f}M MACs/frame, stride {model.stride}, "
           f"train/val/test {len(ds['train'])}/{len(ds['val'])}/{len(ds['test'])}, device {device}")
@@ -117,6 +124,9 @@ def cmd_train(args):
             sched.step()
             tot += (l_heat.item(), l_size.item(), l_off.item(), l_seg.item())
         tot /= len(dl)
+        if ep == 0 and device == "cuda":
+            print(f"peak CUDA memory allocated {torch.cuda.max_memory_allocated() / 2**20:.0f} MiB, "
+                  f"reserved {torch.cuda.max_memory_reserved() / 2**20:.0f} MiB", flush=True)
         aps, m, _ = run_eval(model, ds["val"], device, classes)
         miou = float(np.nanmean(seg_iou(seg_confusion(model, ds["val"], device)))) if args.seg else None
         log.append({"epoch": ep + 1, "loss_heat": tot[0], "loss_size": tot[1], "loss_off": tot[2],
@@ -125,6 +135,7 @@ def cmd_train(args):
         if m > best:
             best = m
             torch.save({"model": model.state_dict(), "config": args.config, "scale": args.scale, "seg": args.seg,
+                        "polar": args.polar, "polar_beams": args.polar_beams if args.polar else None,
                         "seg_up": model.seg_up,
                         "classes": classes, "epoch": ep + 1, "val_map": m}, out / "best.pt")
             flag = " *"
@@ -167,7 +178,11 @@ def cmd_quantize(args):
     ck = torch.load(ROOT / args.checkpoint, map_location=device, weights_only=False)
     model = Detector(config=ck["config"], seg=ck.get("seg", False), seg_up=ck.get("seg_up", 1)).to(device).eval()
     model.load_state_dict(ck["model"])
-    ds, classes = dev_datasets(model.stride, ck["scale"], args.test_fold, args.val_fold, seg=model.seg, seg_up=model.seg_up)
+    if ck.get("polar"):
+        from .polar_data import dev_polar_datasets
+        ds, classes = dev_polar_datasets(model.stride, args.test_fold, args.val_fold, beams=ck.get("polar_beams") or 128)
+    else:
+        ds, classes = dev_datasets(model.stride, ck["scale"], args.test_fold, args.val_fold, seg=model.seg, seg_up=model.seg_up)
     out = (ROOT / args.checkpoint).parent
 
     def seg_labels(acc):  # per-cell argmax of the int8 segmentation channels on their real values, [B, gh*r, gw*r] uint8
@@ -283,6 +298,9 @@ def main():
     t.add_argument("--seg-up", type=int, default=1, help="segmentation grid finer than the stride by this factor (pixel shuffle)")
     t.add_argument("--seg-dice", type=float, default=0.0, help="weight of a soft Dice term added to the segmentation loss")
     t.add_argument("--limit", type=int, default=0, help="use only N frames per split (smoke test)")
+    t.add_argument("--polar", action="store_true", help="train on back-projected polar frames (polar_data.py)")
+    t.add_argument("--polar-beams", type=int, default=128, help="beam columns of the polar input (128 = ARIS 3000)")
+    t.add_argument("--gpu-mem-frac", type=float, default=0.0, help="cap this process's share of GPU memory (0 = no cap)")
     t.add_argument("--out", default="runs/dev")
     folds(t)
     t.set_defaults(func=cmd_train)

@@ -1,0 +1,125 @@
+{
+ "label": "pi2",
+ "cflags": "-std=c11 -O2 -Wall -Wextra -Werror -pedantic -mcpu=cortex-a7 -mfpu=neon-vfpv4",
+ "uname": "Linux vegsjumper 6.18.50+rpt-rpi-v7 #1 SMP Raspbian 1:6.18.50-1+rpt1 (2026-09-11) armv7l GNU/Linux",
+ "throttled_start": "0x0",
+ "runs": {
+  "small360_neon1": {
+   "cflags": "-std=c11 -O2 -Wall -Wextra -Werror -pedantic -mcpu=cortex-a7 -mfpu=neon-vfpv4 -DSE_NEON_1PX",
+   "build_rc": 0,
+   "build": "",
+   "test_rc": 0,
+   "test": "golden test passed: C head map is bit-identical to Python for 3 frames",
+   "test_frontend_rc": 0,
+   "test_frontend": "front-end test passed: fan mode bit-identical to the Python pipeline (5 frames, 240x360), geometry and polar checks ok",
+   "fan": {
+    "rc": 0,
+    "stderr": "-m: the compiled-in model has no segmentation head; no masks written",
+    "lines": 439,
+    "wall_s": 57.88,
+    "temp_start": 41.2,
+    "temp_end": 41.2,
+    "throttled_start": "0x0",
+    "throttled_end": "0x0"
+   },
+   "polar": {
+    "rc": 0,
+    "stderr": "-m: the compiled-in model has no segmentation head; no masks written",
+    "lines": 439,
+    "wall_s": 56.51,
+    "temp_start": 41.7,
+    "temp_end": 42.8,
+    "throttled_start": "0x0",
+    "throttled_end": "0x0"
+   }
+  },
+  "small360_neon4": {
+   "cflags": "-std=c11 -O2 -Wall -Wextra -Werror -pedantic -mcpu=cortex-a7 -mfpu=neon-vfpv4",
+   "build_rc": 0,
+   "build": "",
+   "test_rc": 0,
+   "test": "golden test passed: C head map is bit-identical to Python for 3 frames",
+   "test_frontend_rc": 0,
+   "test_frontend": "front-end test passed: fan mode bit-identical to the Python pipeline (5 frames, 240x360), geometry and polar checks ok",
+   "fan": {
+    "rc": 0,
+    "stderr": "-m: the compiled-in model has no segmentation head; no masks written",
+    "lines": 439,
+    "wall_s": 59.55,
+    "temp_start": 42.2,
+    "temp_end": 42.8,
+    "throttled_start": "0x0",
+    "throttled_end": "0x0"
+   },
+   "polar": {
+    "rc": 0,
+    "stderr": "-m: the compiled-in model has no segmentation head; no masks written",
+    "lines": 439,
+    "wall_s": 58.9,
+    "temp_start": 42.8,
+    "temp_end": 42.2,
+    "throttled_start": "0x0",
+    "throttled_end": "0x0"
+   }
+  },
+  "segdice_neon1": {
+   "cflags": "-std=c11 -O2 -Wall -Wextra -Werror -pedantic -mcpu=cortex-a7 -mfpu=neon-vfpv4 -DSE_NEON_1PX",
+   "build_rc": 0,
+   "build": "",
+   "test_rc": 0,
+   "test": "golden test passed: C head map is bit-identical to Python for 3 frames",
+   "test_frontend_rc": 0,
+   "test_frontend": "front-end test passed: fan mode bit-identical to the Python pipeline (5 frames, 240x360), geometry and polar checks ok",
+   "fan": {
+    "rc": 0,
+    "stderr": "",
+    "lines": 439,
+    "wall_s": 61.78,
+    "temp_start": 42.8,
+    "temp_end": 43.3,
+    "throttled_start": "0x0",
+    "throttled_end": "0x0"
+   },
+   "polar": {
+    "rc": 0,
+    "stderr": "",
+    "lines": 439,
+    "wall_s": 60.39,
+    "temp_start": 42.8,
+    "temp_end": 43.3,
+    "throttled_start": "0x0",
+    "throttled_end": "0x0"
+   }
+  },
+  "segdice_neon4": {
+   "cflags": "-std=c11 -O2 -Wall -Wextra -Werror -pedantic -mcpu=cortex-a7 -mfpu=neon-vfpv4",
+   "build_rc": 0,
+   "build": "",
+   "test_rc": 0,
+   "test": "golden test passed: C head map is bit-identical to Python for 3 frames",
+   "test_frontend_rc": 0,
+   "test_frontend": "front-end test passed: fan mode bit-identical to the Python pipeline (5 frames, 240x360), geometry and polar checks ok",
+   "fan": {
+    "rc": 0,
+    "stderr": "",
+    "lines": 439,
+    "wall_s": 63.35,
+    "temp_start": 43.3,
+    "temp_end": 42.8,
+    "throttled_start": "0x0",
+    "throttled_end": "0x0"
+   },
+   "polar": {
+    "rc": 0,
+    "stderr": "",
+    "lines": 439,
+    "wall_s": 62.8,
+    "temp_start": 42.8,
+    "temp_end": 42.8,
+    "throttled_start": "0x0",
+    "throttled_end": "0x0"
+   }
+  }
+ },
+ "throttled_end": "0x0"
+}

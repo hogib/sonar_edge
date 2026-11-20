@@ -1,0 +1,33 @@
+{
+ "recording": "2021-04-16_023917_PlasticContainer.aris (195 frames)",
+ "reference": "sonar-edge-run --aris on the laptop (same build)",
+ "setup": "sonar-stream --no-loop at 15 fps -> sonar-edge-run --stream --policy queue --workers 1; compared fields: everything except ms/stream/frame/source",
+ "pi4_small": {
+  "reference_frames": 195,
+  "stream_frames_compared": 195,
+  "identical": 195,
+  "different": 0,
+  "reference_frames_not_streamed": 0
+ },
+ "pi4_segdice": {
+  "reference_frames": 195,
+  "stream_frames_compared": 195,
+  "identical": 195,
+  "different": 0,
+  "reference_frames_not_streamed": 0
+ },
+ "pi2_small": {
+  "reference_frames": 195,
+  "stream_frames_compared": 195,
+  "identical": 195,
+  "different": 0,
+  "reference_frames_not_streamed": 0
+ },
+ "pi2_segdice": {
+  "reference_frames": 195,
+  "stream_frames_compared": 195,
+  "identical": 195,
+  "different": 0,
+  "reference_frames_not_streamed": 0
+ }
+}

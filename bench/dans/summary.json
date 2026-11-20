@@ -1,0 +1,1162 @@
+{
+ "2021-04-16_023917_PlasticContainer": {
+  "frames_total": 195,
+  "every": 1,
+  "header": "data/raw/dans_aris/2021-04-16_023917_PlasticContainer.aris: ARIS 3000, 128 beams x 823 samples, window 0.70-3.08 m, 15.0 fps, 195 frames",
+  "small360": {
+   "frames": 195,
+   "frames_with_det": 195,
+   "dets_per_frame": {
+    "Chain": 1.138,
+    "Wall": 0.082,
+    "Can": 0.015
+   },
+   "mask_cells_per_frame": {},
+   "ms": {
+    "frontend": 0.1,
+    "network": 20.3,
+    "decode": 0.11,
+    "seg": 0.0,
+    "total": 20.5
+   }
+  },
+  "segdice": {
+   "frames": 195,
+   "frames_with_det": 195,
+   "dets_per_frame": {
+    "Chain": 1.338,
+    "Wall": 0.01
+   },
+   "mask_cells_per_frame": {
+    "Chain": 91.3,
+    "Propeller": 13.0,
+    "Can": 1.2,
+    "Wall": 0.5,
+    "Tire": 0.3,
+    "Standing-bottle": 0.0
+   },
+   "ms": {
+    "frontend": 0.1,
+    "network": 20.31,
+    "decode": 0.11,
+    "seg": 0.04,
+    "total": 20.55
+   }
+  }
+ },
+ "2021-04-16_024146_PlasticContainer2": {
+  "frames_total": 5063,
+  "every": 26,
+  "header": "data/raw/dans_aris/2021-04-16_024146_PlasticContainer2.aris: ARIS 3000, 128 beams x 823 samples, window 0.70-3.08 m, 15.0 fps, 5063 frames",
+  "small360": {
+   "frames": 195,
+   "frames_with_det": 111,
+   "dets_per_frame": {
+    "Chain": 0.708,
+    "Can": 0.159,
+    "Wall": 0.021,
+    "Tire": 0.005,
+    "Bottle": 0.005,
+    "Propeller": 0.005,
+    "Hook": 0.005
+   },
+   "mask_cells_per_frame": {},
+   "ms": {
+    "frontend": 0.1,
+    "network": 20.65,
+    "decode": 0.11,
+    "seg": 0.0,
+    "total": 20.86
+   }
+  },
+  "segdice": {
+   "frames": 195,
+   "frames_with_det": 119,
+   "dets_per_frame": {
+    "Chain": 0.959,
+    "Can": 0.01,
+    "Tire": 0.005
+   },
+   "mask_cells_per_frame": {
+    "Chain": 76.5,
+    "Wall": 17.4,
+    "Can": 8.3,
+    "Propeller": 2.2,
+    "Tire": 1.8,
+    "Bottle": 0.6,
+    "Standing-bottle": 0.1
+   },
+   "ms": {
+    "frontend": 0.1,
+    "network": 20.41,
+    "decode": 0.11,
+    "seg": 0.04,
+    "total": 20.66
+   }
+  }
+ },
+ "2021-04-16_024800_PlasticContainer3": {
+  "frames_total": 66,
+  "every": 1,
+  "header": "data/raw/dans_aris/2021-04-16_024800_PlasticContainer3.aris: ARIS 3000, 128 beams x 403 samples, window 0.70-1.86 m, 15.0 fps, 66 frames",
+  "small360": {
+   "frames": 66,
+   "frames_with_det": 1,
+   "dets_per_frame": {
+    "Chain": 0.015
+   },
+   "mask_cells_per_frame": {},
+   "ms": {
+    "frontend": 0.09,
+    "network": 20.46,
+    "decode": 0.11,
+    "seg": 0.0,
+    "total": 20.66
+   }
+  },
+  "segdice": {
+   "frames": 66,
+   "frames_with_det": 0,
+   "dets_per_frame": {},
+   "mask_cells_per_frame": {
+    "Can": 53.8,
+    "Chain": 33.8,
+    "Wall": 11.2,
+    "Standing-bottle": 3.8,
+    "Bottle": 0.9,
+    "Shampoo-bottle": 0.1
+   },
+   "ms": {
+    "frontend": 0.12,
+    "network": 26.35,
+    "decode": 0.12,
+    "seg": 0.06,
+    "total": 26.65
+   }
+  }
+ },
+ "2021-04-16_025047_Weight_control": {
+  "frames_total": 275,
+  "every": 2,
+  "header": "data/raw/dans_aris/2021-04-16_025047_Weight_control.aris: ARIS 3000, 128 beams x 403 samples, window 0.70-1.87 m, 15.0 fps, 275 frames",
+  "small360": {
+   "frames": 138,
+   "frames_with_det": 0,
+   "dets_per_frame": {},
+   "mask_cells_per_frame": {},
+   "ms": {
+    "frontend": 0.11,
+    "network": 22.55,
+    "decode": 0.11,
+    "seg": 0.0,
+    "total": 22.76
+   }
+  },
+  "segdice": {
+   "frames": 138,
+   "frames_with_det": 7,
+   "dets_per_frame": {
+    "Chain": 0.043,
+    "Wall": 0.007
+   },
+   "mask_cells_per_frame": {
+    "Can": 44.9,
+    "Wall": 14.6,
+    "Chain": 11.8,
+    "Shampoo-bottle": 10.1,
+    "Bottle": 0.3,
+    "Propeller": 0.1,
+    "Standing-bottle": 0.0
+   },
+   "ms": {
+    "frontend": 0.09,
+    "network": 20.08,
+    "decode": 0.1,
+    "seg": 0.04,
+    "total": 20.32
+   }
+  }
+ },
+ "2021-04-16_025439_HalfPlasticContainer": {
+  "frames_total": 2166,
+  "every": 11,
+  "header": "data/raw/dans_aris/2021-04-16_025439_HalfPlasticContainer.aris: ARIS 3000, 128 beams x 449 samples, window 0.70-2.00 m, 15.0 fps, 2166 frames",
+  "small360": {
+   "frames": 197,
+   "frames_with_det": 2,
+   "dets_per_frame": {
+    "Can": 0.01
+   },
+   "mask_cells_per_frame": {},
+   "ms": {
+    "frontend": 0.09,
+    "network": 20.0,
+    "decode": 0.1,
+    "seg": 0.0,
+    "total": 20.2
+   }
+  },
+  "segdice": {
+   "frames": 197,
+   "frames_with_det": 0,
+   "dets_per_frame": {},
+   "mask_cells_per_frame": {
+    "Wall": 29.2,
+    "Can": 11.4,
+    "Chain": 10.1,
+    "Shampoo-bottle": 5.6,
+    "Standing-bottle": 1.1,
+    "Bottle": 0.1,
+    "Propeller": 0.0
+   },
+   "ms": {
+    "frontend": 0.1,
+    "network": 20.27,
+    "decode": 0.1,
+    "seg": 0.04,
+    "total": 20.51
+   }
+  }
+ },
+ "2021-04-16_030900_SideSmaller": {
+  "frames_total": 726,
+  "every": 4,
+  "header": "data/raw/dans_aris/2021-04-16_030900_SideSmaller.aris: ARIS 3000, 128 beams x 622 samples, window 0.70-2.50 m, 15.0 fps, 726 frames",
+  "small360": {
+   "frames": 182,
+   "frames_with_det": 21,
+   "dets_per_frame": {
+    "Wall": 0.099,
+    "Can": 0.027
+   },
+   "mask_cells_per_frame": {},
+   "ms": {
+    "frontend": 0.09,
+    "network": 20.05,
+    "decode": 0.11,
+    "seg": 0.0,
+    "total": 20.25
+   }
+  },
+  "segdice": {
+   "frames": 182,
+   "frames_with_det": 39,
+   "dets_per_frame": {
+    "Chain": 0.198,
+    "Tire": 0.022,
+    "Shampoo-bottle": 0.005
+   },
+   "mask_cells_per_frame": {
+    "Chain": 39.3,
+    "Wall": 16.0,
+    "Shampoo-bottle": 5.8,
+    "Can": 5.6,
+    "Tire": 2.9,
+    "Propeller": 2.6,
+    "Standing-bottle": 0.0,
+    "Bottle": 0.0
+   },
+   "ms": {
+    "frontend": 0.1,
+    "network": 20.01,
+    "decode": 0.11,
+    "seg": 0.04,
+    "total": 20.26
+   }
+  }
+ },
+ "2021-04-16_031641_SideHalf": {
+  "frames_total": 919,
+  "every": 5,
+  "header": "data/raw/dans_aris/2021-04-16_031641_SideHalf.aris: ARIS 3000, 128 beams x 622 samples, window 0.70-2.50 m, 15.0 fps, 919 frames",
+  "small360": {
+   "frames": 184,
+   "frames_with_det": 11,
+   "dets_per_frame": {
+    "Wall": 0.06
+   },
+   "mask_cells_per_frame": {},
+   "ms": {
+    "frontend": 0.09,
+    "network": 20.02,
+    "decode": 0.1,
+    "seg": 0.0,
+    "total": 20.22
+   }
+  },
+  "segdice": {
+   "frames": 184,
+   "frames_with_det": 4,
+   "dets_per_frame": {
+    "Chain": 0.022
+   },
+   "mask_cells_per_frame": {
+    "Chain": 28.3,
+    "Can": 8.7,
+    "Wall": 7.0,
+    "Shampoo-bottle": 3.6,
+    "Propeller": 2.9,
+    "Standing-bottle": 0.3,
+    "Tire": 0.2
+   },
+   "ms": {
+    "frontend": 0.1,
+    "network": 20.25,
+    "decode": 0.11,
+    "seg": 0.04,
+    "total": 20.49
+   }
+  }
+ },
+ "2021-04-16_032137_Piece1": {
+  "frames_total": 996,
+  "every": 5,
+  "header": "data/raw/dans_aris/2021-04-16_032137_Piece1.aris: ARIS 3000, 128 beams x 622 samples, window 0.70-2.50 m, 15.0 fps, 996 frames",
+  "small360": {
+   "frames": 200,
+   "frames_with_det": 199,
+   "dets_per_frame": {
+    "Wall": 0.995,
+    "Tire": 0.005
+   },
+   "mask_cells_per_frame": {},
+   "ms": {
+    "frontend": 0.1,
+    "network": 20.21,
+    "decode": 0.1,
+    "seg": 0.0,
+    "total": 20.41
+   }
+  },
+  "segdice": {
+   "frames": 200,
+   "frames_with_det": 71,
+   "dets_per_frame": {
+    "Wall": 0.34,
+    "Chain": 0.03
+   },
+   "mask_cells_per_frame": {
+    "Chain": 24.3,
+    "Wall": 11.8,
+    "Can": 7.4,
+    "Shampoo-bottle": 5.8,
+    "Propeller": 2.7,
+    "Tire": 0.2,
+    "Standing-bottle": 0.1
+   },
+   "ms": {
+    "frontend": 0.1,
+    "network": 20.12,
+    "decode": 0.11,
+    "seg": 0.04,
+    "total": 20.37
+   }
+  }
+ },
+ "2021-04-16_032433_Piece1_2": {
+  "frames_total": 975,
+  "every": 5,
+  "header": "data/raw/dans_aris/2021-04-16_032433_Piece1_2.aris: ARIS 3000, 128 beams x 622 samples, window 0.70-2.50 m, 15.0 fps, 975 frames",
+  "small360": {
+   "frames": 195,
+   "frames_with_det": 49,
+   "dets_per_frame": {
+    "Wall": 0.174,
+    "Tire": 0.036,
+    "Can": 0.026,
+    "Propeller": 0.015,
+    "Chain": 0.005
+   },
+   "mask_cells_per_frame": {},
+   "ms": {
+    "frontend": 0.09,
+    "network": 20.13,
+    "decode": 0.11,
+    "seg": 0.0,
+    "total": 20.33
+   }
+  },
+  "segdice": {
+   "frames": 195,
+   "frames_with_det": 33,
+   "dets_per_frame": {
+    "Chain": 0.128,
+    "Wall": 0.046
+   },
+   "mask_cells_per_frame": {
+    "Chain": 23.4,
+    "Wall": 11.3,
+    "Shampoo-bottle": 8.8,
+    "Can": 4.8,
+    "Propeller": 4.0,
+    "Standing-bottle": 1.2,
+    "Tire": 0.3,
+    "Hook": 0.0
+   },
+   "ms": {
+    "frontend": 0.1,
+    "network": 20.15,
+    "decode": 0.11,
+    "seg": 0.04,
+    "total": 20.4
+   }
+  }
+ },
+ "2021-04-16_033017_Piece2": {
+  "frames_total": 827,
+  "every": 5,
+  "header": "data/raw/dans_aris/2021-04-16_033017_Piece2.aris: ARIS 3000, 128 beams x 621 samples, window 0.70-2.49 m, 15.0 fps, 827 frames",
+  "small360": {
+   "frames": 166,
+   "frames_with_det": 42,
+   "dets_per_frame": {
+    "Wall": 0.253
+   },
+   "mask_cells_per_frame": {},
+   "ms": {
+    "frontend": 0.1,
+    "network": 20.08,
+    "decode": 0.1,
+    "seg": 0.0,
+    "total": 20.28
+   }
+  },
+  "segdice": {
+   "frames": 166,
+   "frames_with_det": 52,
+   "dets_per_frame": {
+    "Chain": 0.307,
+    "Wall": 0.006
+   },
+   "mask_cells_per_frame": {
+    "Chain": 38.6,
+    "Shampoo-bottle": 10.6,
+    "Propeller": 3.9,
+    "Wall": 2.2,
+    "Can": 2.1,
+    "Standing-bottle": 1.5,
+    "Tire": 0.7
+   },
+   "ms": {
+    "frontend": 0.1,
+    "network": 20.14,
+    "decode": 0.11,
+    "seg": 0.04,
+    "total": 20.39
+   }
+  }
+ },
+ "2021-04-16_033506_Piece3": {
+  "frames_total": 1071,
+  "every": 6,
+  "header": "data/raw/dans_aris/2021-04-16_033506_Piece3.aris: ARIS 3000, 128 beams x 621 samples, window 0.70-2.50 m, 15.0 fps, 1071 frames",
+  "small360": {
+   "frames": 179,
+   "frames_with_det": 26,
+   "dets_per_frame": {
+    "Wall": 0.14,
+    "Chain": 0.006
+   },
+   "mask_cells_per_frame": {},
+   "ms": {
+    "frontend": 0.09,
+    "network": 20.0,
+    "decode": 0.11,
+    "seg": 0.0,
+    "total": 20.2
+   }
+  },
+  "segdice": {
+   "frames": 179,
+   "frames_with_det": 67,
+   "dets_per_frame": {
+    "Chain": 0.374
+   },
+   "mask_cells_per_frame": {
+    "Chain": 60.8,
+    "Shampoo-bottle": 7.0,
+    "Propeller": 4.5,
+    "Standing-bottle": 2.7,
+    "Can": 1.8,
+    "Wall": 1.0,
+    "Tire": 0.7,
+    "Valve": 0.0
+   },
+   "ms": {
+    "frontend": 0.09,
+    "network": 20.03,
+    "decode": 0.11,
+    "seg": 0.04,
+    "total": 20.27
+   }
+  }
+ },
+ "2021-04-16_033922_Piece5": {
+  "frames_total": 1603,
+  "every": 9,
+  "header": "data/raw/dans_aris/2021-04-16_033922_Piece5.aris: ARIS 3000, 128 beams x 411 samples, window 0.70-1.89 m, 15.0 fps, 1603 frames",
+  "small360": {
+   "frames": 179,
+   "frames_with_det": 2,
+   "dets_per_frame": {
+    "Chain": 0.011
+   },
+   "mask_cells_per_frame": {},
+   "ms": {
+    "frontend": 0.09,
+    "network": 19.87,
+    "decode": 0.1,
+    "seg": 0.0,
+    "total": 20.06
+   }
+  },
+  "segdice": {
+   "frames": 179,
+   "frames_with_det": 178,
+   "dets_per_frame": {
+    "Chain": 2.369,
+    "Wall": 0.106
+   },
+   "mask_cells_per_frame": {
+    "Chain": 131.0,
+    "Wall": 49.6,
+    "Shampoo-bottle": 3.9,
+    "Can": 2.6,
+    "Standing-bottle": 0.1,
+    "Propeller": 0.0,
+    "Tire": 0.0
+   },
+   "ms": {
+    "frontend": 0.09,
+    "network": 19.99,
+    "decode": 0.1,
+    "seg": 0.04,
+    "total": 20.23
+   }
+  }
+ },
+ "2021-04-16_034415_Piece6": {
+  "frames_total": 460,
+  "every": 3,
+  "header": "data/raw/dans_aris/2021-04-16_034415_Piece6.aris: ARIS 3000, 128 beams x 411 samples, window 0.70-1.89 m, 15.0 fps, 460 frames",
+  "small360": {
+   "frames": 154,
+   "frames_with_det": 1,
+   "dets_per_frame": {
+    "Chain": 0.006
+   },
+   "mask_cells_per_frame": {},
+   "ms": {
+    "frontend": 0.09,
+    "network": 20.07,
+    "decode": 0.1,
+    "seg": 0.0,
+    "total": 20.26
+   }
+  },
+  "segdice": {
+   "frames": 154,
+   "frames_with_det": 154,
+   "dets_per_frame": {
+    "Chain": 2.299,
+    "Wall": 0.026
+   },
+   "mask_cells_per_frame": {
+    "Chain": 164.3,
+    "Wall": 55.1,
+    "Shampoo-bottle": 3.3,
+    "Can": 0.9,
+    "Standing-bottle": 0.2,
+    "Propeller": 0.0
+   },
+   "ms": {
+    "frontend": 0.09,
+    "network": 20.14,
+    "decode": 0.1,
+    "seg": 0.04,
+    "total": 20.38
+   }
+  }
+ },
+ "2021-04-16_034806_Piece7": {
+  "frames_total": 557,
+  "every": 3,
+  "header": "data/raw/dans_aris/2021-04-16_034806_Piece7.aris: ARIS 3000, 128 beams x 411 samples, window 0.70-1.89 m, 15.0 fps, 557 frames",
+  "small360": {
+   "frames": 186,
+   "frames_with_det": 13,
+   "dets_per_frame": {
+    "Chain": 0.075
+   },
+   "mask_cells_per_frame": {},
+   "ms": {
+    "frontend": 0.09,
+    "network": 20.21,
+    "decode": 0.1,
+    "seg": 0.0,
+    "total": 20.41
+   }
+  },
+  "segdice": {
+   "frames": 186,
+   "frames_with_det": 186,
+   "dets_per_frame": {
+    "Chain": 2.016,
+    "Wall": 0.011
+   },
+   "mask_cells_per_frame": {
+    "Chain": 159.7,
+    "Wall": 49.3,
+    "Shampoo-bottle": 6.2,
+    "Can": 1.1,
+    "Standing-bottle": 0.1
+   },
+   "ms": {
+    "frontend": 0.09,
+    "network": 20.34,
+    "decode": 0.1,
+    "seg": 0.04,
+    "total": 20.58
+   }
+  }
+ },
+ "2021-04-16_035100_Rim": {
+  "frames_total": 610,
+  "every": 4,
+  "header": "data/raw/dans_aris/2021-04-16_035100_Rim.aris: ARIS 3000, 128 beams x 411 samples, window 0.70-1.89 m, 15.0 fps, 610 frames",
+  "small360": {
+   "frames": 153,
+   "frames_with_det": 4,
+   "dets_per_frame": {
+    "Chain": 0.026
+   },
+   "mask_cells_per_frame": {},
+   "ms": {
+    "frontend": 0.1,
+    "network": 20.47,
+    "decode": 0.1,
+    "seg": 0.0,
+    "total": 20.67
+   }
+  },
+  "segdice": {
+   "frames": 153,
+   "frames_with_det": 153,
+   "dets_per_frame": {
+    "Chain": 2.15
+   },
+   "mask_cells_per_frame": {
+    "Chain": 149.3,
+    "Wall": 45.6,
+    "Shampoo-bottle": 4.9,
+    "Can": 2.9,
+    "Standing-bottle": 0.1,
+    "Propeller": 0.0,
+    "Bottle": 0.0
+   },
+   "ms": {
+    "frontend": 0.09,
+    "network": 20.29,
+    "decode": 0.1,
+    "seg": 0.04,
+    "total": 20.53
+   }
+  }
+ },
+ "2021-04-16_035403_Cup": {
+  "frames_total": 968,
+  "every": 5,
+  "header": "data/raw/dans_aris/2021-04-16_035403_Cup.aris: ARIS 3000, 128 beams x 411 samples, window 0.70-1.89 m, 15.0 fps, 968 frames",
+  "small360": {
+   "frames": 194,
+   "frames_with_det": 17,
+   "dets_per_frame": {
+    "Chain": 0.077,
+    "Can": 0.01
+   },
+   "mask_cells_per_frame": {},
+   "ms": {
+    "frontend": 0.09,
+    "network": 20.18,
+    "decode": 0.1,
+    "seg": 0.0,
+    "total": 20.37
+   }
+  },
+  "segdice": {
+   "frames": 194,
+   "frames_with_det": 188,
+   "dets_per_frame": {
+    "Chain": 1.541,
+    "Wall": 0.031,
+    "Can": 0.005
+   },
+   "mask_cells_per_frame": {
+    "Chain": 147.7,
+    "Wall": 50.1,
+    "Can": 6.8,
+    "Shampoo-bottle": 2.5,
+    "Tire": 0.8,
+    "Standing-bottle": 0.2,
+    "Propeller": 0.1
+   },
+   "ms": {
+    "frontend": 0.09,
+    "network": 20.21,
+    "decode": 0.1,
+    "seg": 0.04,
+    "total": 20.45
+   }
+  }
+ },
+ "2021-04-16_035800_HalfCup": {
+  "frames_total": 1094,
+  "every": 6,
+  "header": "data/raw/dans_aris/2021-04-16_035800_HalfCup.aris: ARIS 3000, 128 beams x 411 samples, window 0.70-1.89 m, 15.0 fps, 1094 frames",
+  "small360": {
+   "frames": 183,
+   "frames_with_det": 39,
+   "dets_per_frame": {
+    "Chain": 0.213,
+    "Tire": 0.005
+   },
+   "mask_cells_per_frame": {},
+   "ms": {
+    "frontend": 0.09,
+    "network": 20.27,
+    "decode": 0.1,
+    "seg": 0.0,
+    "total": 20.46
+   }
+  },
+  "segdice": {
+   "frames": 183,
+   "frames_with_det": 177,
+   "dets_per_frame": {
+    "Chain": 1.525,
+    "Wall": 0.016,
+    "Tire": 0.005
+   },
+   "mask_cells_per_frame": {
+    "Chain": 151.4,
+    "Wall": 39.8,
+    "Can": 3.6,
+    "Shampoo-bottle": 2.8,
+    "Tire": 1.6,
+    "Standing-bottle": 0.1,
+    "Bottle": 0.0,
+    "Propeller": 0.0
+   },
+   "ms": {
+    "frontend": 0.1,
+    "network": 20.41,
+    "decode": 0.11,
+    "seg": 0.05,
+    "total": 20.66
+   }
+  }
+ },
+ "2021-04-16_040226_QuarterCup": {
+  "frames_total": 640,
+  "every": 4,
+  "header": "data/raw/dans_aris/2021-04-16_040226_QuarterCup.aris: ARIS 3000, 128 beams x 411 samples, window 0.70-1.89 m, 15.0 fps, 640 frames",
+  "small360": {
+   "frames": 160,
+   "frames_with_det": 64,
+   "dets_per_frame": {
+    "Chain": 0.45
+   },
+   "mask_cells_per_frame": {},
+   "ms": {
+    "frontend": 0.09,
+    "network": 20.29,
+    "decode": 0.11,
+    "seg": 0.0,
+    "total": 20.49
+   }
+  },
+  "segdice": {
+   "frames": 160,
+   "frames_with_det": 160,
+   "dets_per_frame": {
+    "Chain": 2.312,
+    "Wall": 0.069
+   },
+   "mask_cells_per_frame": {
+    "Chain": 195.4,
+    "Wall": 35.4,
+    "Shampoo-bottle": 2.4,
+    "Standing-bottle": 0.8,
+    "Can": 0.1
+   },
+   "ms": {
+    "frontend": 0.09,
+    "network": 20.15,
+    "decode": 0.1,
+    "seg": 0.04,
+    "total": 20.39
+   }
+  }
+ },
+ "2021-04-16_040639_Piece2_Cup": {
+  "frames_total": 1293,
+  "every": 7,
+  "header": "data/raw/dans_aris/2021-04-16_040639_Piece2_Cup.aris: ARIS 3000, 128 beams x 411 samples, window 0.70-1.89 m, 15.0 fps, 1293 frames",
+  "small360": {
+   "frames": 185,
+   "frames_with_det": 49,
+   "dets_per_frame": {
+    "Chain": 0.314
+   },
+   "mask_cells_per_frame": {},
+   "ms": {
+    "frontend": 0.09,
+    "network": 20.27,
+    "decode": 0.11,
+    "seg": 0.0,
+    "total": 20.46
+   }
+  },
+  "segdice": {
+   "frames": 185,
+   "frames_with_det": 185,
+   "dets_per_frame": {
+    "Chain": 2.492,
+    "Wall": 0.016
+   },
+   "mask_cells_per_frame": {
+    "Chain": 223.8,
+    "Wall": 55.4,
+    "Shampoo-bottle": 1.5,
+    "Can": 0.4,
+    "Standing-bottle": 0.2,
+    "Tire": 0.0
+   },
+   "ms": {
+    "frontend": 0.09,
+    "network": 20.17,
+    "decode": 0.1,
+    "seg": 0.04,
+    "total": 20.42
+   }
+  }
+ },
+ "2021-04-16_041233_Piece4_Cup": {
+  "frames_total": 239,
+  "every": 2,
+  "header": "data/raw/dans_aris/2021-04-16_041233_Piece4_Cup.aris: ARIS 3000, 128 beams x 411 samples, window 0.70-1.89 m, 15.0 fps, 239 frames",
+  "small360": {
+   "frames": 120,
+   "frames_with_det": 115,
+   "dets_per_frame": {
+    "Chain": 1.458
+   },
+   "mask_cells_per_frame": {},
+   "ms": {
+    "frontend": 0.09,
+    "network": 20.06,
+    "decode": 0.1,
+    "seg": 0.0,
+    "total": 20.26
+   }
+  },
+  "segdice": {
+   "frames": 120,
+   "frames_with_det": 120,
+   "dets_per_frame": {
+    "Chain": 2.325,
+    "Wall": 0.083
+   },
+   "mask_cells_per_frame": {
+    "Chain": 235.6,
+    "Wall": 51.5,
+    "Shampoo-bottle": 3.7,
+    "Can": 1.1,
+    "Standing-bottle": 0.2,
+    "Propeller": 0.0
+   },
+   "ms": {
+    "frontend": 0.09,
+    "network": 20.38,
+    "decode": 0.11,
+    "seg": 0.05,
+    "total": 20.63
+   }
+  }
+ },
+ "2021-04-16_041432_Piece4_Cup_2": {
+  "frames_total": 727,
+  "every": 4,
+  "header": "data/raw/dans_aris/2021-04-16_041432_Piece4_Cup_2.aris: ARIS 3000, 128 beams x 411 samples, window 0.70-1.89 m, 15.0 fps, 727 frames",
+  "small360": {
+   "frames": 182,
+   "frames_with_det": 176,
+   "dets_per_frame": {
+    "Chain": 1.549
+   },
+   "mask_cells_per_frame": {},
+   "ms": {
+    "frontend": 0.09,
+    "network": 20.1,
+    "decode": 0.1,
+    "seg": 0.0,
+    "total": 20.3
+   }
+  },
+  "segdice": {
+   "frames": 182,
+   "frames_with_det": 182,
+   "dets_per_frame": {
+    "Chain": 2.253,
+    "Wall": 0.137
+   },
+   "mask_cells_per_frame": {
+    "Chain": 299.3,
+    "Wall": 44.4,
+    "Can": 5.9,
+    "Shampoo-bottle": 1.5,
+    "Standing-bottle": 0.2,
+    "Tire": 0.0,
+    "Propeller": 0.0
+   },
+   "ms": {
+    "frontend": 0.09,
+    "network": 20.33,
+    "decode": 0.1,
+    "seg": 0.04,
+    "total": 20.57
+   }
+  }
+ },
+ "2021-04-16_041904_PinAlone_Control": {
+  "frames_total": 1369,
+  "every": 7,
+  "header": "data/raw/dans_aris/2021-04-16_041904_PinAlone_Control.aris: ARIS 3000, 128 beams x 411 samples, window 0.70-1.89 m, 15.0 fps, 1369 frames",
+  "small360": {
+   "frames": 196,
+   "frames_with_det": 133,
+   "dets_per_frame": {
+    "Chain": 0.964
+   },
+   "mask_cells_per_frame": {},
+   "ms": {
+    "frontend": 0.09,
+    "network": 20.22,
+    "decode": 0.1,
+    "seg": 0.0,
+    "total": 20.41
+   }
+  },
+  "segdice": {
+   "frames": 196,
+   "frames_with_det": 185,
+   "dets_per_frame": {
+    "Chain": 2.316,
+    "Wall": 0.24
+   },
+   "mask_cells_per_frame": {
+    "Chain": 211.5,
+    "Wall": 49.5,
+    "Can": 3.7,
+    "Shampoo-bottle": 2.9,
+    "Standing-bottle": 0.7,
+    "Propeller": 0.1
+   },
+   "ms": {
+    "frontend": 0.09,
+    "network": 20.4,
+    "decode": 0.11,
+    "seg": 0.05,
+    "total": 20.64
+   }
+  }
+ },
+ "2021-04-19_122217_SideContainer": {
+  "frames_total": 1439,
+  "every": 8,
+  "header": "data/raw/dans_aris/2021-04-19_122217_SideContainer.aris: ARIS 3000, 128 beams x 967 samples, window 0.70-3.51 m, 15.0 fps, 1439 frames",
+  "small360": {
+   "frames": 180,
+   "frames_with_det": 0,
+   "dets_per_frame": {},
+   "mask_cells_per_frame": {},
+   "ms": {
+    "frontend": 0.1,
+    "network": 20.2,
+    "decode": 0.1,
+    "seg": 0.0,
+    "total": 20.4
+   }
+  },
+  "segdice": {
+   "frames": 180,
+   "frames_with_det": 0,
+   "dets_per_frame": {},
+   "mask_cells_per_frame": {},
+   "ms": {
+    "frontend": 0.1,
+    "network": 20.61,
+    "decode": 0.1,
+    "seg": 0.05,
+    "total": 20.86
+   }
+  }
+ },
+ "2021-04-19_123042_cup": {
+  "frames_total": 195,
+  "every": 1,
+  "header": "data/raw/dans_aris/2021-04-19_123042_cup.aris: ARIS 3000, 128 beams x 967 samples, window 0.70-3.51 m, 15.0 fps, 195 frames",
+  "small360": {
+   "frames": 195,
+   "frames_with_det": 0,
+   "dets_per_frame": {},
+   "mask_cells_per_frame": {},
+   "ms": {
+    "frontend": 0.1,
+    "network": 20.63,
+    "decode": 0.1,
+    "seg": 0.0,
+    "total": 20.83
+   }
+  },
+  "segdice": {
+   "frames": 195,
+   "frames_with_det": 0,
+   "dets_per_frame": {},
+   "mask_cells_per_frame": {},
+   "ms": {
+    "frontend": 0.1,
+    "network": 20.19,
+    "decode": 0.1,
+    "seg": 0.04,
+    "total": 20.44
+   }
+  }
+ },
+ "2021-04-19_132538_vegContainer": {
+  "frames_total": 633,
+  "every": 4,
+  "header": "data/raw/dans_aris/2021-04-19_132538_vegContainer.aris: ARIS 3000, 128 beams x 1396 samples, window 0.70-4.75 m, 13.7 fps, 633 frames",
+  "small360": {
+   "frames": 159,
+   "frames_with_det": 0,
+   "dets_per_frame": {},
+   "mask_cells_per_frame": {},
+   "ms": {
+    "frontend": 0.1,
+    "network": 20.04,
+    "decode": 0.1,
+    "seg": 0.0,
+    "total": 20.24
+   }
+  },
+  "segdice": {
+   "frames": 159,
+   "frames_with_det": 0,
+   "dets_per_frame": {},
+   "mask_cells_per_frame": {
+    "Drink-carton": 0.0
+   },
+   "ms": {
+    "frontend": 0.1,
+    "network": 20.35,
+    "decode": 0.1,
+    "seg": 0.04,
+    "total": 20.6
+   }
+  }
+ },
+ "2021-04-19_132650_golfball": {
+  "frames_total": 497,
+  "every": 3,
+  "header": "data/raw/dans_aris/2021-04-19_132650_golfball.aris: ARIS 3000, 128 beams x 1396 samples, window 0.70-4.75 m, 13.7 fps, 497 frames",
+  "small360": {
+   "frames": 166,
+   "frames_with_det": 0,
+   "dets_per_frame": {},
+   "mask_cells_per_frame": {},
+   "ms": {
+    "frontend": 0.1,
+    "network": 20.2,
+    "decode": 0.1,
+    "seg": 0.0,
+    "total": 20.4
+   }
+  },
+  "segdice": {
+   "frames": 166,
+   "frames_with_det": 0,
+   "dets_per_frame": {},
+   "mask_cells_per_frame": {},
+   "ms": {
+    "frontend": 0.1,
+    "network": 20.23,
+    "decode": 0.1,
+    "seg": 0.04,
+    "total": 20.47
+   }
+  }
+ },
+ "2021-04-19_132948_smallplasticcup": {
+  "frames_total": 285,
+  "every": 2,
+  "header": "data/raw/dans_aris/2021-04-19_132948_smallplasticcup.aris: ARIS 3000, 128 beams x 1396 samples, window 0.70-4.75 m, 13.7 fps, 285 frames",
+  "small360": {
+   "frames": 143,
+   "frames_with_det": 0,
+   "dets_per_frame": {},
+   "mask_cells_per_frame": {},
+   "ms": {
+    "frontend": 0.1,
+    "network": 20.05,
+    "decode": 0.1,
+    "seg": 0.0,
+    "total": 20.25
+   }
+  },
+  "segdice": {
+   "frames": 143,
+   "frames_with_det": 0,
+   "dets_per_frame": {},
+   "mask_cells_per_frame": {},
+   "ms": {
+    "frontend": 0.1,
+    "network": 20.18,
+    "decode": 0.1,
+    "seg": 0.04,
+    "total": 20.42
+   }
+  }
+ },
+ "2021-04-19_133118_kwarkbak": {
+  "frames_total": 296,
+  "every": 2,
+  "header": "data/raw/dans_aris/2021-04-19_133118_kwarkbak.aris: ARIS 3000, 128 beams x 1396 samples, window 0.70-4.75 m, 13.7 fps, 296 frames",
+  "small360": {
+   "frames": 148,
+   "frames_with_det": 0,
+   "dets_per_frame": {},
+   "mask_cells_per_frame": {},
+   "ms": {
+    "frontend": 0.1,
+    "network": 19.98,
+    "decode": 0.1,
+    "seg": 0.0,
+    "total": 20.17
+   }
+  },
+  "segdice": {
+   "frames": 148,
+   "frames_with_det": 0,
+   "dets_per_frame": {},
+   "mask_cells_per_frame": {},
+   "ms": {
+    "frontend": 0.1,
+    "network": 20.15,
+    "decode": 0.1,
+    "seg": 0.04,
+    "total": 20.39
+   }
+  }
+ }
+}

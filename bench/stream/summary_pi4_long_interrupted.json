@@ -1,0 +1,59 @@
+{
+ "note": "Pi 4 Ethernet link flapped 131 times 23:05:12-23:17:27 (journalctl, raw/pi4/flap_eth0_link_events.log) and came back at 100 Mbps; first 30-min run kept for the record, repeated afterwards",
+ "produced": 27000,
+ "acked": 15774,
+ "server_skipped": 11036,
+ "segments": {
+  "before_flaps": {
+   "seconds": 739,
+   "frames_expected": 11086,
+   "acked": 11087,
+   "lat_p50": 22.67,
+   "lat_p95": 23.99,
+   "lat_p99": 39.56,
+   "lat_max": 62.71,
+   "temp_c_min_max": [
+    49.6,
+    56.0
+   ],
+   "arm_mhz_min": 900.175808,
+   "throttled": [
+    "0x0"
+   ]
+  },
+  "flapping": {
+   "seconds": 735,
+   "frames_expected": 11025,
+   "acked": 360,
+   "lat_p50": 23.26,
+   "lat_p95": 23.94,
+   "lat_p99": 2245.77,
+   "lat_max": 753674.27,
+   "temp_c_min_max": [
+    45.7,
+    55.0
+   ],
+   "arm_mhz_min": 600.117184,
+   "throttled": [
+    "0x0"
+   ]
+  },
+  "after_100mbps": {
+   "seconds": 326,
+   "frames_expected": 4889,
+   "acked": 4327,
+   "lat_p50": 26.84,
+   "lat_p95": 39.84,
+   "lat_p99": 10642.45,
+   "lat_max": 17122.54,
+   "temp_c_min_max": [
+    46.2,
+    54.5
+   ],
+   "arm_mhz_min": 600.117184,
+   "throttled": [
+    "0x0"
+   ]
+  }
+ }
+}

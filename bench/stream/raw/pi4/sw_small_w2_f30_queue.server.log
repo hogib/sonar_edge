@@ -1,0 +1,11 @@
+sonar-stream: /home/hogib/Projects/sonar_edge/data/raw/dans_aris/2021-04-16_030900_SideSmaller.aris: 726 frames, 128 x 622, 15.0 fps
+sonar-stream: /home/hogib/Projects/sonar_edge/data/raw/dans_aris/2021-04-16_035403_Cup.aris: 968 frames, 128 x 411, 15.0 fps
+sonar-stream: /home/hogib/Projects/sonar_edge/data/raw/dans_aris/2021-04-16_025439_HalfPlasticContainer.aris: 2166 frames, 128 x 449, 15.0 fps
+sonar-stream: /home/hogib/Projects/sonar_edge/data/raw/dans_aris/2021-04-16_041904_PinAlone_Control.aris: 1369 frames, 128 x 411, 15.0 fps
+sonar-stream: /home/hogib/Projects/sonar_edge/data/raw/dans_aris/2021-04-19_122217_SideContainer.aris: 1439 frames, 128 x 967, 15.0 fps
+sonar-stream: /home/hogib/Projects/sonar_edge/data/raw/dans_aris/2021-04-16_024146_PlasticContainer2.aris: 5063 frames, 128 x 823, 15.0 fps
+sonar-stream: listening on 192.168.1.113:5801, 6 source(s), ring 256
+sonar-stream: hello from sw_small_w2_f30_queue
+sonar-stream: sw_small_w2_f30_queue starts at seq 0
+sonar-stream: client sw_small_w2_f30_queue closed (server stopping): sent 1800, skipped 0, acks 1800
+sonar-stream: produced 1800 frames (0 dropped by injection) in 60.0 s; emission lag mean 8 us, max 606 us
