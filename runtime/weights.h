@@ -12,6 +12,8 @@
 #define SE_HEAD_CIN 32
 #define SE_SEG_COUT 0
 #define SE_SEG_UP 1  /* label grid is SE_OUT_H*SE_SEG_UP x SE_OUT_W*SE_SEG_UP */
+#define SE_HAS_CLASS_NAMES 1
+static const char *const se_class_names[SE_N_CLASSES] = {"Bottle", "Can", "Chain", "Drink-carton", "Hook", "Propeller", "Shampoo-bottle", "Standing-bottle", "Tire", "Valve", "Wall"};
 #define SE_OUT_H 45
 #define SE_OUT_W 30
 #define SE_MAX_PAD 4

@@ -4,7 +4,11 @@
 #include <stdlib.h>
 
 #include "../sonar_edge.h"
+#ifdef SE_GOLDEN_H
+#include SE_GOLDEN_H
+#else
 #include "golden.h"
+#endif
 
 int main(void)
 {

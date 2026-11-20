@@ -1,0 +1,90 @@
+{
+ "rt_small": {
+  "fan": {
+   "frontend": 1.792,
+   "network": 19.766,
+   "decode": 0.355,
+   "seg": 0.0,
+   "total": 21.913,
+   "total_per_repeat": [
+    21.88,
+    21.87,
+    22.0
+   ]
+  },
+  "net": {
+   "frontend": 0.0,
+   "network": 19.929,
+   "decode": 0.356,
+   "seg": 0.0,
+   "total": 20.285,
+   "total_per_repeat": [
+    20.35,
+    20.25,
+    20.26
+   ]
+  },
+  "polar": {
+   "frontend": 1.776,
+   "network": 19.756,
+   "decode": 0.351,
+   "seg": 0.0,
+   "total": 21.883,
+   "total_per_repeat": [
+    21.87,
+    21.75,
+    22.03
+   ]
+  },
+  "sonar_detect_ms": [
+   20.07,
+   20.28,
+   20.17
+  ]
+ },
+ "rt_seg": {
+  "fan": {
+   "frontend": 1.765,
+   "network": 20.987,
+   "decode": 0.389,
+   "seg": 0.24,
+   "total": 23.381,
+   "total_per_repeat": [
+    23.32,
+    23.5,
+    23.32
+   ]
+  },
+  "net": {
+   "frontend": 0.0,
+   "network": 20.913,
+   "decode": 0.377,
+   "seg": 0.241,
+   "total": 21.531,
+   "total_per_repeat": [
+    21.51,
+    21.44,
+    21.65
+   ]
+  },
+  "polar": {
+   "frontend": 1.772,
+   "network": 20.815,
+   "decode": 0.383,
+   "seg": 0.24,
+   "total": 23.209,
+   "total_per_repeat": [
+    23.27,
+    23.05,
+    23.31
+   ]
+  },
+  "sonar_detect_ms": [
+   21.22,
+   21.12,
+   21.16
+  ]
+ },
+ "temp_end": "temp=58.4'C",
+ "throttled": "throttled=0x0"
+}

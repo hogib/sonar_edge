@@ -117,6 +117,75 @@ of the weight-traffic explanation in section 4, so it is now supported (still no
 cache-miss counts). The thermal flag was already set from the wide scalar run, so
 whether 4-pixel 4-core runs throttled cannot be told from it; all stayed < 80 C.
 
+### 3.7 Raspberry Pi 2 (32-bit ARMv7, added 2026-11-20)
+
+**Board.** Raspberry Pi 2 Model B rev 1.1: BCM2836, 4x Cortex-A7 at 900 MHz
+(32-bit ARMv7, NEON with VFPv4, 16 q registers), 1 GB; Raspbian 13 (armhf),
+kernel 6.18 rpi-v7, gcc 14.2, governor `ondemand`, no heat sink.
+
+**Port.** The NEON kernel used AArch64-only intrinsics (`vmlal_laneq_s16`,
+`vmlal_high_*`). It now compiles on AArch32 as well through three macros
+(`SE_MLAL_LO/HI`, `SE_MLAL_N_HI` in `runtime/sonar_edge.c`). On AArch32 these
+take the lane from the matching 64-bit half of the activation vector. The
+products and sums are the same, so the result is still exact by
+construction. AArch64 code generation is unchanged: after the port the Pi 4
+build passes the golden test, gives byte-identical full-fold output for all
+four models, and runs at the same speed (8.9 / 20.2 / 46.2 / 91.6 ms).
+Raspbian's gcc targets ARMv6 without NEON by default, so NEON builds need
+`-mcpu=cortex-a7 -mfpu=neon-vfpv4` (`runtime/Makefile` comment).
+
+**Method.** Same models, frames and measurements as §3.2–3.6. Four builds per
+model:
+- `scalar_v6`: Raspbian default target;
+- `scalar_a7`: Cortex-A7 flags with `-DSE_NO_NEON`;
+- `neon1`: 1-pixel kernel;
+- `neon4`: 4-pixel kernel.
+
+Latency repeats were sized to about 25 s each, three repeats; NEON repeats
+agree within 1%. Four-copy throughput and peak RSS were measured on the
+faster NEON build and on `scalar_a7`. Script, raw JSON and logs are in
+`bench/pi2/`.
+
+An earlier attempt failed: large packets to the board were lost (90% at
+1400 B; ssh and copies stalled), and `get_throttled` read 0x50000
+(under-voltage). With a stronger power supply the loss went to 0% and the
+flags stayed 0x0 for the whole run.
+
+**Equivalence.** The golden test passes for all 16 builds. `neon4` output on
+all 439 test-fold-0 frames is byte-identical to the Pi 4 scalar output for
+all four models.
+
+| Model | scalar v6 ms | scalar A7 ms | NEON 1 px ms | NEON 4 px ms | NEON vs scalar A7 | 4 copies fps (per copy ms) | Peak RSS | Pi 4 NEON 4 px ms | Pi 4 / Pi 2 |
+|---|---|---|---|---|---|---|---|---|---|
+| small 240x160 | 295.1 | 288.8 | **54.8** | 56.3 | 5.3x | 69.8 (56-57) | 1.8 MB | 9.0 | 6.1x |
+| **small 360x240 (deployed)** | 663.8 | 650.0 | **124.5** | 126.8 | 5.2x | **30.7** (126-130) | 2.3 MB | 20.3 | 6.1x |
+| small_wide 360x240 | 1565.8 | 1555.0 | 392.2 | **315.6** | 4.9x | 12.0 (330-334) | 2.5 MB | 46.5 | 6.8x |
+| wide 480x320 | 3418.8 | 3384.0 | 798.7 | **649.6** | 5.2x | 5.8 (680-689) | 3.3 MB | 91.8 | 7.1x |
+
+Scalar on four cores: 13.6 / 6.0 / 2.5 / 1.15 fps. Temperatures stayed at
+39–54 C, and `throttled` was 0x0 from start to end.
+
+**Discussion.**
+- **NEON speed-up.** About 5x over the Cortex-A7 scalar build, against 6.2–7.1x
+  on the Pi 4. Telling gcc about the A7 (`scalar_a7`) gains only 1–2% over the
+  ARMv6 default.
+- **4-pixel kernel.** The block needs 16 accumulators + 2 weight + 4 input
+  registers, and AArch32 has 16 q registers, so it spills. On the 32-channel
+  models the spills cost slightly more than the saved weight loads (-2–3%).
+  On the 64-channel models the saved weight traffic dominates (+24% / +23%),
+  the same pattern as on the Pi 4 (§4). Best build: `neon1` for small,
+  `neon4` for small_wide and wide.
+- **Four cores.** Scaling is 94–96% of four times the one-core rate for every model. The Pi 4 lost 5–15% on
+  its 32-channel NEON runs (§3.6). The Pi 2's slower cores ask less of the
+  shared L2 and memory per second.
+- **Deployability.** The deployed model runs at 8 fps on one core and 30.7 fps
+  on four (single-frame latency stays 125 ms; the four-core figure assumes
+  four frames in flight). small_wide@360 reaches 12 fps on four cores. Whether
+  that keeps up with the sonar depends on its frame rate at the range used,
+  which the dataset does not give.
+- **Not measured.** Energy (no meter); thermal behaviour beyond a few minutes
+  per run.
+
 ## 4. NEON kernel (runtime/sonar_edge.c, `conv3x3_neon`)
 
 Vectorised over output channels: per output pixel, block of 16 output channels
@@ -147,5 +216,7 @@ and gave exactly the predicted pattern.
   240x160 fallback is not needed.
 - small_wide@360 (best accuracy, 56.9 +- 2.7 pooled over 3 seeds) at 46.5 ms / 21.5 fps single core
   is now a deployment candidate.
+- Raspberry Pi 2 (§3.7): same output byte for byte; deployed model 124.5 ms
+  (8 fps) on one core, 30.7 fps on four, 6.1x slower than the Pi 4.
 - Open: energy (external USB-C meter or INA219), sustained thermal test,
   Pi 5 `udot` kernel.

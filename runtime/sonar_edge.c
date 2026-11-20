@@ -12,11 +12,18 @@
 #include <stdint.h>
 #include <string.h>
 
+/* -DSE_WEIGHTS_H='"path/weights.h"' builds another exported model (make W=DIR). */
+#ifdef SE_WEIGHTS_H
+#include SE_WEIGHTS_H
+#else
 #include "weights.h"
+#endif
 
-/* NEON path on AArch64 unless built with -DSE_NO_NEON (scalar reference).
- * Needs SE_W_ELEMS, which headers exported before the NEON kernel lack. */
-#if defined(__aarch64__) && defined(__ARM_NEON) && defined(SE_W_ELEMS) && !defined(SE_NO_NEON)
+/* NEON path on AArch64, and on 32-bit ARMv7 when NEON is enabled (e.g.
+ * -mcpu=cortex-a7 -mfpu=neon-vfpv4 on a Raspberry Pi 2), unless built with
+ * -DSE_NO_NEON (scalar reference). Needs SE_W_ELEMS, which headers exported
+ * before the NEON kernel lack. */
+#if defined(__ARM_NEON) && defined(SE_W_ELEMS) && !defined(SE_NO_NEON)
 #define SE_USE_NEON 1
 #include <arm_neon.h>
 #else
@@ -85,14 +92,37 @@ static void conv3x3(const uint8_t *in, int h, int w, const se_layer_t *L, uint8_
 }
 
 #if SE_USE_NEON
-/* NEON kernel (AArch64 Advanced SIMD, no dot-product extension needed, so it
- * runs on the Pi 4's Cortex-A72). Vectorised over output channels: for each
+/* NEON kernel (Advanced SIMD, no dot-product extension needed, so it runs on
+ * the Pi 4's Cortex-A72 and, in 32-bit form, on the Pi 2's Cortex-A7). Vectorised over output channels: for each
  * output pixel, tap and input channel, the input value (u8 widened to s16) is
  * broadcast against 16 int16 weights and accumulated into four int32x4 with
  * vmlal_laneq_s16. Every product fits s16 x s16 -> s32 exactly and integer
  * addition is associative, so the result is bit-identical to conv3x3().
  * Weights are transposed once to [tap][ci][co] int16 (static buffer). */
 static int16_t wt16[SE_W_ELEMS];
+
+/* acc += w[0..3] * x[lane] (LO) or w[4..7] * x[lane] (HI), w and x int16x8_t,
+ * lane a literal 0-7. AArch64 has by-element forms on a 128-bit x and _high_
+ * forms; AArch32 takes the element from a 64-bit half, so pick the half by
+ * token pasting (lane must be a bare literal) and the element by lane & 3.
+ * Both expand to the same products. */
+#if defined(__aarch64__)
+#define SE_MLAL_LO(a, w, x, lane) vmlal_laneq_s16(a, vget_low_s16(w), x, lane)
+#define SE_MLAL_HI(a, w, x, lane) vmlal_high_laneq_s16(a, w, x, lane)
+#define SE_MLAL_N_HI(a, w, v) vmlal_high_n_s16(a, w, v)
+#else
+#define SE_HALF_0 vget_low_s16
+#define SE_HALF_1 vget_low_s16
+#define SE_HALF_2 vget_low_s16
+#define SE_HALF_3 vget_low_s16
+#define SE_HALF_4 vget_high_s16
+#define SE_HALF_5 vget_high_s16
+#define SE_HALF_6 vget_high_s16
+#define SE_HALF_7 vget_high_s16
+#define SE_MLAL_LO(a, w, x, lane) vmlal_lane_s16(a, vget_low_s16(w), SE_HALF_##lane(x), (lane) & 3)
+#define SE_MLAL_HI(a, w, x, lane) vmlal_lane_s16(a, vget_high_s16(w), SE_HALF_##lane(x), (lane) & 3)
+#define SE_MLAL_N_HI(a, w, v) vmlal_n_s16(a, vget_high_s16(w), v)
+#endif
 static const int16_t *layer_wt[SE_N_LAYERS];
 
 static void prepare_neon_weights(void)
@@ -114,30 +144,30 @@ static void prepare_neon_weights(void)
     do {                                                                        \
         const int16_t *wq = wk + (size_t)(ci + (lane)) * cout;                 \
         const int16x8_t w0 = vld1q_s16(wq), w1 = vld1q_s16(wq + 8);            \
-        a0 = vmlal_laneq_s16(a0, vget_low_s16(w0), x, lane);                   \
-        a1 = vmlal_high_laneq_s16(a1, w0, x, lane);                            \
-        a2 = vmlal_laneq_s16(a2, vget_low_s16(w1), x, lane);                   \
-        a3 = vmlal_high_laneq_s16(a3, w1, x, lane);                            \
+        a0 = SE_MLAL_LO(a0, w0, x, lane);                                      \
+        a1 = SE_MLAL_HI(a1, w0, x, lane);                                      \
+        a2 = SE_MLAL_LO(a2, w1, x, lane);                                      \
+        a3 = SE_MLAL_HI(a3, w1, x, lane);                                      \
     } while (0)
 
 /* Four adjacent output pixels (ox .. ox+3) of one row at once, for layers with
  * cin % 8 == 0: each pair of weight vectors loaded is used for 4 pixels, so
  * weight traffic per MAC drops 4x. 16 accumulators + 2 weight + 4 input
- * registers fit the 32 NEON registers. Same products and sums as the
+ * registers fit the 32 AArch64 NEON registers (AArch32 has 16, so there the
+ * compiler spills; see docs/M5-benchmark.md). Same products and sums as the
  * single-pixel path, so the same result. */
 #ifndef SE_NEON_1PX  /* -DSE_NEON_1PX: single-pixel kernel only, for comparison */
 #define MLA4(acc0, acc1, acc2, acc3, xv, lane)                                  \
     do {                                                                        \
-        acc0 = vmlal_laneq_s16(acc0, w0l, xv, lane);                            \
-        acc1 = vmlal_high_laneq_s16(acc1, w0, xv, lane);                        \
-        acc2 = vmlal_laneq_s16(acc2, w1l, xv, lane);                            \
-        acc3 = vmlal_high_laneq_s16(acc3, w1, xv, lane);                        \
+        acc0 = SE_MLAL_LO(acc0, w0, xv, lane);                                  \
+        acc1 = SE_MLAL_HI(acc1, w0, xv, lane);                                  \
+        acc2 = SE_MLAL_LO(acc2, w1, xv, lane);                                  \
+        acc3 = SE_MLAL_HI(acc3, w1, xv, lane);                                  \
     } while (0)
 #define LANE4(lane)                                                             \
     do {                                                                        \
         const int16_t *wq = wk + (size_t)(ci + (lane)) * cout;                 \
         const int16x8_t w0 = vld1q_s16(wq), w1 = vld1q_s16(wq + 8);            \
-        const int16x4_t w0l = vget_low_s16(w0), w1l = vget_low_s16(w1);        \
         MLA4(p0a0, p0a1, p0a2, p0a3, x0, lane);                                 \
         MLA4(p1a0, p1a1, p1a2, p1a3, x1, lane);                                 \
         MLA4(p2a0, p2a1, p2a2, p2a3, x2, lane);                                 \
@@ -227,9 +257,9 @@ static void conv3x3_neon(const uint8_t *in, int h, int w, const se_layer_t *L, c
                             const int16_t *wq = wk + (size_t)ci * cout;
                             const int16x8_t w0 = vld1q_s16(wq), w1 = vld1q_s16(wq + 8);
                             a0 = vmlal_n_s16(a0, vget_low_s16(w0), xv);
-                            a1 = vmlal_high_n_s16(a1, w0, xv);
+                            a1 = SE_MLAL_N_HI(a1, w0, xv);
                             a2 = vmlal_n_s16(a2, vget_low_s16(w1), xv);
-                            a3 = vmlal_high_n_s16(a3, w1, xv);
+                            a3 = SE_MLAL_N_HI(a3, w1, xv);
                         }
                     }
                 }
@@ -242,6 +272,9 @@ static void conv3x3_neon(const uint8_t *in, int h, int w, const se_layer_t *L, c
     *ow = wo;
 }
 #undef MLA16
+#undef SE_MLAL_LO
+#undef SE_MLAL_HI
+#undef SE_MLAL_N_HI
 #endif
 
 const int32_t *se_forward(const uint8_t *frame)
@@ -344,9 +377,31 @@ int se_segment(const uint8_t *frame, uint8_t *labels)
 #endif
 }
 
+const char *se_class_name(int c)
+{
+#ifdef SE_HAS_CLASS_NAMES
+    return c >= 0 && c < SE_N_CLASSES ? se_class_names[c] : NULL;
+#else
+    (void)c;
+    return NULL;
+#endif
+}
+
 int se_detect(const uint8_t *frame, float thr, se_detection_t *out, int max_out)
 {
+    return se_decode(se_forward(frame), thr, out, max_out);
+}
+
+int se_process(const uint8_t *frame, float thr, se_detection_t *out, int max_out, uint8_t *labels)
+{
     const int32_t *hm = se_forward(frame);
+    const int n = se_decode(hm, thr, out, max_out);
+    if (labels) se_segment_head(hm, labels);
+    return n;
+}
+
+int se_decode(const int32_t *hm, float thr, se_detection_t *out, int max_out)
+{
     int n = 0;
     for (int c = 0; c < SE_N_CLASSES; c++) {
         for (int y = 0; y < SE_OUT_H; y++) {

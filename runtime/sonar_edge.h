@@ -26,6 +26,10 @@ int se_num_classes(void);
  * descending. */
 int se_detect(const uint8_t *frame, float thr, se_detection_t *out, int max_out);
 
+/* Decode detections from a head map returned by se_forward() (what
+ * se_detect does after its forward pass). */
+int se_decode(const int32_t *head, float thr, se_detection_t *out, int max_out);
+
 /* Run only the network. Returns the int32 head map, HWC
  * [SE_OUT_H][SE_OUT_W][SE_HEAD_COUT]. Valid until the next call. */
 const int32_t *se_forward(const uint8_t *frame);
@@ -49,3 +53,13 @@ int se_seg_height(void);
 int se_seg_width(void);
 int se_segment(const uint8_t *frame, uint8_t *labels);
 int se_segment_head(const int32_t *head, uint8_t *labels);
+
+/* One forward pass, both outputs: detections as se_detect (returns their
+ * number) and, when labels is not NULL and the model has a segmentation head,
+ * the label map as se_segment (se_seg_height() x se_seg_width() bytes). The
+ * results equal separate se_detect and se_segment calls. */
+int se_process(const uint8_t *frame, float thr, se_detection_t *out, int max_out, uint8_t *labels);
+
+/* Class name of index c from the model export, or NULL when the exported
+ * header carries no names (exports before the end-to-end pipeline). */
+const char *se_class_name(int c);
