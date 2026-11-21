@@ -37,14 +37,22 @@ def split_ids(k, folds):
 
 
 def main():
+    import argparse
+
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--suffix", default="", help="write yolo<suffix>/ and coco<suffix>/ (e.g. _random with "
+                    "SONAR_EDGE_SPLIT=splits/random_folds_v1.json); images and labels are shared")
+    args = ap.parse_args()
+    ydir, cdir = f"yolo{args.suffix}", f"coco{args.suffix}"
+    print(f"folds from {SPLIT_FILE}")
     frames = load_frames()
     classes = class_names(frames)
     cidx = {c: i for i, c in enumerate(classes)}
     folds = fold_of()
     (OUT / "images").mkdir(parents=True, exist_ok=True)
     (OUT / "labels").mkdir(parents=True, exist_ok=True)
-    (OUT / "yolo").mkdir(parents=True, exist_ok=True)
-    (OUT / "coco").mkdir(parents=True, exist_ok=True)
+    (OUT / ydir).mkdir(parents=True, exist_ok=True)
+    (OUT / cdir).mkdir(parents=True, exist_ok=True)
     by_id = {f.index: f for f in frames}
     for f in frames:
         img = OUT / "images" / f"{f.index}.png"
@@ -59,7 +67,7 @@ def main():
     for k in range(5):
         ids = split_ids(k, folds)
         for split, lst in ids.items():
-            (OUT / "yolo" / f"fold{k}_{split}.txt").write_text(
+            (OUT / ydir / f"fold{k}_{split}.txt").write_text(
                 "\n".join(str(OUT / "images" / f"{i}.png") for i in sorted(lst)) + "\n")
             imgs, anns = [], []
             for i in sorted(lst):
@@ -67,10 +75,10 @@ def main():
                 for b in by_id[i].boxes:
                     anns.append({"id": len(anns) + 1, "image_id": i, "category_id": cidx[b.cls] + 1,
                                  "bbox": [b.x, b.y, b.w, b.h], "area": b.w * b.h, "iscrowd": 0})
-            (OUT / "coco" / f"fold{k}_{split}.json").write_text(
+            (OUT / cdir / f"fold{k}_{split}.json").write_text(
                 json.dumps({"images": imgs, "annotations": anns, "categories": cats}))
-        (OUT / "yolo" / f"fold{k}.yaml").write_text(
-            f"path: {OUT}\ntrain: yolo/fold{k}_train.txt\nval: yolo/fold{k}_val.txt\ntest: yolo/fold{k}_test.txt\n"
+        (OUT / ydir / f"fold{k}.yaml").write_text(
+            f"path: {OUT}\ntrain: {ydir}/fold{k}_train.txt\nval: {ydir}/fold{k}_val.txt\ntest: {ydir}/fold{k}_test.txt\n"
             f"names:\n" + "".join(f"  {i}: {c}\n" for i, c in enumerate(classes)))
         print(f"fold {k}: " + ", ".join(f"{s} {len(v)}" for s, v in ids.items()))
     (OUT / "classes.json").write_text(json.dumps(classes))

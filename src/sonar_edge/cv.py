@@ -35,7 +35,7 @@ def fold_gt(frames, classes, fold, scale, split_file=SPLIT_FILE):
 
 
 def load_pred(path):
-    return {int(k): [tuple(d) for d in v] for k, v in json.loads(Path(path).read_text()).items()}
+    return {int(k): [(int(d[0]), *d[1:]) for d in v] for k, v in json.loads(Path(path).read_text()).items()}
 
 
 def pool(preds, gts, n_classes):

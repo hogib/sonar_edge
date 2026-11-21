@@ -28,12 +28,12 @@ def save_pred(pred, path):
     Path(path).write_text(json.dumps({str(k): [list(map(float, d)) for d in v] for k, v in pred.items()}))
 
 
-def score(preds, scale=1.0, frames=None, classes=None):
+def score(preds, scale=1.0, frames=None, classes=None, split_file=None):
     """preds: list of 5 per-fold dicts (fold k = test fold k), boxes at `scale` (native = 1).
     Returns dict with pooled mAP, per-class AP, per-fold mAP and the MCNN-task scores."""
     frames = frames or load_frames()
     classes = classes or class_names(frames)
-    gts = [fold_gt(frames, classes, k, scale) for k in range(5)]
+    gts = [fold_gt(frames, classes, k, scale, **({"split_file": split_file} if split_file else {})) for k in range(5)]
     aps, m = pool(preds, gts, len(classes))
     per_fold = [evaluate(p, g, len(classes))[1] for p, g in zip(preds, gts)]
     wall = classes.index("Wall")

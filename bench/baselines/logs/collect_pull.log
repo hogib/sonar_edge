@@ -1,0 +1,6 @@
+ssdlite_pretrained   complete seeds [0, 1, 2]
+ssdlite_scratch      complete seeds [0, 1, 2]
+yolo_pretrained      complete seeds [0, 1, 2]
+yolo_scratch         complete seeds [0, 1, 2]
+nanodet_pretrained   complete seeds [0, 1, 2]
+nanodet_scratch      complete seeds [0, 1, 2]

@@ -1,0 +1,919 @@
+config small_wide scale 1.3333333333333333: 135,359 params, 203.5M MACs/frame, stride 8, train/val/test 1041/388/439, device cuda
+peak CUDA memory allocated 133 MiB, reserved 196 MiB
+ep   1  heat 8.360 size 6.580 off 0.439  val mAP   0.0  (2s) *
+ep   2  heat 5.879 size 6.358 off 0.321  val mAP   0.0  (2s)
+ep   3  heat 4.226 size 6.164 off 0.279  val mAP   0.0  (2s)
+ep   4  heat 3.294 size 6.033 off 0.292  val mAP   0.0  (2s)
+ep   5  heat 2.829 size 5.907 off 0.281  val mAP   0.0  (2s)
+ep   6  heat 2.445 size 5.186 off 0.254  val mAP   0.6  (2s) *
+ep   7  heat 2.072 size 3.788 off 0.252  val mAP   8.9  (2s) *
+ep   8  heat 1.718 size 2.824 off 0.247  val mAP  13.6  (2s) *
+ep   9  heat 1.478 size 2.518 off 0.239  val mAP  20.4  (2s) *
+ep  10  heat 1.348 size 2.212 off 0.232  val mAP  26.6  (2s) *
+ep  11  heat 1.224 size 1.917 off 0.220  val mAP  37.7  (2s) *
+ep  12  heat 1.059 size 1.614 off 0.219  val mAP  43.5  (2s) *
+ep  13  heat 0.927 size 1.381 off 0.220  val mAP  58.9  (2s) *
+ep  14  heat 0.860 size 1.282 off 0.210  val mAP  65.0  (2s) *
+ep  15  heat 0.778 size 1.180 off 0.206  val mAP  70.6  (2s) *
+ep  16  heat 0.744 size 1.134 off 0.208  val mAP  71.9  (2s) *
+ep  17  heat 0.709 size 1.139 off 0.202  val mAP  77.2  (2s) *
+ep  18  heat 0.667 size 1.049 off 0.196  val mAP  78.1  (2s) *
+ep  19  heat 0.624 size 1.060 off 0.195  val mAP  76.1  (2s)
+ep  20  heat 0.618 size 1.036 off 0.192  val mAP  83.8  (2s) *
+ep  21  heat 0.613 size 1.011 off 0.198  val mAP  77.7  (2s)
+ep  22  heat 0.597 size 0.987 off 0.187  val mAP  83.5  (2s)
+ep  23  heat 0.561 size 0.975 off 0.188  val mAP  84.2  (2s) *
+ep  24  heat 0.552 size 0.927 off 0.186  val mAP  85.3  (2s) *
+ep  25  heat 0.536 size 0.917 off 0.187  val mAP  62.3  (2s)
+ep  26  heat 0.538 size 0.903 off 0.185  val mAP  87.8  (2s) *
+ep  27  heat 0.536 size 0.886 off 0.180  val mAP  83.7  (2s)
+ep  28  heat 0.509 size 0.917 off 0.183  val mAP  84.9  (2s)
+ep  29  heat 0.509 size 0.865 off 0.180  val mAP  86.6  (2s)
+ep  30  heat 0.483 size 0.844 off 0.179  val mAP  86.9  (2s)
+ep  31  heat 0.494 size 0.811 off 0.175  val mAP  85.4  (2s)
+ep  32  heat 0.482 size 0.833 off 0.178  val mAP  86.8  (2s)
+ep  33  heat 0.472 size 0.810 off 0.176  val mAP  86.7  (2s)
+ep  34  heat 0.473 size 0.807 off 0.176  val mAP  86.5  (2s)
+ep  35  heat 0.459 size 0.768 off 0.173  val mAP  89.5  (2s) *
+ep  36  heat 0.455 size 0.817 off 0.171  val mAP  86.9  (2s)
+ep  37  heat 0.464 size 0.812 off 0.173  val mAP  89.5  (2s)
+ep  38  heat 0.429 size 0.762 off 0.171  val mAP  83.1  (2s)
+ep  39  heat 0.442 size 0.787 off 0.172  val mAP  88.7  (2s)
+ep  40  heat 0.443 size 0.743 off 0.166  val mAP  78.8  (2s)
+ep  41  heat 0.447 size 0.764 off 0.170  val mAP  86.4  (2s)
+ep  42  heat 0.452 size 0.772 off 0.167  val mAP  88.9  (2s)
+ep  43  heat 0.445 size 0.747 off 0.169  val mAP  89.0  (2s)
+ep  44  heat 0.423 size 0.743 off 0.170  val mAP  90.4  (2s) *
+ep  45  heat 0.417 size 0.717 off 0.162  val mAP  91.5  (2s) *
+ep  46  heat 0.444 size 0.755 off 0.166  val mAP  89.2  (2s)
+ep  47  heat 0.423 size 0.726 off 0.165  val mAP  89.8  (2s)
+ep  48  heat 0.409 size 0.709 off 0.164  val mAP  88.9  (2s)
+ep  49  heat 0.413 size 0.707 off 0.162  val mAP  90.6  (2s)
+ep  50  heat 0.402 size 0.708 off 0.163  val mAP  87.6  (2s)
+ep  51  heat 0.403 size 0.706 off 0.161  val mAP  90.6  (2s)
+ep  52  heat 0.398 size 0.694 off 0.160  val mAP  91.4  (2s)
+ep  53  heat 0.395 size 0.682 off 0.162  val mAP  83.6  (2s)
+ep  54  heat 0.397 size 0.672 off 0.159  val mAP  91.5  (2s) *
+ep  55  heat 0.390 size 0.693 off 0.158  val mAP  91.7  (2s) *
+ep  56  heat 0.381 size 0.661 off 0.159  val mAP  90.9  (2s)
+ep  57  heat 0.403 size 0.653 off 0.159  val mAP  91.9  (2s) *
+ep  58  heat 0.391 size 0.670 off 0.156  val mAP  92.6  (2s) *
+ep  59  heat 0.391 size 0.671 off 0.154  val mAP  92.0  (2s)
+ep  60  heat 0.388 size 0.643 off 0.157  val mAP  92.1  (2s)
+ep  61  heat 0.363 size 0.641 off 0.156  val mAP  92.8  (2s) *
+ep  62  heat 0.398 size 0.660 off 0.158  val mAP  91.2  (2s)
+ep  63  heat 0.368 size 0.631 off 0.153  val mAP  92.5  (2s)
+ep  64  heat 0.369 size 0.637 off 0.154  val mAP  91.5  (2s)
+ep  65  heat 0.365 size 0.660 off 0.152  val mAP  91.3  (2s)
+ep  66  heat 0.375 size 0.631 off 0.153  val mAP  93.3  (2s) *
+ep  67  heat 0.364 size 0.642 off 0.153  val mAP  93.1  (2s)
+ep  68  heat 0.371 size 0.633 off 0.151  val mAP  93.5  (2s) *
+ep  69  heat 0.373 size 0.638 off 0.153  val mAP  92.3  (2s)
+ep  70  heat 0.364 size 0.639 off 0.153  val mAP  91.5  (2s)
+ep  71  heat 0.368 size 0.640 off 0.157  val mAP  93.6  (2s) *
+ep  72  heat 0.361 size 0.611 off 0.153  val mAP  94.0  (2s) *
+ep  73  heat 0.362 size 0.612 off 0.151  val mAP  93.0  (2s)
+ep  74  heat 0.350 size 0.605 off 0.149  val mAP  90.6  (2s)
+ep  75  heat 0.348 size 0.628 off 0.149  val mAP  92.6  (2s)
+ep  76  heat 0.360 size 0.607 off 0.149  val mAP  93.1  (2s)
+ep  77  heat 0.355 size 0.598 off 0.146  val mAP  91.7  (2s)
+ep  78  heat 0.342 size 0.594 off 0.146  val mAP  94.0  (2s) *
+ep  79  heat 0.352 size 0.601 off 0.151  val mAP  93.7  (2s)
+ep  80  heat 0.356 size 0.606 off 0.149  val mAP  93.9  (2s)
+ep  81  heat 0.351 size 0.600 off 0.147  val mAP  93.6  (2s)
+ep  82  heat 0.334 size 0.591 off 0.149  val mAP  94.3  (2s) *
+ep  83  heat 0.328 size 0.554 off 0.144  val mAP  94.6  (2s) *
+ep  84  heat 0.345 size 0.552 off 0.146  val mAP  94.4  (2s)
+ep  85  heat 0.343 size 0.577 off 0.144  val mAP  94.0  (2s)
+ep  86  heat 0.335 size 0.581 off 0.142  val mAP  94.3  (2s)
+ep  87  heat 0.346 size 0.570 off 0.144  val mAP  94.6  (2s) *
+ep  88  heat 0.347 size 0.570 off 0.144  val mAP  94.4  (2s)
+ep  89  heat 0.325 size 0.564 off 0.141  val mAP  94.3  (2s)
+ep  90  heat 0.331 size 0.571 off 0.144  val mAP  92.6  (2s)
+ep  91  heat 0.323 size 0.566 off 0.140  val mAP  93.8  (2s)
+ep  92  heat 0.322 size 0.574 off 0.143  val mAP  93.5  (2s)
+ep  93  heat 0.329 size 0.564 off 0.141  val mAP  94.4  (2s)
+ep  94  heat 0.327 size 0.570 off 0.140  val mAP  94.8  (2s) *
+ep  95  heat 0.326 size 0.566 off 0.143  val mAP  94.0  (2s)
+ep  96  heat 0.310 size 0.545 off 0.141  val mAP  94.0  (2s)
+ep  97  heat 0.305 size 0.537 off 0.139  val mAP  94.2  (2s)
+ep  98  heat 0.323 size 0.569 off 0.142  val mAP  93.6  (2s)
+ep  99  heat 0.318 size 0.544 off 0.139  val mAP  94.5  (2s)
+ep 100  heat 0.318 size 0.547 off 0.142  val mAP  92.9  (2s)
+ep 101  heat 0.303 size 0.555 off 0.141  val mAP  95.1  (2s) *
+ep 102  heat 0.314 size 0.559 off 0.140  val mAP  94.7  (2s)
+ep 103  heat 0.316 size 0.558 off 0.140  val mAP  94.8  (2s)
+ep 104  heat 0.315 size 0.549 off 0.138  val mAP  95.4  (2s) *
+ep 105  heat 0.318 size 0.556 off 0.140  val mAP  94.5  (2s)
+ep 106  heat 0.299 size 0.526 off 0.138  val mAP  94.9  (2s)
+ep 107  heat 0.301 size 0.540 off 0.138  val mAP  94.9  (2s)
+ep 108  heat 0.306 size 0.523 off 0.135  val mAP  94.8  (2s)
+ep 109  heat 0.301 size 0.540 off 0.136  val mAP  94.5  (2s)
+ep 110  heat 0.300 size 0.508 off 0.133  val mAP  94.4  (2s)
+ep 111  heat 0.303 size 0.520 off 0.132  val mAP  95.3  (2s)
+ep 112  heat 0.295 size 0.517 off 0.135  val mAP  95.1  (2s)
+ep 113  heat 0.316 size 0.528 off 0.136  val mAP  94.2  (2s)
+ep 114  heat 0.306 size 0.517 off 0.135  val mAP  94.9  (2s)
+ep 115  heat 0.295 size 0.532 off 0.133  val mAP  94.9  (2s)
+ep 116  heat 0.294 size 0.519 off 0.134  val mAP  94.9  (2s)
+ep 117  heat 0.300 size 0.527 off 0.133  val mAP  94.9  (2s)
+ep 118  heat 0.296 size 0.531 off 0.134  val mAP  94.8  (2s)
+ep 119  heat 0.300 size 0.506 off 0.136  val mAP  95.1  (2s)
+ep 120  heat 0.290 size 0.506 off 0.132  val mAP  95.1  (2s)
+ep 121  heat 0.288 size 0.511 off 0.134  val mAP  94.5  (2s)
+ep 122  heat 0.294 size 0.521 off 0.131  val mAP  95.0  (2s)
+ep 123  heat 0.283 size 0.501 off 0.128  val mAP  95.4  (2s) *
+ep 124  heat 0.292 size 0.512 off 0.133  val mAP  94.8  (2s)
+ep 125  heat 0.294 size 0.520 off 0.132  val mAP  95.0  (2s)
+ep 126  heat 0.291 size 0.495 off 0.132  val mAP  95.0  (2s)
+ep 127  heat 0.288 size 0.513 off 0.132  val mAP  95.2  (2s)
+ep 128  heat 0.291 size 0.512 off 0.132  val mAP  95.2  (2s)
+ep 129  heat 0.283 size 0.518 off 0.132  val mAP  95.1  (2s)
+ep 130  heat 0.295 size 0.513 off 0.130  val mAP  95.5  (2s) *
+ep 131  heat 0.287 size 0.498 off 0.127  val mAP  95.2  (2s)
+ep 132  heat 0.296 size 0.510 off 0.129  val mAP  95.0  (2s)
+ep 133  heat 0.279 size 0.500 off 0.134  val mAP  95.0  (2s)
+ep 134  heat 0.280 size 0.507 off 0.133  val mAP  95.3  (2s)
+ep 135  heat 0.283 size 0.501 off 0.132  val mAP  95.7  (2s) *
+ep 136  heat 0.275 size 0.486 off 0.130  val mAP  95.2  (2s)
+ep 137  heat 0.278 size 0.501 off 0.131  val mAP  95.0  (2s)
+ep 138  heat 0.285 size 0.506 off 0.130  val mAP  95.2  (2s)
+ep 139  heat 0.289 size 0.502 off 0.132  val mAP  95.2  (2s)
+ep 140  heat 0.289 size 0.498 off 0.130  val mAP  95.6  (2s)
+ep 141  heat 0.291 size 0.515 off 0.129  val mAP  95.1  (2s)
+ep 142  heat 0.289 size 0.494 off 0.128  val mAP  95.1  (2s)
+ep 143  heat 0.285 size 0.498 off 0.132  val mAP  95.0  (2s)
+ep 144  heat 0.266 size 0.485 off 0.130  val mAP  95.0  (2s)
+ep 145  heat 0.291 size 0.497 off 0.132  val mAP  95.1  (2s)
+ep 146  heat 0.275 size 0.487 off 0.126  val mAP  95.6  (2s)
+ep 147  heat 0.283 size 0.511 off 0.133  val mAP  95.1  (2s)
+ep 148  heat 0.289 size 0.489 off 0.132  val mAP  95.6  (2s)
+ep 149  heat 0.294 size 0.498 off 0.131  val mAP  95.0  (2s)
+ep 150  heat 0.294 size 0.492 off 0.127  val mAP  95.6  (2s)
+val: mAP@0.5 95.7 (best epoch 135)
+   Bottle            97.3  (77 boxes)
+   Can               87.3  (67 boxes)
+   Chain             93.7  (67 boxes)
+   Drink-carton      98.5  (76 boxes)
+   Hook             100.0  (34 boxes)
+   Propeller         90.7  (42 boxes)
+   Shampoo-bottle    92.2  (31 boxes)
+   Standing-bottle  100.0  (8 boxes)
+   Tire              99.8  (127 boxes)
+   Valve             98.3  (54 boxes)
+   Wall              94.8  (201 boxes)
+test: mAP@0.5 92.5 (best epoch 135)
+   Bottle            96.6  (103 boxes)
+   Can               70.2  (56 boxes)
+   Chain             90.7  (78 boxes)
+   Drink-carton      92.9  (88 boxes)
+   Hook              99.9  (40 boxes)
+   Propeller         96.3  (42 boxes)
+   Shampoo-bottle    94.2  (25 boxes)
+   Standing-bottle   91.5  (19 boxes)
+   Tire              98.5  (135 boxes)
+   Valve             91.7  (53 boxes)
+   Wall              94.7  (274 boxes)
+activation scales (x255 = uint8 range top): ['7.65', '9.65', '9.13', '6.26', '4.66', '8.14']
+val: int8 mAP@0.5 94.5  (float 95.7, delta -1.2)
+test: int8 mAP@0.5 89.6  (float 92.5, delta -2.9)
+wrote /home/server/Projeler/oguz/sonar_edge/runs/rand_small_wide_360_s1_cv_f0/int_model.json, /home/server/Projeler/oguz/sonar_edge/runs/rand_small_wide_360_s1_cv_f0/golden.npz, /home/server/Projeler/oguz/sonar_edge/runs/rand_small_wide_360_s1_cv_f0/quant_results.json
+config small_wide scale 1.3333333333333333: 135,359 params, 203.5M MACs/frame, stride 8, train/val/test 1097/383/388, device cuda
+peak CUDA memory allocated 133 MiB, reserved 196 MiB
+ep   1  heat 8.366 size 6.680 off 0.422  val mAP   0.0  (2s) *
+ep   2  heat 5.831 size 6.465 off 0.318  val mAP   0.0  (2s)
+ep   3  heat 4.159 size 6.268 off 0.274  val mAP   0.0  (2s)
+ep   4  heat 3.250 size 6.168 off 0.291  val mAP   0.0  (2s)
+ep   5  heat 2.745 size 5.928 off 0.278  val mAP   0.0  (2s) *
+ep   6  heat 2.342 size 4.998 off 0.253  val mAP   1.9  (2s) *
+ep   7  heat 1.944 size 3.467 off 0.254  val mAP   7.7  (2s) *
+ep   8  heat 1.667 size 2.813 off 0.252  val mAP  11.5  (2s) *
+ep   9  heat 1.465 size 2.468 off 0.243  val mAP  17.0  (2s) *
+ep  10  heat 1.323 size 2.234 off 0.230  val mAP  22.6  (2s) *
+ep  11  heat 1.168 size 1.869 off 0.224  val mAP  38.5  (2s) *
+ep  12  heat 1.034 size 1.556 off 0.218  val mAP  43.6  (2s) *
+ep  13  heat 0.935 size 1.386 off 0.210  val mAP  54.8  (2s) *
+ep  14  heat 0.860 size 1.314 off 0.209  val mAP  62.9  (2s) *
+ep  15  heat 0.765 size 1.272 off 0.205  val mAP  68.8  (2s) *
+ep  16  heat 0.747 size 1.187 off 0.203  val mAP  62.4  (2s)
+ep  17  heat 0.696 size 1.137 off 0.195  val mAP  74.8  (2s) *
+ep  18  heat 0.628 size 1.093 off 0.196  val mAP  71.1  (2s)
+ep  19  heat 0.630 size 1.081 off 0.194  val mAP  71.8  (2s)
+ep  20  heat 0.618 size 1.028 off 0.189  val mAP  76.8  (2s) *
+ep  21  heat 0.585 size 1.002 off 0.184  val mAP  81.6  (2s) *
+ep  22  heat 0.579 size 0.972 off 0.186  val mAP  79.3  (2s)
+ep  23  heat 0.553 size 0.949 off 0.185  val mAP  79.4  (2s)
+ep  24  heat 0.529 size 0.946 off 0.183  val mAP  78.4  (2s)
+ep  25  heat 0.514 size 0.907 off 0.181  val mAP  75.7  (2s)
+ep  26  heat 0.519 size 0.871 off 0.181  val mAP  76.6  (2s)
+ep  27  heat 0.502 size 0.895 off 0.180  val mAP  82.4  (2s) *
+ep  28  heat 0.500 size 0.858 off 0.179  val mAP  81.0  (2s)
+ep  29  heat 0.488 size 0.835 off 0.178  val mAP  80.7  (2s)
+ep  30  heat 0.475 size 0.836 off 0.176  val mAP  84.4  (2s) *
+ep  31  heat 0.486 size 0.816 off 0.172  val mAP  82.0  (2s)
+ep  32  heat 0.474 size 0.810 off 0.176  val mAP  78.9  (2s)
+ep  33  heat 0.481 size 0.815 off 0.175  val mAP  82.1  (2s)
+ep  34  heat 0.461 size 0.772 off 0.172  val mAP  83.6  (2s)
+ep  35  heat 0.455 size 0.784 off 0.173  val mAP  82.1  (2s)
+ep  36  heat 0.452 size 0.787 off 0.167  val mAP  84.6  (2s) *
+ep  37  heat 0.453 size 0.766 off 0.168  val mAP  80.2  (2s)
+ep  38  heat 0.448 size 0.759 off 0.169  val mAP  82.0  (2s)
+ep  39  heat 0.436 size 0.746 off 0.167  val mAP  82.4  (2s)
+ep  40  heat 0.456 size 0.747 off 0.166  val mAP  83.3  (2s)
+ep  41  heat 0.440 size 0.758 off 0.166  val mAP  87.3  (2s) *
+ep  42  heat 0.439 size 0.734 off 0.168  val mAP  83.2  (2s)
+ep  43  heat 0.430 size 0.731 off 0.166  val mAP  86.1  (2s)
+ep  44  heat 0.422 size 0.712 off 0.166  val mAP  84.7  (2s)
+ep  45  heat 0.421 size 0.714 off 0.165  val mAP  85.5  (2s)
+ep  46  heat 0.420 size 0.684 off 0.164  val mAP  84.9  (2s)
+ep  47  heat 0.411 size 0.709 off 0.163  val mAP  82.5  (2s)
+ep  48  heat 0.411 size 0.705 off 0.163  val mAP  87.6  (2s) *
+ep  49  heat 0.400 size 0.696 off 0.161  val mAP  87.1  (2s)
+ep  50  heat 0.406 size 0.710 off 0.163  val mAP  86.5  (2s)
+ep  51  heat 0.406 size 0.688 off 0.160  val mAP  87.7  (2s) *
+ep  52  heat 0.395 size 0.680 off 0.162  val mAP  87.4  (2s)
+ep  53  heat 0.399 size 0.658 off 0.160  val mAP  86.3  (2s)
+ep  54  heat 0.386 size 0.659 off 0.156  val mAP  86.3  (2s)
+ep  55  heat 0.389 size 0.652 off 0.156  val mAP  88.7  (2s) *
+ep  56  heat 0.371 size 0.649 off 0.155  val mAP  85.9  (2s)
+ep  57  heat 0.394 size 0.653 off 0.162  val mAP  87.0  (2s)
+ep  58  heat 0.380 size 0.639 off 0.160  val mAP  85.7  (2s)
+ep  59  heat 0.376 size 0.648 off 0.158  val mAP  88.3  (2s)
+ep  60  heat 0.387 size 0.643 off 0.156  val mAP  78.3  (2s)
+ep  61  heat 0.378 size 0.625 off 0.154  val mAP  88.9  (2s) *
+ep  62  heat 0.396 size 0.629 off 0.157  val mAP  86.4  (2s)
+ep  63  heat 0.371 size 0.627 off 0.155  val mAP  86.3  (2s)
+ep  64  heat 0.374 size 0.622 off 0.152  val mAP  87.9  (2s)
+ep  65  heat 0.377 size 0.634 off 0.156  val mAP  89.5  (2s) *
+ep  66  heat 0.375 size 0.610 off 0.152  val mAP  88.2  (2s)
+ep  67  heat 0.381 size 0.627 off 0.156  val mAP  87.7  (2s)
+ep  68  heat 0.355 size 0.612 off 0.153  val mAP  87.9  (2s)
+ep  69  heat 0.358 size 0.614 off 0.157  val mAP  87.9  (2s)
+ep  70  heat 0.368 size 0.601 off 0.150  val mAP  89.1  (2s)
+ep  71  heat 0.370 size 0.617 off 0.150  val mAP  88.9  (2s)
+ep  72  heat 0.351 size 0.605 off 0.151  val mAP  88.5  (2s)
+ep  73  heat 0.356 size 0.611 off 0.150  val mAP  89.3  (2s)
+ep  74  heat 0.353 size 0.595 off 0.148  val mAP  89.1  (2s)
+ep  75  heat 0.354 size 0.600 off 0.148  val mAP  88.7  (2s)
+ep  76  heat 0.353 size 0.605 off 0.148  val mAP  88.1  (2s)
+ep  77  heat 0.354 size 0.597 off 0.150  val mAP  89.7  (2s) *
+ep  78  heat 0.348 size 0.584 off 0.151  val mAP  90.5  (2s) *
+ep  79  heat 0.346 size 0.573 off 0.145  val mAP  89.8  (2s)
+ep  80  heat 0.333 size 0.580 off 0.148  val mAP  88.6  (2s)
+ep  81  heat 0.340 size 0.580 off 0.144  val mAP  89.6  (2s)
+ep  82  heat 0.340 size 0.559 off 0.146  val mAP  90.2  (2s)
+ep  83  heat 0.357 size 0.597 off 0.149  val mAP  88.6  (2s)
+ep  84  heat 0.335 size 0.577 off 0.147  val mAP  89.6  (2s)
+ep  85  heat 0.329 size 0.575 off 0.146  val mAP  90.5  (2s) *
+ep  86  heat 0.321 size 0.559 off 0.143  val mAP  89.6  (2s)
+ep  87  heat 0.342 size 0.556 off 0.144  val mAP  89.8  (2s)
+ep  88  heat 0.342 size 0.567 off 0.145  val mAP  90.7  (2s) *
+ep  89  heat 0.324 size 0.562 off 0.144  val mAP  89.8  (2s)
+ep  90  heat 0.327 size 0.567 off 0.145  val mAP  90.2  (2s)
+ep  91  heat 0.333 size 0.560 off 0.143  val mAP  90.2  (2s)
+ep  92  heat 0.308 size 0.547 off 0.143  val mAP  89.2  (2s)
+ep  93  heat 0.333 size 0.536 off 0.143  val mAP  90.5  (2s)
+ep  94  heat 0.335 size 0.550 off 0.142  val mAP  89.2  (2s)
+ep  95  heat 0.324 size 0.544 off 0.142  val mAP  90.7  (2s) *
+ep  96  heat 0.313 size 0.553 off 0.141  val mAP  89.2  (2s)
+ep  97  heat 0.304 size 0.541 off 0.139  val mAP  90.5  (2s)
+ep  98  heat 0.325 size 0.557 off 0.144  val mAP  89.0  (2s)
+ep  99  heat 0.323 size 0.531 off 0.139  val mAP  89.3  (2s)
+ep 100  heat 0.323 size 0.552 off 0.137  val mAP  90.8  (2s) *
+ep 101  heat 0.313 size 0.525 off 0.141  val mAP  90.4  (2s)
+ep 102  heat 0.311 size 0.529 off 0.138  val mAP  91.7  (2s) *
+ep 103  heat 0.315 size 0.529 off 0.140  val mAP  89.9  (2s)
+ep 104  heat 0.306 size 0.531 off 0.142  val mAP  90.3  (2s)
+ep 105  heat 0.306 size 0.524 off 0.135  val mAP  90.7  (2s)
+ep 106  heat 0.300 size 0.518 off 0.137  val mAP  91.3  (2s)
+ep 107  heat 0.304 size 0.529 off 0.138  val mAP  91.1  (2s)
+ep 108  heat 0.300 size 0.518 off 0.139  val mAP  91.2  (2s)
+ep 109  heat 0.308 size 0.519 off 0.136  val mAP  91.4  (2s)
+ep 110  heat 0.309 size 0.521 off 0.138  val mAP  90.3  (2s)
+ep 111  heat 0.299 size 0.511 off 0.136  val mAP  91.0  (2s)
+ep 112  heat 0.291 size 0.515 off 0.135  val mAP  90.8  (2s)
+ep 113  heat 0.289 size 0.515 off 0.137  val mAP  90.6  (2s)
+ep 114  heat 0.299 size 0.521 off 0.136  val mAP  91.0  (2s)
+ep 115  heat 0.298 size 0.502 off 0.133  val mAP  90.6  (2s)
+ep 116  heat 0.302 size 0.502 off 0.137  val mAP  91.0  (2s)
+ep 117  heat 0.288 size 0.508 off 0.134  val mAP  91.2  (2s)
+ep 118  heat 0.293 size 0.513 off 0.135  val mAP  90.7  (2s)
+ep 119  heat 0.294 size 0.500 off 0.137  val mAP  91.6  (2s)
+ep 120  heat 0.300 size 0.513 off 0.133  val mAP  91.6  (2s)
+ep 121  heat 0.298 size 0.492 off 0.132  val mAP  90.7  (2s)
+ep 122  heat 0.299 size 0.517 off 0.132  val mAP  90.9  (2s)
+ep 123  heat 0.302 size 0.511 off 0.134  val mAP  91.0  (2s)
+ep 124  heat 0.292 size 0.508 off 0.130  val mAP  90.8  (2s)
+ep 125  heat 0.280 size 0.502 off 0.132  val mAP  90.9  (2s)
+ep 126  heat 0.281 size 0.501 off 0.130  val mAP  90.7  (2s)
+ep 127  heat 0.283 size 0.500 off 0.130  val mAP  91.0  (2s)
+ep 128  heat 0.279 size 0.491 off 0.132  val mAP  91.0  (2s)
+ep 129  heat 0.289 size 0.495 off 0.133  val mAP  91.3  (2s)
+ep 130  heat 0.290 size 0.484 off 0.132  val mAP  91.2  (2s)
+ep 131  heat 0.287 size 0.498 off 0.130  val mAP  91.1  (2s)
+ep 132  heat 0.285 size 0.495 off 0.132  val mAP  91.4  (2s)
+ep 133  heat 0.285 size 0.510 off 0.133  val mAP  91.1  (2s)
+ep 134  heat 0.280 size 0.488 off 0.129  val mAP  91.2  (2s)
+ep 135  heat 0.283 size 0.495 off 0.132  val mAP  90.8  (2s)
+ep 136  heat 0.279 size 0.491 off 0.133  val mAP  91.3  (2s)
+ep 137  heat 0.280 size 0.491 off 0.130  val mAP  91.2  (2s)
+ep 138  heat 0.281 size 0.473 off 0.130  val mAP  91.5  (2s)
+ep 139  heat 0.273 size 0.495 off 0.131  val mAP  91.1  (2s)
+ep 140  heat 0.290 size 0.485 off 0.127  val mAP  91.0  (2s)
+ep 141  heat 0.298 size 0.498 off 0.131  val mAP  91.2  (2s)
+ep 142  heat 0.282 size 0.493 off 0.132  val mAP  91.3  (2s)
+ep 143  heat 0.284 size 0.498 off 0.130  val mAP  91.1  (2s)
+ep 144  heat 0.274 size 0.486 off 0.130  val mAP  91.0  (2s)
+ep 145  heat 0.284 size 0.480 off 0.133  val mAP  91.1  (2s)
+ep 146  heat 0.285 size 0.489 off 0.132  val mAP  91.1  (2s)
+ep 147  heat 0.285 size 0.482 off 0.132  val mAP  91.0  (2s)
+ep 148  heat 0.286 size 0.496 off 0.131  val mAP  90.8  (2s)
+ep 149  heat 0.284 size 0.494 off 0.129  val mAP  90.8  (2s)
+ep 150  heat 0.282 size 0.487 off 0.132  val mAP  90.8  (2s)
+val: mAP@0.5 91.7 (best epoch 102)
+   Bottle            95.0  (109 boxes)
+   Can               73.6  (65 boxes)
+   Chain             94.1  (61 boxes)
+   Drink-carton     100.0  (66 boxes)
+   Hook              98.5  (34 boxes)
+   Propeller         92.3  (49 boxes)
+   Shampoo-bottle    85.2  (20 boxes)
+   Standing-bottle   89.7  (15 boxes)
+   Tire              98.9  (133 boxes)
+   Valve             90.4  (53 boxes)
+   Wall              91.3  (217 boxes)
+test: mAP@0.5 93.8 (best epoch 102)
+   Bottle            98.3  (77 boxes)
+   Can               81.5  (67 boxes)
+   Chain             93.2  (67 boxes)
+   Drink-carton      94.6  (76 boxes)
+   Hook             100.0  (34 boxes)
+   Propeller         82.9  (42 boxes)
+   Shampoo-bottle    88.4  (31 boxes)
+   Standing-bottle  100.0  (8 boxes)
+   Tire              99.5  (127 boxes)
+   Valve             97.6  (54 boxes)
+   Wall              95.8  (201 boxes)
+activation scales (x255 = uint8 range top): ['7.44', '9.01', '8.97', '6.37', '4.78', '8.23']
+val: int8 mAP@0.5 91.9  (float 91.7, delta +0.2)
+test: int8 mAP@0.5 93.7  (float 93.8, delta -0.1)
+wrote /home/server/Projeler/oguz/sonar_edge/runs/rand_small_wide_360_s1_cv_f1/int_model.json, /home/server/Projeler/oguz/sonar_edge/runs/rand_small_wide_360_s1_cv_f1/golden.npz, /home/server/Projeler/oguz/sonar_edge/runs/rand_small_wide_360_s1_cv_f1/quant_results.json
+config small_wide scale 1.3333333333333333: 135,359 params, 203.5M MACs/frame, stride 8, train/val/test 1255/230/383, device cuda
+peak CUDA memory allocated 133 MiB, reserved 196 MiB
+ep   1  heat 8.192 size 6.595 off 0.425  val mAP   0.0  (3s) *
+ep   2  heat 5.515 size 6.346 off 0.307  val mAP   0.0  (2s)
+ep   3  heat 3.931 size 6.203 off 0.281  val mAP   0.0  (2s)
+ep   4  heat 3.108 size 6.119 off 0.289  val mAP   0.0  (2s)
+ep   5  heat 2.618 size 5.629 off 0.270  val mAP   0.1  (2s) *
+ep   6  heat 2.240 size 4.495 off 0.247  val mAP   8.5  (2s) *
+ep   7  heat 1.840 size 3.223 off 0.247  val mAP  12.0  (2s) *
+ep   8  heat 1.543 size 2.821 off 0.244  val mAP  17.4  (2s) *
+ep   9  heat 1.334 size 2.448 off 0.234  val mAP  29.7  (2s) *
+ep  10  heat 1.168 size 2.045 off 0.229  val mAP  35.9  (2s) *
+ep  11  heat 1.005 size 1.650 off 0.223  val mAP  54.2  (2s) *
+ep  12  heat 0.898 size 1.451 off 0.217  val mAP  60.5  (2s) *
+ep  13  heat 0.827 size 1.302 off 0.211  val mAP  59.8  (2s)
+ep  14  heat 0.774 size 1.217 off 0.206  val mAP  61.2  (2s) *
+ep  15  heat 0.715 size 1.148 off 0.202  val mAP  72.5  (2s) *
+ep  16  heat 0.662 size 1.066 off 0.205  val mAP  81.2  (2s) *
+ep  17  heat 0.633 size 1.067 off 0.195  val mAP  73.9  (2s)
+ep  18  heat 0.624 size 1.004 off 0.192  val mAP  73.6  (2s)
+ep  19  heat 0.600 size 0.983 off 0.195  val mAP  49.1  (2s)
+ep  20  heat 0.567 size 0.934 off 0.188  val mAP  86.8  (2s) *
+ep  21  heat 0.557 size 0.919 off 0.185  val mAP  82.6  (2s)
+ep  22  heat 0.533 size 0.898 off 0.185  val mAP  85.6  (2s)
+ep  23  heat 0.542 size 0.861 off 0.185  val mAP  90.9  (2s) *
+ep  24  heat 0.514 size 0.840 off 0.183  val mAP  92.6  (2s) *
+ep  25  heat 0.527 size 0.849 off 0.182  val mAP  74.8  (2s)
+ep  26  heat 0.508 size 0.837 off 0.182  val mAP  91.8  (2s)
+ep  27  heat 0.499 size 0.809 off 0.181  val mAP  92.3  (2s)
+ep  28  heat 0.489 size 0.833 off 0.178  val mAP  71.5  (2s)
+ep  29  heat 0.481 size 0.784 off 0.177  val mAP  92.8  (2s) *
+ep  30  heat 0.469 size 0.752 off 0.172  val mAP  91.8  (2s)
+ep  31  heat 0.455 size 0.781 off 0.174  val mAP  83.8  (2s)
+ep  32  heat 0.464 size 0.771 off 0.172  val mAP  88.7  (2s)
+ep  33  heat 0.475 size 0.766 off 0.174  val mAP  89.8  (2s)
+ep  34  heat 0.468 size 0.744 off 0.174  val mAP  93.0  (2s) *
+ep  35  heat 0.454 size 0.740 off 0.170  val mAP  90.8  (2s)
+ep  36  heat 0.426 size 0.722 off 0.167  val mAP  91.5  (2s)
+ep  37  heat 0.438 size 0.716 off 0.172  val mAP  83.8  (2s)
+ep  38  heat 0.443 size 0.728 off 0.169  val mAP  91.9  (2s)
+ep  39  heat 0.455 size 0.734 off 0.170  val mAP  88.0  (2s)
+ep  40  heat 0.441 size 0.688 off 0.168  val mAP  92.6  (2s)
+ep  41  heat 0.430 size 0.709 off 0.170  val mAP  94.7  (2s) *
+ep  42  heat 0.432 size 0.689 off 0.168  val mAP  92.3  (2s)
+ep  43  heat 0.419 size 0.679 off 0.168  val mAP  89.8  (2s)
+ep  44  heat 0.417 size 0.673 off 0.165  val mAP  87.9  (2s)
+ep  45  heat 0.406 size 0.658 off 0.164  val mAP  92.9  (2s)
+ep  46  heat 0.416 size 0.690 off 0.163  val mAP  93.8  (2s)
+ep  47  heat 0.404 size 0.653 off 0.161  val mAP  87.3  (2s)
+ep  48  heat 0.408 size 0.688 off 0.161  val mAP  93.3  (2s)
+ep  49  heat 0.403 size 0.644 off 0.163  val mAP  92.9  (2s)
+ep  50  heat 0.403 size 0.641 off 0.164  val mAP  93.8  (2s)
+ep  51  heat 0.408 size 0.665 off 0.158  val mAP  92.5  (2s)
+ep  52  heat 0.390 size 0.671 off 0.160  val mAP  92.9  (2s)
+ep  53  heat 0.405 size 0.647 off 0.160  val mAP  92.9  (2s)
+ep  54  heat 0.401 size 0.640 off 0.157  val mAP  90.3  (2s)
+ep  55  heat 0.390 size 0.625 off 0.159  val mAP  86.4  (2s)
+ep  56  heat 0.384 size 0.645 off 0.159  val mAP  91.0  (2s)
+ep  57  heat 0.373 size 0.622 off 0.158  val mAP  91.2  (2s)
+ep  58  heat 0.386 size 0.629 off 0.160  val mAP  93.9  (2s)
+ep  59  heat 0.383 size 0.657 off 0.157  val mAP  94.1  (2s)
+ep  60  heat 0.368 size 0.618 off 0.157  val mAP  93.8  (2s)
+ep  61  heat 0.367 size 0.605 off 0.156  val mAP  92.6  (2s)
+ep  62  heat 0.372 size 0.572 off 0.155  val mAP  93.1  (2s)
+ep  63  heat 0.370 size 0.601 off 0.151  val mAP  91.7  (2s)
+ep  64  heat 0.373 size 0.604 off 0.156  val mAP  89.4  (2s)
+ep  65  heat 0.361 size 0.596 off 0.155  val mAP  94.0  (2s)
+ep  66  heat 0.369 size 0.608 off 0.153  val mAP  94.9  (2s) *
+ep  67  heat 0.368 size 0.584 off 0.150  val mAP  89.3  (2s)
+ep  68  heat 0.363 size 0.579 off 0.152  val mAP  93.0  (2s)
+ep  69  heat 0.355 size 0.600 off 0.153  val mAP  93.7  (2s)
+ep  70  heat 0.374 size 0.591 off 0.150  val mAP  90.9  (2s)
+ep  71  heat 0.352 size 0.572 off 0.149  val mAP  93.5  (2s)
+ep  72  heat 0.359 size 0.591 off 0.153  val mAP  94.0  (2s)
+ep  73  heat 0.357 size 0.590 off 0.150  val mAP  89.6  (2s)
+ep  74  heat 0.355 size 0.573 off 0.150  val mAP  91.1  (2s)
+ep  75  heat 0.341 size 0.568 off 0.150  val mAP  94.5  (2s)
+ep  76  heat 0.338 size 0.576 off 0.147  val mAP  94.5  (2s)
+ep  77  heat 0.343 size 0.575 off 0.150  val mAP  94.7  (2s)
+ep  78  heat 0.343 size 0.563 off 0.151  val mAP  93.8  (2s)
+ep  79  heat 0.355 size 0.564 off 0.151  val mAP  94.6  (2s)
+ep  80  heat 0.344 size 0.568 off 0.144  val mAP  93.7  (2s)
+ep  81  heat 0.344 size 0.557 off 0.146  val mAP  92.4  (2s)
+ep  82  heat 0.345 size 0.539 off 0.147  val mAP  94.2  (2s)
+ep  83  heat 0.324 size 0.556 off 0.147  val mAP  93.6  (2s)
+ep  84  heat 0.333 size 0.556 off 0.148  val mAP  94.2  (2s)
+ep  85  heat 0.339 size 0.558 off 0.145  val mAP  94.2  (2s)
+ep  86  heat 0.330 size 0.553 off 0.146  val mAP  94.7  (2s)
+ep  87  heat 0.325 size 0.544 off 0.144  val mAP  95.0  (2s) *
+ep  88  heat 0.322 size 0.537 off 0.144  val mAP  94.9  (2s)
+ep  89  heat 0.336 size 0.542 off 0.143  val mAP  94.8  (2s)
+ep  90  heat 0.323 size 0.535 off 0.141  val mAP  90.6  (2s)
+ep  91  heat 0.333 size 0.540 off 0.147  val mAP  94.0  (2s)
+ep  92  heat 0.329 size 0.535 off 0.142  val mAP  94.9  (2s)
+ep  93  heat 0.332 size 0.519 off 0.142  val mAP  93.9  (2s)
+ep  94  heat 0.323 size 0.539 off 0.142  val mAP  91.4  (2s)
+ep  95  heat 0.328 size 0.518 off 0.139  val mAP  90.8  (2s)
+ep  96  heat 0.327 size 0.527 off 0.143  val mAP  94.3  (2s)
+ep  97  heat 0.316 size 0.528 off 0.142  val mAP  93.8  (2s)
+ep  98  heat 0.311 size 0.509 off 0.138  val mAP  94.4  (2s)
+ep  99  heat 0.323 size 0.528 off 0.140  val mAP  90.9  (2s)
+ep 100  heat 0.306 size 0.516 off 0.138  val mAP  90.8  (2s)
+ep 101  heat 0.314 size 0.507 off 0.142  val mAP  93.6  (2s)
+ep 102  heat 0.303 size 0.500 off 0.138  val mAP  95.1  (2s) *
+ep 103  heat 0.308 size 0.516 off 0.138  val mAP  94.2  (2s)
+ep 104  heat 0.306 size 0.511 off 0.137  val mAP  94.5  (2s)
+ep 105  heat 0.312 size 0.523 off 0.140  val mAP  94.0  (2s)
+ep 106  heat 0.292 size 0.515 off 0.137  val mAP  94.1  (2s)
+ep 107  heat 0.311 size 0.528 off 0.138  val mAP  94.9  (2s)
+ep 108  heat 0.313 size 0.496 off 0.139  val mAP  94.5  (2s)
+ep 109  heat 0.315 size 0.506 off 0.136  val mAP  95.2  (2s) *
+ep 110  heat 0.307 size 0.510 off 0.138  val mAP  94.8  (2s)
+ep 111  heat 0.309 size 0.503 off 0.134  val mAP  95.1  (2s)
+ep 112  heat 0.304 size 0.490 off 0.136  val mAP  94.4  (2s)
+ep 113  heat 0.299 size 0.495 off 0.137  val mAP  94.4  (2s)
+ep 114  heat 0.297 size 0.489 off 0.136  val mAP  95.0  (2s)
+ep 115  heat 0.297 size 0.500 off 0.138  val mAP  94.6  (2s)
+ep 116  heat 0.299 size 0.498 off 0.136  val mAP  94.3  (2s)
+ep 117  heat 0.289 size 0.484 off 0.135  val mAP  94.7  (2s)
+ep 118  heat 0.292 size 0.492 off 0.133  val mAP  94.5  (2s)
+ep 119  heat 0.292 size 0.473 off 0.134  val mAP  94.5  (2s)
+ep 120  heat 0.289 size 0.489 off 0.133  val mAP  95.0  (2s)
+ep 121  heat 0.292 size 0.485 off 0.134  val mAP  94.8  (2s)
+ep 122  heat 0.292 size 0.479 off 0.133  val mAP  94.2  (2s)
+ep 123  heat 0.288 size 0.481 off 0.132  val mAP  94.5  (2s)
+ep 124  heat 0.284 size 0.487 off 0.132  val mAP  95.0  (2s)
+ep 125  heat 0.291 size 0.471 off 0.132  val mAP  94.8  (2s)
+ep 126  heat 0.293 size 0.478 off 0.131  val mAP  95.0  (2s)
+ep 127  heat 0.279 size 0.482 off 0.132  val mAP  95.0  (2s)
+ep 128  heat 0.282 size 0.462 off 0.132  val mAP  94.9  (2s)
+ep 129  heat 0.282 size 0.477 off 0.134  val mAP  95.0  (2s)
+ep 130  heat 0.285 size 0.481 off 0.133  val mAP  95.0  (2s)
+ep 131  heat 0.300 size 0.470 off 0.131  val mAP  94.8  (2s)
+ep 132  heat 0.283 size 0.468 off 0.128  val mAP  95.0  (2s)
+ep 133  heat 0.289 size 0.480 off 0.132  val mAP  95.2  (2s)
+ep 134  heat 0.285 size 0.477 off 0.130  val mAP  95.1  (2s)
+ep 135  heat 0.289 size 0.483 off 0.131  val mAP  95.0  (2s)
+ep 136  heat 0.284 size 0.474 off 0.130  val mAP  95.1  (2s)
+ep 137  heat 0.275 size 0.476 off 0.131  val mAP  95.1  (2s)
+ep 138  heat 0.287 size 0.462 off 0.129  val mAP  95.1  (2s)
+ep 139  heat 0.289 size 0.457 off 0.129  val mAP  95.0  (2s)
+ep 140  heat 0.291 size 0.470 off 0.133  val mAP  95.0  (2s)
+ep 141  heat 0.288 size 0.485 off 0.131  val mAP  95.0  (2s)
+ep 142  heat 0.281 size 0.476 off 0.132  val mAP  94.9  (2s)
+ep 143  heat 0.277 size 0.461 off 0.131  val mAP  94.8  (2s)
+ep 144  heat 0.271 size 0.458 off 0.129  val mAP  94.9  (2s)
+ep 145  heat 0.286 size 0.480 off 0.133  val mAP  94.5  (2s)
+ep 146  heat 0.271 size 0.464 off 0.131  val mAP  94.9  (2s)
+ep 147  heat 0.282 size 0.487 off 0.130  val mAP  94.8  (2s)
+ep 148  heat 0.279 size 0.472 off 0.128  val mAP  94.9  (2s)
+ep 149  heat 0.281 size 0.460 off 0.130  val mAP  94.8  (2s)
+ep 150  heat 0.283 size 0.476 off 0.126  val mAP  94.8  (2s)
+val: mAP@0.5 95.2 (best epoch 109)
+   Bottle            96.7  (64 boxes)
+   Can               82.4  (33 boxes)
+   Chain             96.0  (41 boxes)
+   Drink-carton     100.0  (37 boxes)
+   Hook              99.3  (20 boxes)
+   Propeller         88.6  (20 boxes)
+   Shampoo-bottle    97.3  (16 boxes)
+   Standing-bottle  100.0  (4 boxes)
+   Tire              98.7  (83 boxes)
+   Valve             90.6  (22 boxes)
+   Wall              97.5  (132 boxes)
+test: mAP@0.5 92.7 (best epoch 109)
+   Bottle            96.3  (109 boxes)
+   Can               79.6  (65 boxes)
+   Chain             91.4  (61 boxes)
+   Drink-carton      99.6  (66 boxes)
+   Hook              97.9  (34 boxes)
+   Propeller         93.8  (49 boxes)
+   Shampoo-bottle    90.0  (20 boxes)
+   Standing-bottle   87.5  (15 boxes)
+   Tire              99.7  (133 boxes)
+   Valve             92.0  (53 boxes)
+   Wall              91.8  (217 boxes)
+activation scales (x255 = uint8 range top): ['7.37', '9.81', '9.13', '6.82', '4.74', '8.09']
+val: int8 mAP@0.5 91.1  (float 95.2, delta -4.1)
+test: int8 mAP@0.5 90.7  (float 92.7, delta -2.0)
+wrote /home/server/Projeler/oguz/sonar_edge/runs/rand_small_wide_360_s1_cv_f2/int_model.json, /home/server/Projeler/oguz/sonar_edge/runs/rand_small_wide_360_s1_cv_f2/golden.npz, /home/server/Projeler/oguz/sonar_edge/runs/rand_small_wide_360_s1_cv_f2/quant_results.json
+config small_wide scale 1.3333333333333333: 135,359 params, 203.5M MACs/frame, stride 8, train/val/test 1210/428/230, device cuda
+peak CUDA memory allocated 133 MiB, reserved 196 MiB
+ep   1  heat 8.179 size 6.555 off 0.429  val mAP   0.0  (3s) *
+ep   2  heat 5.575 size 6.327 off 0.308  val mAP   0.0  (2s)
+ep   3  heat 3.980 size 6.184 off 0.279  val mAP   0.0  (2s)
+ep   4  heat 3.134 size 6.066 off 0.293  val mAP   0.0  (2s)
+ep   5  heat 2.662 size 5.700 off 0.277  val mAP   0.0  (2s) *
+ep   6  heat 2.243 size 4.530 off 0.250  val mAP   5.8  (2s) *
+ep   7  heat 1.854 size 3.195 off 0.254  val mAP   9.2  (2s) *
+ep   8  heat 1.606 size 2.782 off 0.240  val mAP  15.1  (2s) *
+ep   9  heat 1.422 size 2.430 off 0.238  val mAP  20.1  (2s) *
+ep  10  heat 1.313 size 2.159 off 0.229  val mAP  24.1  (2s) *
+ep  11  heat 1.128 size 1.716 off 0.221  val mAP  45.4  (2s) *
+ep  12  heat 0.996 size 1.430 off 0.211  val mAP  57.2  (2s) *
+ep  13  heat 0.882 size 1.323 off 0.207  val mAP  67.1  (2s) *
+ep  14  heat 0.836 size 1.271 off 0.205  val mAP  65.2  (2s)
+ep  15  heat 0.779 size 1.140 off 0.206  val mAP  60.3  (2s)
+ep  16  heat 0.705 size 1.123 off 0.203  val mAP  75.6  (2s) *
+ep  17  heat 0.686 size 1.101 off 0.197  val mAP  78.3  (2s) *
+ep  18  heat 0.642 size 1.051 off 0.194  val mAP  81.7  (2s) *
+ep  19  heat 0.617 size 0.996 off 0.196  val mAP  85.4  (2s) *
+ep  20  heat 0.595 size 0.981 off 0.189  val mAP  82.0  (2s)
+ep  21  heat 0.572 size 0.937 off 0.188  val mAP  86.0  (2s) *
+ep  22  heat 0.555 size 0.921 off 0.192  val mAP  84.5  (2s)
+ep  23  heat 0.557 size 0.927 off 0.184  val mAP  88.3  (2s) *
+ep  24  heat 0.547 size 0.881 off 0.181  val mAP  77.8  (2s)
+ep  25  heat 0.545 size 0.843 off 0.182  val mAP  89.6  (2s) *
+ep  26  heat 0.516 size 0.833 off 0.180  val mAP  88.3  (2s)
+ep  27  heat 0.500 size 0.809 off 0.179  val mAP  88.7  (2s)
+ep  28  heat 0.502 size 0.832 off 0.176  val mAP  90.2  (2s) *
+ep  29  heat 0.486 size 0.802 off 0.174  val mAP  84.6  (2s)
+ep  30  heat 0.503 size 0.776 off 0.178  val mAP  90.3  (2s) *
+ep  31  heat 0.479 size 0.789 off 0.178  val mAP  89.1  (2s)
+ep  32  heat 0.473 size 0.801 off 0.175  val mAP  89.6  (2s)
+ep  33  heat 0.469 size 0.768 off 0.170  val mAP  91.5  (2s) *
+ep  34  heat 0.478 size 0.786 off 0.171  val mAP  90.6  (2s)
+ep  35  heat 0.471 size 0.730 off 0.172  val mAP  88.1  (2s)
+ep  36  heat 0.467 size 0.771 off 0.170  val mAP  89.3  (2s)
+ep  37  heat 0.451 size 0.735 off 0.167  val mAP  89.2  (2s)
+ep  38  heat 0.454 size 0.735 off 0.169  val mAP  92.0  (2s) *
+ep  39  heat 0.459 size 0.736 off 0.168  val mAP  91.3  (2s)
+ep  40  heat 0.444 size 0.726 off 0.171  val mAP  89.1  (2s)
+ep  41  heat 0.446 size 0.739 off 0.169  val mAP  89.4  (2s)
+ep  42  heat 0.429 size 0.695 off 0.163  val mAP  90.0  (2s)
+ep  43  heat 0.435 size 0.725 off 0.165  val mAP  90.0  (2s)
+ep  44  heat 0.423 size 0.692 off 0.166  val mAP  90.2  (2s)
+ep  45  heat 0.424 size 0.689 off 0.163  val mAP  90.9  (2s)
+ep  46  heat 0.422 size 0.707 off 0.163  val mAP  90.8  (2s)
+ep  47  heat 0.420 size 0.669 off 0.161  val mAP  91.7  (2s)
+ep  48  heat 0.437 size 0.672 off 0.163  val mAP  88.6  (2s)
+ep  49  heat 0.432 size 0.672 off 0.161  val mAP  92.2  (2s) *
+ep  50  heat 0.403 size 0.665 off 0.160  val mAP  91.9  (2s)
+ep  51  heat 0.409 size 0.665 off 0.161  val mAP  92.1  (2s)
+ep  52  heat 0.416 size 0.678 off 0.159  val mAP  92.4  (2s) *
+ep  53  heat 0.393 size 0.678 off 0.163  val mAP  93.0  (2s) *
+ep  54  heat 0.391 size 0.653 off 0.160  val mAP  92.9  (2s)
+ep  55  heat 0.396 size 0.637 off 0.161  val mAP  93.0  (2s)
+ep  56  heat 0.401 size 0.631 off 0.162  val mAP  89.8  (2s)
+ep  57  heat 0.386 size 0.645 off 0.160  val mAP  90.0  (2s)
+ep  58  heat 0.391 size 0.633 off 0.156  val mAP  91.6  (2s)
+ep  59  heat 0.392 size 0.635 off 0.155  val mAP  89.8  (2s)
+ep  60  heat 0.377 size 0.636 off 0.156  val mAP  92.3  (2s)
+ep  61  heat 0.373 size 0.612 off 0.157  val mAP  91.7  (2s)
+ep  62  heat 0.388 size 0.626 off 0.158  val mAP  90.6  (2s)
+ep  63  heat 0.388 size 0.617 off 0.153  val mAP  91.4  (2s)
+ep  64  heat 0.389 size 0.613 off 0.155  val mAP  90.8  (2s)
+ep  65  heat 0.377 size 0.628 off 0.156  val mAP  93.6  (2s) *
+ep  66  heat 0.376 size 0.598 off 0.158  val mAP  92.1  (2s)
+ep  67  heat 0.374 size 0.603 off 0.152  val mAP  92.4  (2s)
+ep  68  heat 0.376 size 0.616 off 0.154  val mAP  92.2  (2s)
+ep  69  heat 0.363 size 0.614 off 0.150  val mAP  93.0  (2s)
+ep  70  heat 0.374 size 0.597 off 0.151  val mAP  92.4  (2s)
+ep  71  heat 0.352 size 0.598 off 0.153  val mAP  93.2  (2s)
+ep  72  heat 0.369 size 0.619 off 0.153  val mAP  92.8  (2s)
+ep  73  heat 0.364 size 0.594 off 0.154  val mAP  91.1  (2s)
+ep  74  heat 0.373 size 0.597 off 0.149  val mAP  91.6  (2s)
+ep  75  heat 0.359 size 0.598 off 0.150  val mAP  92.4  (2s)
+ep  76  heat 0.353 size 0.595 off 0.152  val mAP  91.8  (2s)
+ep  77  heat 0.351 size 0.582 off 0.149  val mAP  92.4  (2s)
+ep  78  heat 0.359 size 0.589 off 0.148  val mAP  92.4  (2s)
+ep  79  heat 0.344 size 0.591 off 0.149  val mAP  91.9  (2s)
+ep  80  heat 0.351 size 0.589 off 0.150  val mAP  93.7  (2s) *
+ep  81  heat 0.354 size 0.571 off 0.150  val mAP  92.7  (2s)
+ep  82  heat 0.345 size 0.585 off 0.150  val mAP  92.8  (2s)
+ep  83  heat 0.348 size 0.568 off 0.148  val mAP  92.0  (2s)
+ep  84  heat 0.338 size 0.564 off 0.150  val mAP  93.3  (2s)
+ep  85  heat 0.341 size 0.553 off 0.144  val mAP  92.1  (2s)
+ep  86  heat 0.350 size 0.570 off 0.148  val mAP  91.6  (2s)
+ep  87  heat 0.345 size 0.547 off 0.144  val mAP  93.0  (2s)
+ep  88  heat 0.352 size 0.571 off 0.146  val mAP  92.3  (2s)
+ep  89  heat 0.336 size 0.567 off 0.145  val mAP  92.3  (2s)
+ep  90  heat 0.345 size 0.544 off 0.145  val mAP  93.5  (2s)
+ep  91  heat 0.329 size 0.553 off 0.143  val mAP  93.7  (2s)
+ep  92  heat 0.322 size 0.553 off 0.141  val mAP  93.5  (2s)
+ep  93  heat 0.329 size 0.559 off 0.143  val mAP  92.9  (2s)
+ep  94  heat 0.322 size 0.551 off 0.143  val mAP  93.4  (2s)
+ep  95  heat 0.329 size 0.552 off 0.140  val mAP  93.2  (2s)
+ep  96  heat 0.321 size 0.528 off 0.142  val mAP  93.8  (2s) *
+ep  97  heat 0.329 size 0.546 off 0.142  val mAP  92.5  (2s)
+ep  98  heat 0.329 size 0.558 off 0.142  val mAP  93.5  (2s)
+ep  99  heat 0.317 size 0.533 off 0.142  val mAP  93.0  (2s)
+ep 100  heat 0.334 size 0.547 off 0.144  val mAP  93.2  (2s)
+ep 101  heat 0.323 size 0.531 off 0.140  val mAP  93.9  (2s) *
+ep 102  heat 0.305 size 0.519 off 0.141  val mAP  93.5  (2s)
+ep 103  heat 0.309 size 0.527 off 0.141  val mAP  93.5  (2s)
+ep 104  heat 0.318 size 0.544 off 0.140  val mAP  93.0  (2s)
+ep 105  heat 0.309 size 0.528 off 0.141  val mAP  93.3  (2s)
+ep 106  heat 0.315 size 0.527 off 0.139  val mAP  93.5  (2s)
+ep 107  heat 0.306 size 0.503 off 0.137  val mAP  93.1  (2s)
+ep 108  heat 0.308 size 0.525 off 0.139  val mAP  93.4  (2s)
+ep 109  heat 0.313 size 0.528 off 0.137  val mAP  93.3  (2s)
+ep 110  heat 0.313 size 0.523 off 0.136  val mAP  93.5  (2s)
+ep 111  heat 0.312 size 0.522 off 0.136  val mAP  94.0  (2s) *
+ep 112  heat 0.308 size 0.513 off 0.137  val mAP  93.6  (2s)
+ep 113  heat 0.310 size 0.513 off 0.140  val mAP  93.5  (2s)
+ep 114  heat 0.307 size 0.509 off 0.139  val mAP  93.9  (2s)
+ep 115  heat 0.308 size 0.509 off 0.134  val mAP  93.7  (2s)
+ep 116  heat 0.304 size 0.501 off 0.136  val mAP  93.5  (2s)
+ep 117  heat 0.304 size 0.498 off 0.135  val mAP  93.2  (2s)
+ep 118  heat 0.302 size 0.515 off 0.136  val mAP  92.8  (2s)
+ep 119  heat 0.298 size 0.509 off 0.134  val mAP  93.7  (2s)
+ep 120  heat 0.307 size 0.512 off 0.135  val mAP  94.0  (2s) *
+ep 121  heat 0.303 size 0.509 off 0.133  val mAP  93.8  (2s)
+ep 122  heat 0.301 size 0.498 off 0.136  val mAP  94.1  (2s) *
+ep 123  heat 0.302 size 0.505 off 0.136  val mAP  94.1  (2s) *
+ep 124  heat 0.293 size 0.488 off 0.135  val mAP  93.6  (2s)
+ep 125  heat 0.296 size 0.503 off 0.133  val mAP  93.5  (2s)
+ep 126  heat 0.289 size 0.491 off 0.133  val mAP  93.5  (2s)
+ep 127  heat 0.302 size 0.497 off 0.136  val mAP  93.6  (2s)
+ep 128  heat 0.294 size 0.505 off 0.135  val mAP  93.8  (2s)
+ep 129  heat 0.295 size 0.477 off 0.132  val mAP  93.4  (2s)
+ep 130  heat 0.290 size 0.499 off 0.133  val mAP  93.7  (2s)
+ep 131  heat 0.297 size 0.502 off 0.134  val mAP  93.1  (2s)
+ep 132  heat 0.286 size 0.485 off 0.132  val mAP  93.3  (2s)
+ep 133  heat 0.295 size 0.492 off 0.131  val mAP  93.7  (2s)
+ep 134  heat 0.297 size 0.495 off 0.133  val mAP  93.3  (2s)
+ep 135  heat 0.296 size 0.494 off 0.133  val mAP  93.7  (2s)
+ep 136  heat 0.292 size 0.495 off 0.131  val mAP  93.3  (2s)
+ep 137  heat 0.293 size 0.504 off 0.134  val mAP  93.3  (2s)
+ep 138  heat 0.298 size 0.490 off 0.132  val mAP  93.4  (2s)
+ep 139  heat 0.285 size 0.476 off 0.132  val mAP  93.3  (2s)
+ep 140  heat 0.293 size 0.492 off 0.133  val mAP  93.3  (2s)
+ep 141  heat 0.280 size 0.488 off 0.132  val mAP  93.3  (2s)
+ep 142  heat 0.286 size 0.484 off 0.132  val mAP  93.3  (2s)
+ep 143  heat 0.299 size 0.503 off 0.132  val mAP  93.3  (2s)
+ep 144  heat 0.301 size 0.490 off 0.133  val mAP  93.3  (2s)
+ep 145  heat 0.292 size 0.496 off 0.129  val mAP  93.3  (2s)
+ep 146  heat 0.278 size 0.479 off 0.131  val mAP  93.3  (2s)
+ep 147  heat 0.298 size 0.491 off 0.132  val mAP  93.3  (2s)
+ep 148  heat 0.289 size 0.486 off 0.134  val mAP  93.3  (2s)
+ep 149  heat 0.288 size 0.477 off 0.130  val mAP  93.3  (2s)
+ep 150  heat 0.284 size 0.494 off 0.131  val mAP  93.2  (2s)
+val: mAP@0.5 94.1 (best epoch 123)
+   Bottle            97.5  (115 boxes)
+   Can               74.2  (71 boxes)
+   Chain             95.2  (73 boxes)
+   Drink-carton      92.6  (80 boxes)
+   Hook             100.0  (43 boxes)
+   Propeller         96.6  (44 boxes)
+   Shampoo-bottle    96.1  (19 boxes)
+   Standing-bottle   92.3  (19 boxes)
+   Tire              99.0  (137 boxes)
+   Valve             95.7  (58 boxes)
+   Wall              95.5  (232 boxes)
+test: mAP@0.5 95.3 (best epoch 123)
+   Bottle            98.1  (64 boxes)
+   Can               81.3  (33 boxes)
+   Chain             97.2  (41 boxes)
+   Drink-carton     100.0  (37 boxes)
+   Hook              97.5  (20 boxes)
+   Propeller         86.8  (20 boxes)
+   Shampoo-bottle   100.0  (16 boxes)
+   Standing-bottle  100.0  (4 boxes)
+   Tire              98.4  (83 boxes)
+   Valve             91.6  (22 boxes)
+   Wall              97.8  (132 boxes)
+activation scales (x255 = uint8 range top): ['7.65', '9.85', '10.08', '6.60', '4.69', '7.67']
+val: int8 mAP@0.5 93.4  (float 94.1, delta -0.7)
+test: int8 mAP@0.5 95.2  (float 95.3, delta -0.1)
+wrote /home/server/Projeler/oguz/sonar_edge/runs/rand_small_wide_360_s1_cv_f3/int_model.json, /home/server/Projeler/oguz/sonar_edge/runs/rand_small_wide_360_s1_cv_f3/golden.npz, /home/server/Projeler/oguz/sonar_edge/runs/rand_small_wide_360_s1_cv_f3/quant_results.json
+config small_wide scale 1.3333333333333333: 135,359 params, 203.5M MACs/frame, stride 8, train/val/test 1001/439/428, device cuda
+peak CUDA memory allocated 133 MiB, reserved 196 MiB
+ep   1  heat 8.505 size 6.566 off 0.441  val mAP   0.0  (2s) *
+ep   2  heat 6.045 size 6.358 off 0.330  val mAP   0.0  (2s)
+ep   3  heat 4.345 size 6.114 off 0.272  val mAP   0.0  (2s)
+ep   4  heat 3.377 size 6.058 off 0.284  val mAP   0.0  (2s)
+ep   5  heat 2.859 size 5.906 off 0.280  val mAP   0.0  (2s)
+ep   6  heat 2.480 size 5.295 off 0.262  val mAP   0.8  (2s) *
+ep   7  heat 2.094 size 3.928 off 0.257  val mAP   9.3  (2s) *
+ep   8  heat 1.760 size 2.948 off 0.252  val mAP   9.1  (2s)
+ep   9  heat 1.557 size 2.664 off 0.248  val mAP  16.3  (2s) *
+ep  10  heat 1.406 size 2.335 off 0.233  val mAP  21.7  (2s) *
+ep  11  heat 1.296 size 2.051 off 0.225  val mAP  32.1  (2s) *
+ep  12  heat 1.161 size 1.707 off 0.222  val mAP  40.4  (2s) *
+ep  13  heat 1.052 size 1.528 off 0.220  val mAP  48.9  (2s) *
+ep  14  heat 0.900 size 1.362 off 0.212  val mAP  56.2  (2s) *
+ep  15  heat 0.856 size 1.291 off 0.214  val mAP  66.4  (2s) *
+ep  16  heat 0.771 size 1.200 off 0.208  val mAP  73.3  (2s) *
+ep  17  heat 0.745 size 1.168 off 0.202  val mAP  74.6  (2s) *
+ep  18  heat 0.679 size 1.114 off 0.199  val mAP  68.8  (2s)
+ep  19  heat 0.678 size 1.077 off 0.200  val mAP  79.2  (2s) *
+ep  20  heat 0.631 size 1.064 off 0.197  val mAP  79.7  (2s) *
+ep  21  heat 0.603 size 1.021 off 0.198  val mAP  68.8  (2s)
+ep  22  heat 0.616 size 1.040 off 0.197  val mAP  77.5  (2s)
+ep  23  heat 0.595 size 0.981 off 0.191  val mAP  87.3  (2s) *
+ep  24  heat 0.561 size 0.940 off 0.188  val mAP  85.1  (2s)
+ep  25  heat 0.533 size 0.903 off 0.189  val mAP  88.5  (2s) *
+ep  26  heat 0.547 size 0.891 off 0.183  val mAP  89.9  (2s) *
+ep  27  heat 0.533 size 0.887 off 0.187  val mAP  86.7  (2s)
+ep  28  heat 0.538 size 0.880 off 0.186  val mAP  86.6  (2s)
+ep  29  heat 0.517 size 0.848 off 0.181  val mAP  89.6  (2s)
+ep  30  heat 0.519 size 0.854 off 0.183  val mAP  90.3  (2s) *
+ep  31  heat 0.509 size 0.860 off 0.179  val mAP  90.5  (2s) *
+ep  32  heat 0.478 size 0.797 off 0.174  val mAP  63.3  (2s)
+ep  33  heat 0.490 size 0.808 off 0.179  val mAP  88.8  (2s)
+ep  34  heat 0.487 size 0.800 off 0.179  val mAP  83.5  (2s)
+ep  35  heat 0.475 size 0.809 off 0.172  val mAP  88.5  (2s)
+ep  36  heat 0.479 size 0.804 off 0.172  val mAP  87.2  (2s)
+ep  37  heat 0.469 size 0.777 off 0.174  val mAP  89.9  (2s)
+ep  38  heat 0.459 size 0.775 off 0.178  val mAP  90.3  (2s)
+ep  39  heat 0.449 size 0.767 off 0.172  val mAP  89.5  (2s)
+ep  40  heat 0.451 size 0.769 off 0.169  val mAP  89.5  (2s)
+ep  41  heat 0.448 size 0.768 off 0.172  val mAP  85.3  (2s)
+ep  42  heat 0.434 size 0.767 off 0.168  val mAP  87.3  (2s)
+ep  43  heat 0.461 size 0.782 off 0.170  val mAP  87.6  (2s)
+ep  44  heat 0.441 size 0.746 off 0.165  val mAP  89.1  (2s)
+ep  45  heat 0.443 size 0.732 off 0.164  val mAP  91.1  (2s) *
+ep  46  heat 0.445 size 0.756 off 0.168  val mAP  92.0  (2s) *
+ep  47  heat 0.402 size 0.706 off 0.166  val mAP  89.9  (2s)
+ep  48  heat 0.424 size 0.720 off 0.166  val mAP  89.7  (2s)
+ep  49  heat 0.415 size 0.731 off 0.167  val mAP  92.2  (2s) *
+ep  50  heat 0.428 size 0.722 off 0.166  val mAP  92.6  (2s) *
+ep  51  heat 0.420 size 0.686 off 0.162  val mAP  91.2  (2s)
+ep  52  heat 0.393 size 0.699 off 0.159  val mAP  89.2  (2s)
+ep  53  heat 0.394 size 0.678 off 0.164  val mAP  86.5  (2s)
+ep  54  heat 0.413 size 0.693 off 0.163  val mAP  92.1  (2s)
+ep  55  heat 0.395 size 0.682 off 0.161  val mAP  92.6  (2s) *
+ep  56  heat 0.401 size 0.667 off 0.163  val mAP  91.7  (2s)
+ep  57  heat 0.391 size 0.683 off 0.159  val mAP  89.1  (2s)
+ep  58  heat 0.408 size 0.673 off 0.161  val mAP  91.8  (2s)
+ep  59  heat 0.385 size 0.671 off 0.154  val mAP  92.9  (2s) *
+ep  60  heat 0.381 size 0.659 off 0.157  val mAP  83.3  (2s)
+ep  61  heat 0.378 size 0.641 off 0.156  val mAP  91.9  (2s)
+ep  62  heat 0.385 size 0.656 off 0.159  val mAP  89.6  (2s)
+ep  63  heat 0.374 size 0.636 off 0.156  val mAP  93.4  (2s) *
+ep  64  heat 0.384 size 0.645 off 0.157  val mAP  92.8  (2s)
+ep  65  heat 0.378 size 0.651 off 0.158  val mAP  91.5  (2s)
+ep  66  heat 0.383 size 0.647 off 0.155  val mAP  92.9  (2s)
+ep  67  heat 0.360 size 0.621 off 0.153  val mAP  90.3  (2s)
+ep  68  heat 0.390 size 0.634 off 0.159  val mAP  93.0  (2s)
+ep  69  heat 0.369 size 0.633 off 0.155  val mAP  91.0  (2s)
+ep  70  heat 0.361 size 0.638 off 0.154  val mAP  92.8  (2s)
+ep  71  heat 0.371 size 0.625 off 0.151  val mAP  89.9  (2s)
+ep  72  heat 0.370 size 0.610 off 0.151  val mAP  92.8  (2s)
+ep  73  heat 0.364 size 0.608 off 0.152  val mAP  93.0  (2s)
+ep  74  heat 0.358 size 0.635 off 0.153  val mAP  92.6  (2s)
+ep  75  heat 0.352 size 0.620 off 0.148  val mAP  92.7  (2s)
+ep  76  heat 0.357 size 0.618 off 0.151  val mAP  91.4  (2s)
+ep  77  heat 0.355 size 0.622 off 0.148  val mAP  92.8  (2s)
+ep  78  heat 0.354 size 0.616 off 0.153  val mAP  92.5  (2s)
+ep  79  heat 0.329 size 0.605 off 0.149  val mAP  92.5  (2s)
+ep  80  heat 0.347 size 0.600 off 0.150  val mAP  89.7  (2s)
+ep  81  heat 0.351 size 0.587 off 0.145  val mAP  92.2  (2s)
+ep  82  heat 0.335 size 0.607 off 0.148  val mAP  92.6  (2s)
+ep  83  heat 0.352 size 0.605 off 0.149  val mAP  92.1  (2s)
+ep  84  heat 0.347 size 0.590 off 0.151  val mAP  91.9  (2s)
+ep  85  heat 0.343 size 0.587 off 0.147  val mAP  93.2  (2s)
+ep  86  heat 0.341 size 0.592 off 0.150  val mAP  92.5  (2s)
+ep  87  heat 0.345 size 0.585 off 0.148  val mAP  92.2  (2s)
+ep  88  heat 0.339 size 0.578 off 0.147  val mAP  92.2  (2s)
+ep  89  heat 0.327 size 0.580 off 0.147  val mAP  92.6  (2s)
+ep  90  heat 0.314 size 0.569 off 0.143  val mAP  92.8  (2s)
+ep  91  heat 0.339 size 0.587 off 0.145  val mAP  92.9  (2s)
+ep  92  heat 0.337 size 0.593 off 0.146  val mAP  93.2  (2s)
+ep  93  heat 0.327 size 0.587 off 0.147  val mAP  92.8  (2s)
+ep  94  heat 0.328 size 0.566 off 0.144  val mAP  92.4  (2s)
+ep  95  heat 0.317 size 0.560 off 0.143  val mAP  92.9  (2s)
+ep  96  heat 0.313 size 0.555 off 0.140  val mAP  92.4  (2s)
+ep  97  heat 0.326 size 0.557 off 0.143  val mAP  92.9  (2s)
+ep  98  heat 0.315 size 0.537 off 0.140  val mAP  92.4  (2s)
+ep  99  heat 0.319 size 0.560 off 0.144  val mAP  92.8  (2s)
+ep 100  heat 0.337 size 0.544 off 0.141  val mAP  93.0  (2s)
+ep 101  heat 0.320 size 0.559 off 0.143  val mAP  93.3  (2s)
+ep 102  heat 0.316 size 0.562 off 0.138  val mAP  93.2  (2s)
+ep 103  heat 0.310 size 0.550 off 0.135  val mAP  92.9  (2s)
+ep 104  heat 0.330 size 0.543 off 0.143  val mAP  93.5  (2s) *
+ep 105  heat 0.309 size 0.542 off 0.138  val mAP  93.3  (2s)
+ep 106  heat 0.306 size 0.548 off 0.140  val mAP  92.8  (2s)
+ep 107  heat 0.309 size 0.559 off 0.140  val mAP  92.8  (2s)
+ep 108  heat 0.321 size 0.552 off 0.138  val mAP  92.7  (2s)
+ep 109  heat 0.301 size 0.541 off 0.140  val mAP  93.3  (2s)
+ep 110  heat 0.303 size 0.543 off 0.137  val mAP  92.9  (2s)
+ep 111  heat 0.316 size 0.531 off 0.135  val mAP  93.0  (2s)
+ep 112  heat 0.299 size 0.519 off 0.137  val mAP  93.1  (2s)
+ep 113  heat 0.310 size 0.528 off 0.136  val mAP  93.1  (2s)
+ep 114  heat 0.296 size 0.523 off 0.136  val mAP  93.2  (2s)
+ep 115  heat 0.283 size 0.525 off 0.136  val mAP  93.1  (2s)
+ep 116  heat 0.306 size 0.520 off 0.137  val mAP  92.9  (2s)
+ep 117  heat 0.293 size 0.518 off 0.135  val mAP  93.2  (2s)
+ep 118  heat 0.303 size 0.536 off 0.136  val mAP  93.5  (2s)
+ep 119  heat 0.283 size 0.511 off 0.136  val mAP  93.5  (2s) *
+ep 120  heat 0.294 size 0.518 off 0.132  val mAP  93.5  (2s)
+ep 121  heat 0.289 size 0.522 off 0.134  val mAP  93.2  (2s)
+ep 122  heat 0.296 size 0.513 off 0.134  val mAP  93.1  (2s)
+ep 123  heat 0.292 size 0.514 off 0.133  val mAP  93.0  (2s)
+ep 124  heat 0.290 size 0.518 off 0.134  val mAP  93.7  (2s) *
+ep 125  heat 0.301 size 0.526 off 0.135  val mAP  93.4  (2s)
+ep 126  heat 0.290 size 0.503 off 0.134  val mAP  93.3  (2s)
+ep 127  heat 0.292 size 0.516 off 0.133  val mAP  93.2  (2s)
+ep 128  heat 0.288 size 0.514 off 0.130  val mAP  93.0  (2s)
+ep 129  heat 0.287 size 0.497 off 0.133  val mAP  93.2  (2s)
+ep 130  heat 0.302 size 0.522 off 0.135  val mAP  93.6  (2s)
+ep 131  heat 0.281 size 0.509 off 0.133  val mAP  93.2  (2s)
+ep 132  heat 0.272 size 0.507 off 0.133  val mAP  93.2  (2s)
+ep 133  heat 0.290 size 0.506 off 0.132  val mAP  93.2  (2s)
+ep 134  heat 0.286 size 0.519 off 0.133  val mAP  93.2  (2s)
+ep 135  heat 0.281 size 0.506 off 0.133  val mAP  93.4  (2s)
+ep 136  heat 0.285 size 0.512 off 0.132  val mAP  93.4  (2s)
+ep 137  heat 0.284 size 0.502 off 0.131  val mAP  93.3  (2s)
+ep 138  heat 0.284 size 0.503 off 0.133  val mAP  93.4  (2s)
+ep 139  heat 0.276 size 0.503 off 0.130  val mAP  93.3  (2s)
+ep 140  heat 0.277 size 0.525 off 0.131  val mAP  93.4  (2s)
+ep 141  heat 0.288 size 0.505 off 0.133  val mAP  93.5  (2s)
+ep 142  heat 0.287 size 0.500 off 0.133  val mAP  93.4  (2s)
+ep 143  heat 0.284 size 0.504 off 0.132  val mAP  93.2  (2s)
+ep 144  heat 0.276 size 0.497 off 0.134  val mAP  93.6  (2s)
+ep 145  heat 0.290 size 0.520 off 0.130  val mAP  93.6  (2s)
+ep 146  heat 0.281 size 0.498 off 0.134  val mAP  93.5  (2s)
+ep 147  heat 0.288 size 0.509 off 0.130  val mAP  93.6  (2s)
+ep 148  heat 0.280 size 0.512 off 0.133  val mAP  93.5  (2s)
+ep 149  heat 0.287 size 0.515 off 0.130  val mAP  93.5  (2s)
+ep 150  heat 0.287 size 0.503 off 0.130  val mAP  93.5  (2s)
+val: mAP@0.5 93.7 (best epoch 124)
+   Bottle            97.0  (103 boxes)
+   Can               80.2  (56 boxes)
+   Chain             92.2  (78 boxes)
+   Drink-carton      95.8  (88 boxes)
+   Hook              99.9  (40 boxes)
+   Propeller         94.5  (42 boxes)
+   Shampoo-bottle    93.3  (25 boxes)
+   Standing-bottle   90.9  (19 boxes)
+   Tire              97.8  (135 boxes)
+   Valve             92.8  (53 boxes)
+   Wall              96.1  (274 boxes)
+test: mAP@0.5 93.8 (best epoch 124)
+   Bottle            98.2  (115 boxes)
+   Can               70.4  (71 boxes)
+   Chain             95.8  (73 boxes)
+   Drink-carton      96.2  (80 boxes)
+   Hook             100.0  (43 boxes)
+   Propeller         96.9  (44 boxes)
+   Shampoo-bottle    90.8  (19 boxes)
+   Standing-bottle   93.7  (19 boxes)
+   Tire              98.1  (137 boxes)
+   Valve             95.3  (58 boxes)
+   Wall              96.4  (232 boxes)
+activation scales (x255 = uint8 range top): ['7.65', '9.87', '8.97', '6.21', '4.79', '7.98']
+val: int8 mAP@0.5 92.6  (float 93.7, delta -1.0)
+test: int8 mAP@0.5 92.6  (float 93.8, delta -1.2)
+wrote /home/server/Projeler/oguz/sonar_edge/runs/rand_small_wide_360_s1_cv_f4/int_model.json, /home/server/Projeler/oguz/sonar_edge/runs/rand_small_wide_360_s1_cv_f4/golden.npz, /home/server/Projeler/oguz/sonar_edge/runs/rand_small_wide_360_s1_cv_f4/quant_results.json
+5-fold CV, runs/rand_small_wide_360_s1_cv, scale 1.3333333333333333, 1868 test frames
+                    boxes    float     int8
+Bottle                468     97.2     96.9
+Can                   292     74.5     75.2
+Chain                 320     93.3     92.3
+Drink-carton          347     96.2     93.4
+Hook                  171     99.2     99.2
+Propeller             197     91.4     91.3
+Shampoo-bottle        111     92.5     89.1
+Standing-bottle        65     90.5     78.8
+Tire                  615     98.7     98.4
+Valve                 240     93.7     93.6
+Wall                 1056     94.6     94.5
+mAP pooled                    92.9     91.2
+mAP fold mean                 93.6     92.3
+mAP fold std                   1.1      2.3
+  float per fold: 92.5 93.8 92.7 95.3 93.8
+  int8 per fold: 89.6 93.7 90.7 95.2 92.6
+wrote runs/rand_small_wide_360_s1_cv_cv.json

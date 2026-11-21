@@ -1,0 +1,60 @@
+model size is  1.0x
+init weights...
+Finish initialize NanoDet-Plus Head.
+nanodet_scratch_s0_f0: best epoch 40, val mAP 84.1, 1464 s
+model size is  1.0x
+init weights...
+Finish initialize NanoDet-Plus Head.
+nanodet_scratch_s0_f1: best epoch 55, val mAP 68.9, 1529 s
+model size is  1.0x
+init weights...
+Finish initialize NanoDet-Plus Head.
+nanodet_scratch_s0_f2: best epoch 45, val mAP 62.4, 1741 s
+model size is  1.0x
+init weights...
+Finish initialize NanoDet-Plus Head.
+nanodet_scratch_s0_f3: best epoch 90, val mAP 81.2, 1204 s
+model size is  1.0x
+init weights...
+Finish initialize NanoDet-Plus Head.
+nanodet_scratch_s0_f4: best epoch 60, val mAP 76.2, 921 s
+model size is  1.0x
+init weights...
+Finish initialize NanoDet-Plus Head.
+nanodet_scratch_s1_f0: best epoch 75, val mAP 80.1, 776 s
+model size is  1.0x
+init weights...
+Finish initialize NanoDet-Plus Head.
+nanodet_scratch_s1_f1: best epoch 115, val mAP 68.3, 938 s
+model size is  1.0x
+init weights...
+Finish initialize NanoDet-Plus Head.
+nanodet_scratch_s1_f2: best epoch 35, val mAP 62.5, 1073 s
+model size is  1.0x
+init weights...
+Finish initialize NanoDet-Plus Head.
+nanodet_scratch_s1_f3: best epoch 60, val mAP 80.7, 1054 s
+model size is  1.0x
+init weights...
+Finish initialize NanoDet-Plus Head.
+nanodet_scratch_s1_f4: best epoch 40, val mAP 78.2, 865 s
+model size is  1.0x
+init weights...
+Finish initialize NanoDet-Plus Head.
+nanodet_scratch_s2_f0: best epoch 35, val mAP 80.3, 909 s
+model size is  1.0x
+init weights...
+Finish initialize NanoDet-Plus Head.
+nanodet_scratch_s2_f1: best epoch 70, val mAP 68.6, 934 s
+model size is  1.0x
+init weights...
+Finish initialize NanoDet-Plus Head.
+nanodet_scratch_s2_f2: best epoch 30, val mAP 61.7, 1077 s
+model size is  1.0x
+init weights...
+Finish initialize NanoDet-Plus Head.
+nanodet_scratch_s2_f3: best epoch 95, val mAP 80.5, 1302 s
+model size is  1.0x
+init weights...
+Finish initialize NanoDet-Plus Head.
+nanodet_scratch_s2_f4: best epoch 30, val mAP 77.3, 1031 s

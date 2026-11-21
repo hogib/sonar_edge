@@ -13,9 +13,13 @@ scene tested once). Development uses fold 0 as test and fold 1 as validation.
 """
 
 import json
+import os
 from pathlib import Path
 
-SPLIT_FILE = Path(__file__).resolve().parents[2] / "splits/scene_folds_v1.json"
+DEFAULT_SPLIT_FILE = Path(__file__).resolve().parents[2] / "splits/scene_folds_v1.json"
+# SONAR_EDGE_SPLIT=<path> swaps the fold assignment for every consumer (training, fold export,
+# pooling); used for the random image-level split of the leakage experiment (sonar_edge.leakage).
+SPLIT_FILE = Path(os.environ["SONAR_EDGE_SPLIT"]).resolve() if os.environ.get("SONAR_EDGE_SPLIT") else DEFAULT_SPLIT_FILE
 
 import numpy as np
 
@@ -112,6 +116,9 @@ def load_split(dev_test=0, dev_val=1):
 
 if __name__ == "__main__":
     from .data import class_names, load_frames
+
+    if SPLIT_FILE != DEFAULT_SPLIT_FILE:
+        raise SystemExit("SONAR_EDGE_SPLIT is set; refusing to overwrite it with the scene folds")
 
     frames = load_frames()
     classes = class_names(frames)

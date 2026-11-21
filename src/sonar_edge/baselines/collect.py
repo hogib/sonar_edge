@@ -95,20 +95,14 @@ def cmd_score(args):
 
 
 def cmd_onnx(args):
-    from .ssdlite import make_model
+    """Network-only ONNX of each SSDLite family's s0 f0 checkpoint (the graph timed on the Pi;
+    torchvision's full model would also contain resize, anchor decoding and NMS)."""
+    from .pi_latency import export_ssdlite
     for fam in ("ssdlite_pretrained", "ssdlite_scratch"):
-        p = run(fam, 0, 0) / "best.pt"
-        if not p.exists():
+        if not (run(fam, 0, 0) / "best.pt").exists():
             print(f"{fam}: no checkpoint yet")
             continue
-        ck = torch.load(p, map_location="cpu", weights_only=False)
-        m = make_model(len(ck["classes"]), pretrained=False)
-        m.load_state_dict(ck["model"])
-        m.eval()
-        dest = run(fam, 0, 0) / "model.onnx"
-        torch.onnx.export(m, ([torch.zeros(3, 384, 256)],), dest, opset_version=17, dynamo=False,
-                          input_names=["image"])
-        print(f"wrote {dest.relative_to(ROOT)}")
+        export_ssdlite(run(fam, 0, 0), run(fam, 0, 0) / "model.onnx")
 
 
 def main():

@@ -1,0 +1,180 @@
+{
+ "accuracy_seed0": {
+  "ssdlite": {
+   "pytorch": {
+    "map_pooled": 0.6264042939386948,
+    "map_per_fold": [
+     0.6672343761461154,
+     0.7246330821266824,
+     0.6383517499716462,
+     0.536049033317784,
+     0.745176481032604
+    ],
+    "mcnn_acc": 0.7894550601556971,
+    "mcnn_f1": 0.789389880598337
+   },
+   "fp32": {
+    "map_pooled": 0.626418489870127,
+    "map_per_fold": [
+     0.6677418265100531,
+     0.7247114443829742,
+     0.6383685780341878,
+     0.536229993510482,
+     0.7451383450346222
+    ],
+    "mcnn_acc": 0.7898089171974523,
+    "mcnn_f1": 0.7898868598146935
+   },
+   "int8": {
+    "map_pooled": 0.3838190676624821,
+    "map_per_fold": [
+     0.6019815439654523,
+     0.47084931207048386,
+     0.3693601582522914,
+     0.32474250057899634,
+     0.5976379332079987
+    ],
+    "mcnn_acc": 0.5145081387119603,
+    "mcnn_f1": 0.579870050813173
+   },
+   "int8_aciq": {
+    "map_pooled": 0.6079781901740187,
+    "map_per_fold": [
+     0.6530429161980529,
+     0.7115782303080787,
+     0.6455253719355479,
+     0.5494815261463399,
+     0.7408017893727983
+    ],
+    "mcnn_acc": 0.7880396319886765,
+    "mcnn_f1": 0.7896189746985101
+   },
+   "int8_percentile": {
+    "map_pooled": 0.632603298821321,
+    "map_per_fold": [
+     0.6438764636288618,
+     0.725897400942997,
+     0.6414258493025137,
+     0.5483581220100597,
+     0.7399534631636407
+    ],
+    "mcnn_acc": 0.7997169143665959,
+    "mcnn_f1": 0.8053561394757175
+   }
+  },
+  "yolov8n": {
+   "pytorch": {
+    "map_pooled": 0.6400223681412233,
+    "map_per_fold": [
+     0.7527309557903569,
+     0.7550737288253089,
+     0.6175761316707143,
+     0.6116913749159429,
+     0.7387060499938104
+    ],
+    "mcnn_acc": 0.8021939136588818,
+    "mcnn_f1": 0.7782692061624351
+   },
+   "fp32": {
+    "map_pooled": 0.6400597808651978,
+    "map_per_fold": [
+     0.7526926137734535,
+     0.7550709004768446,
+     0.6177005815858271,
+     0.6117208672984881,
+     0.7386998310918639
+    ],
+    "mcnn_acc": 0.802547770700637,
+    "mcnn_f1": 0.7784720203669877
+   },
+   "int8": {
+    "map_pooled": 0.48372530326615526,
+    "map_per_fold": [
+     0.7101349792110008,
+     0.6237462018990193,
+     0.45621074774048237,
+     0.46396163763767095,
+     0.639022378156464
+    ],
+    "mcnn_acc": 0.802901627742392,
+    "mcnn_f1": 0.7937777811178861
+   },
+   "int8_aciq": {
+    "map_pooled": 0.6403105615307801,
+    "map_per_fold": [
+     0.7324641027568439,
+     0.7587011586612922,
+     0.6122907688911353,
+     0.6167550075202469,
+     0.7792314253640107
+    ],
+    "mcnn_acc": 0.8004246284501062,
+    "mcnn_f1": 0.7734093837640388
+   },
+   "int8_percentile": {
+    "map_pooled": 0.63746028323329,
+    "map_per_fold": [
+     0.7549811547066152,
+     0.773874943091373,
+     0.6123988220634528,
+     0.6084619764621366,
+     0.7311668893624211
+    ],
+    "mcnn_acc": 0.8057324840764332,
+    "mcnn_f1": 0.7860111232688234
+   }
+  }
+ },
+ "latency_ms": {
+  "dets": {
+   "pi4_int8_t1": 11.9,
+   "pi4_fp32_t1": 19.5,
+   "pi2_int8_t1": 91.4,
+   "pi2_fp32_t1": 146.8,
+   "pi4_int8_t4": 5.8,
+   "pi4_fp32_t4": 11.3,
+   "pi2_int8_t4": 34.1,
+   "pi2_fp32_t4": 53.7,
+   "rss_pi4_int8": "41848 kB",
+   "rss_pi2_int8": "32988 kB"
+  },
+  "yolov8n": {
+   "pi4_int8_t1": 131.6,
+   "pi4_fp32_t1": 157.4,
+   "pi2_int8_t1": 879.7,
+   "pi2_fp32_t1": 1260.8,
+   "pi4_int8_t4": 68.2,
+   "pi4_fp32_t4": 92.0,
+   "pi2_int8_t4": 321.9,
+   "pi2_fp32_t4": 439.3,
+   "rss_pi4_int8": "70304 kB",
+   "rss_pi2_int8": "62388 kB"
+  },
+  "ssdlite": {
+   "pi4_int8_t1": 136.8,
+   "pi4_fp32_t1": 140.3,
+   "pi2_int8_t1": 1050.6,
+   "pi2_fp32_t1": 1020.8,
+   "pi4_int8_t4": 76.7,
+   "pi4_fp32_t4": 93.1,
+   "pi2_int8_t4": 391.2,
+   "pi2_fp32_t4": 426.7,
+   "rss_pi4_int8": "62092 kB",
+   "rss_pi2_int8": "54180 kB"
+  }
+ },
+ "meta": {
+  "ncnn": "1.0.20261020 (pip wheel on laptop, Pi 4, Pi 2); tools ncnn2table/ncnn2int8 from https://github.com/Tencent/ncnn/releases/download/20261020/ncnn-20261020-ubuntu-2604.zip (sha256 c4d6646e0416f4dc05358910315eb1e9f5c0727e0ab397a72dce6a203dfaa19e)",
+  "conversion": "pnnx <model>.onnx fp16=0 (fp32 weights)",
+  "calibration": "64 training frames of each fold, default_rng(0).choice as train.quantize; mean 0, norm 1/255, input size = network size (no resize)",
+  "methods": {
+   "int8": "kl",
+   "int8_aciq": "aciq",
+   "int8_percentile": "percentile (ncnn default percentile list)",
+   "eq": "ncnn2table segfaults (exit 139) in the weight-scale search; not used"
+  },
+  "latency_models": "fold-0 seed-0; baselines int8 = percentile tables; Det-S int8 = KL table (latency only); timing as pi_latency.py (10 warm-up + 3 x 50, fp16 off), network only, no NMS",
+  "pi2_fp32": "from pi_latency_raw_pi2_ncnn.json (earlier run, fp16-stored weights, fp32 arithmetic)",
+  "throttling": "Pi 4 46.7->56.0 C, Pi 2 40.1->45.5 C, both 0x0"
+ }
+}

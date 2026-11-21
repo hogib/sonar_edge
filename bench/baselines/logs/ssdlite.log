@@ -1,0 +1,15 @@
+ssdlite seed 0 fold 0: best epoch 40, val mAP 72.3, 713 s
+ssdlite seed 0 fold 1: best epoch 55, val mAP 60.1, 940 s
+ssdlite seed 0 fold 2: best epoch 40, val mAP 62.8, 1093 s
+ssdlite seed 0 fold 3: best epoch 60, val mAP 72.0, 857 s
+ssdlite seed 0 fold 4: best epoch 40, val mAP 73.6, 688 s
+ssdlite seed 1 fold 0: best epoch 35, val mAP 74.6, 650 s
+ssdlite seed 1 fold 1: best epoch 40, val mAP 61.6, 672 s
+ssdlite seed 1 fold 2: best epoch 20, val mAP 57.1, 767 s
+ssdlite seed 1 fold 3: best epoch 40, val mAP 75.7, 742 s
+ssdlite seed 1 fold 4: best epoch 45, val mAP 74.3, 618 s
+ssdlite seed 2 fold 0: best epoch 45, val mAP 71.7, 646 s
+ssdlite seed 2 fold 1: best epoch 45, val mAP 61.8, 681 s
+ssdlite seed 2 fold 2: best epoch 25, val mAP 57.9, 765 s
+ssdlite seed 2 fold 3: best epoch 40, val mAP 76.1, 743 s
+ssdlite seed 2 fold 4: best epoch 45, val mAP 73.7, 620 s

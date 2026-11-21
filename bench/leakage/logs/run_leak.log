@@ -1,0 +1,23 @@
+2026-11-21 17:54 sb_yolo_scr finished
+2026-11-21 19:49 sb_ssd_scr finished
+2026-11-21 19:49 sb_nano_pre finished
+2026-11-21 19:57 start
+wrote splits/random_folds_v1.json: fold sizes [439, 388, 383, 230, 428]
+grouped: test frames whose scene is in training, per fold: 0.0%  0.0%  0.0%  0.0%  0.0%
+random: test frames whose scene is in training, per fold: 90.2%  94.1%  93.0%  92.2%  96.0%
+wrote bench/leakage/overlap.json
+folds from /home/server/Projeler/oguz/sonar_edge/splits/random_folds_v1.json
+fold 0: train 1041, val 388, test 439
+fold 1: train 1097, val 383, test 388
+fold 2: train 1255, val 230, test 383
+fold 3: train 1210, val 428, test 230
+fold 4: train 1001, val 439, test 428
+wrote data/baselines (1868 frames, 11 classes)
+2026-11-21 20:36 rand_small_360_cv done
+2026-11-21 21:14 rand_small_360_s1_cv done
+2026-11-21 21:53 rand_small_360_s2_cv done
+2026-11-21 22:29 rand_yolo_pretrained done
+2026-11-21 22:57 rand_small_wide_360_cv done
+2026-11-21 23:23 rand_small_wide_360_s1_cv done
+2026-11-21 23:49 rand_small_wide_360_s2_cv done
+2026-11-21 23:49 all done

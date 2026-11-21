@@ -1,0 +1,66 @@
+{
+ "grouped": [
+  {
+   "fold": 0,
+   "n_test": 439,
+   "scene_in_train": 0.0,
+   "scene_in_train_or_val": 0.0
+  },
+  {
+   "fold": 1,
+   "n_test": 388,
+   "scene_in_train": 0.0,
+   "scene_in_train_or_val": 0.0
+  },
+  {
+   "fold": 2,
+   "n_test": 383,
+   "scene_in_train": 0.0,
+   "scene_in_train_or_val": 0.0
+  },
+  {
+   "fold": 3,
+   "n_test": 230,
+   "scene_in_train": 0.0,
+   "scene_in_train_or_val": 0.0
+  },
+  {
+   "fold": 4,
+   "n_test": 428,
+   "scene_in_train": 0.0,
+   "scene_in_train_or_val": 0.0
+  }
+ ],
+ "random": [
+  {
+   "fold": 0,
+   "n_test": 439,
+   "scene_in_train": 0.9020501138952164,
+   "scene_in_train_or_val": 0.9111617312072893
+  },
+  {
+   "fold": 1,
+   "n_test": 388,
+   "scene_in_train": 0.9407216494845361,
+   "scene_in_train_or_val": 0.9407216494845361
+  },
+  {
+   "fold": 2,
+   "n_test": 383,
+   "scene_in_train": 0.9295039164490861,
+   "scene_in_train_or_val": 0.9321148825065274
+  },
+  {
+   "fold": 3,
+   "n_test": 230,
+   "scene_in_train": 0.9217391304347826,
+   "scene_in_train_or_val": 0.9217391304347826
+  },
+  {
+   "fold": 4,
+   "n_test": 428,
+   "scene_in_train": 0.9602803738317757,
+   "scene_in_train_or_val": 0.9626168224299065
+  }
+ ]
+}

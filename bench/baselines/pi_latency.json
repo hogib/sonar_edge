@@ -1,0 +1,250 @@
+{
+ "board": "Raspberry Pi 4 Model B 4 GB (Cortex-A72 1.8 GHz), no fan; throttled=0x0 before and after, 48.2 -> 56.4 C",
+ "engine": "ONNX Runtime 1.31.1, fp32, CPU EP, ORT_ENABLE_ALL, inter-op 1",
+ "method": "10 warm-up + 3 x 50 timed runs per setting, one process per model/threads (VmHWM = that process incl. Python+numpy+ORT); network only",
+ "models": {
+  "small_360_cv_f0": {
+   "name": "Det-S (reference, re-run)",
+   "params": 42463,
+   "macs": 78400000.0,
+   "input": "[1,1,360,240]",
+   "t1": {
+    "mean_ms": 22.43,
+    "median_ms": 22.41,
+    "repeats_ms": [
+     22.43,
+     22.44,
+     22.42
+    ],
+    "vmhwm_mib": 64.6
+   },
+   "t4": {
+    "mean_ms": 9.03,
+    "median_ms": 9.0,
+    "repeats_ms": [
+     9.02,
+     9.03,
+     9.05
+    ],
+    "vmhwm_mib": 65.1
+   }
+  },
+  "yolov8n": {
+   "name": "YOLOv8n (pretrained s0 f0)",
+   "params": 3140433,
+   "macs": 1038200000.0,
+   "input": "[1,3,384,256]",
+   "t1": {
+    "mean_ms": 285.77,
+    "median_ms": 285.7,
+    "repeats_ms": [
+     285.93,
+     285.68,
+     285.7
+    ],
+    "vmhwm_mib": 89.6
+   },
+   "t4": {
+    "mean_ms": 107.79,
+    "median_ms": 107.46,
+    "repeats_ms": [
+     107.54,
+     108.32,
+     107.5
+    ],
+    "vmhwm_mib": 89.7
+   }
+  },
+  "ssdlite": {
+   "name": "SSDLite-MobileNetV3 (pretrained s0 f0)",
+   "params": 3876080,
+   "macs": 488400000.0,
+   "input": "[1,3,384,256]",
+   "t1": {
+    "mean_ms": 202.37,
+    "median_ms": 202.31,
+    "repeats_ms": [
+     202.43,
+     202.34,
+     202.33
+    ],
+    "vmhwm_mib": 104.2
+   },
+   "t4": {
+    "mean_ms": 94.22,
+    "median_ms": 93.94,
+    "repeats_ms": [
+     93.99,
+     94.73,
+     93.94
+    ],
+    "vmhwm_mib": 104.6
+   }
+  }
+ },
+ "notes": [
+  "YOLOv8n graph: Ultralytics ONNX export (opset 17, imgsz 384x256), includes the Detect head's DFL box decoding, no NMS",
+  "SSDLite graph: normalisation + backbone + head (raw regression and logits), no anchor decoding / NMS",
+  "Det-S re-run reproduces M7 (22.4 / 8.8 ms); its VmHWM here (64.6 MiB) is higher than M7's 58.1 MB because this script's child process measures differently; compare RSS within this file only",
+  "Pi 2 has no onnxruntime wheel (armv7l, Python 3.13; PyPI and piwheels), so it was timed with ncnn only; ncnn was also run on the Pi 4 as a same-engine cross-board comparison",
+  "Deployed C int8 runtime for Det-S (M5): Pi 4 20.3 ms / Pi 2 124.5 ms on one core"
+ ],
+ "ncnn": {
+  "conversion": "ONNX -> ncnn with pnnx (pnnx model.onnx); blobs in0 -> out0[, out1]; outputs checked against ORT on the Pi 4 (max abs diff <= 0.1% of output range)",
+  "dets = Det-S (small_360_cv_f0.onnx, the same graph as the ORT row)": true,
+  "pi4": {
+   "board": "Raspberry Pi 4 Model B 4 GB (Cortex-A72 1.8 GHz, aarch64)",
+   "engine": "ncnn 1.0.20261020 (pip wheel), fp32 (fp16 storage/arithmetic/packing off)",
+   "throttled": "0x0 before and after",
+   "temp_c": [
+    50.1,
+    56.0
+   ],
+   "models": {
+    "dets": {
+     "t1": {
+      "mean_ms": 19.51,
+      "median_ms": 19.48,
+      "repeats_ms": [
+       19.59,
+       19.49,
+       19.46
+      ],
+      "vmhwm_mib": 48.5
+     },
+     "t4": {
+      "mean_ms": 11.4,
+      "median_ms": 11.39,
+      "repeats_ms": [
+       11.42,
+       11.41,
+       11.37
+      ],
+      "vmhwm_mib": 48.6
+     }
+    },
+    "yolov8n": {
+     "t1": {
+      "mean_ms": 157.82,
+      "median_ms": 157.82,
+      "repeats_ms": [
+       157.8,
+       157.83,
+       157.84
+      ],
+      "vmhwm_mib": 106.3
+     },
+     "t4": {
+      "mean_ms": 92.29,
+      "median_ms": 92.09,
+      "repeats_ms": [
+       92.17,
+       92.14,
+       92.55
+      ],
+      "vmhwm_mib": 109.2
+     }
+    },
+    "ssdlite": {
+     "t1": {
+      "mean_ms": 140.4,
+      "median_ms": 140.4,
+      "repeats_ms": [
+       140.42,
+       140.4,
+       140.38
+      ],
+      "vmhwm_mib": 77.2
+     },
+     "t4": {
+      "mean_ms": 93.17,
+      "median_ms": 93.08,
+      "repeats_ms": [
+       93.35,
+       93.08,
+       93.1
+      ],
+      "vmhwm_mib": 77.3
+     }
+    }
+   }
+  },
+  "pi2": {
+   "board": "Raspberry Pi 2 Model B rev 1.1 (Cortex-A7 900 MHz, armv7l, Python 3.13)",
+   "engine": "ncnn 1.0.20261020 (pip wheel), fp32 (fp16 storage/arithmetic/packing off)",
+   "throttled": "0x0 before and after",
+   "temp_c": [
+    42.8,
+    47.6
+   ],
+   "models": {
+    "dets": {
+     "t1": {
+      "mean_ms": 146.83,
+      "median_ms": 146.7,
+      "repeats_ms": [
+       146.82,
+       146.76,
+       146.9
+      ],
+      "vmhwm_mib": 39.9
+     },
+     "t4": {
+      "mean_ms": 53.74,
+      "median_ms": 51.19,
+      "repeats_ms": [
+       53.23,
+       53.65,
+       54.36
+      ],
+      "vmhwm_mib": 40.0
+     }
+    },
+    "yolov8n": {
+     "t1": {
+      "mean_ms": 1260.81,
+      "median_ms": 1260.55,
+      "repeats_ms": [
+       1260.69,
+       1260.97,
+       1260.79
+      ],
+      "vmhwm_mib": 97.9
+     },
+     "t4": {
+      "mean_ms": 439.33,
+      "median_ms": 431.22,
+      "repeats_ms": [
+       440.58,
+       440.41,
+       436.99
+      ],
+      "vmhwm_mib": 98.0
+     }
+    },
+    "ssdlite": {
+     "t1": {
+      "mean_ms": 1020.84,
+      "median_ms": 1018.37,
+      "repeats_ms": [
+       1022.27,
+       1021.62,
+       1018.61
+      ],
+      "vmhwm_mib": 69.5
+     },
+     "t4": {
+      "mean_ms": 426.66,
+      "median_ms": 416.24,
+      "repeats_ms": [
+       426.55,
+       425.25,
+       428.17
+      ],
+      "vmhwm_mib": 69.0
+     }
+    }
+   }
+  }
+ }
+}

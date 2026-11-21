@@ -1,0 +1,75 @@
+model size is  1.0x
+init weights...
+=> loading pretrained model https://download.pytorch.org/models/shufflenetv2_x1-5666bf0f80.pth
+Finish initialize NanoDet-Plus Head.
+nanodet_pretrained_s0_f0: best epoch 15, val mAP 82.6, 958 s
+model size is  1.0x
+init weights...
+=> loading pretrained model https://download.pytorch.org/models/shufflenetv2_x1-5666bf0f80.pth
+Finish initialize NanoDet-Plus Head.
+nanodet_pretrained_s0_f1: best epoch 25, val mAP 67.4, 947 s
+model size is  1.0x
+init weights...
+=> loading pretrained model https://download.pytorch.org/models/shufflenetv2_x1-5666bf0f80.pth
+Finish initialize NanoDet-Plus Head.
+nanodet_pretrained_s0_f2: best epoch 30, val mAP 61.9, 699 s
+model size is  1.0x
+init weights...
+=> loading pretrained model https://download.pytorch.org/models/shufflenetv2_x1-5666bf0f80.pth
+Finish initialize NanoDet-Plus Head.
+nanodet_pretrained_s0_f3: best epoch 55, val mAP 82.7, 678 s
+model size is  1.0x
+init weights...
+=> loading pretrained model https://download.pytorch.org/models/shufflenetv2_x1-5666bf0f80.pth
+Finish initialize NanoDet-Plus Head.
+nanodet_pretrained_s0_f4: best epoch 30, val mAP 77.5, 567 s
+model size is  1.0x
+init weights...
+=> loading pretrained model https://download.pytorch.org/models/shufflenetv2_x1-5666bf0f80.pth
+Finish initialize NanoDet-Plus Head.
+nanodet_pretrained_s1_f0: best epoch 15, val mAP 85.1, 589 s
+model size is  1.0x
+init weights...
+=> loading pretrained model https://download.pytorch.org/models/shufflenetv2_x1-5666bf0f80.pth
+Finish initialize NanoDet-Plus Head.
+nanodet_pretrained_s1_f1: best epoch 55, val mAP 68.5, 583 s
+model size is  1.0x
+init weights...
+=> loading pretrained model https://download.pytorch.org/models/shufflenetv2_x1-5666bf0f80.pth
+Finish initialize NanoDet-Plus Head.
+nanodet_pretrained_s1_f2: best epoch 20, val mAP 63.1, 692 s
+model size is  1.0x
+init weights...
+=> loading pretrained model https://download.pytorch.org/models/shufflenetv2_x1-5666bf0f80.pth
+Finish initialize NanoDet-Plus Head.
+nanodet_pretrained_s1_f3: best epoch 10, val mAP 82.8, 681 s
+model size is  1.0x
+init weights...
+=> loading pretrained model https://download.pytorch.org/models/shufflenetv2_x1-5666bf0f80.pth
+Finish initialize NanoDet-Plus Head.
+nanodet_pretrained_s1_f4: best epoch 20, val mAP 76.6, 558 s
+model size is  1.0x
+init weights...
+=> loading pretrained model https://download.pytorch.org/models/shufflenetv2_x1-5666bf0f80.pth
+Finish initialize NanoDet-Plus Head.
+nanodet_pretrained_s2_f0: best epoch 20, val mAP 83.4, 583 s
+model size is  1.0x
+init weights...
+=> loading pretrained model https://download.pytorch.org/models/shufflenetv2_x1-5666bf0f80.pth
+Finish initialize NanoDet-Plus Head.
+nanodet_pretrained_s2_f1: best epoch 15, val mAP 67.8, 621 s
+model size is  1.0x
+init weights...
+=> loading pretrained model https://download.pytorch.org/models/shufflenetv2_x1-5666bf0f80.pth
+Finish initialize NanoDet-Plus Head.
+nanodet_pretrained_s2_f2: best epoch 60, val mAP 60.9, 699 s
+model size is  1.0x
+init weights...
+=> loading pretrained model https://download.pytorch.org/models/shufflenetv2_x1-5666bf0f80.pth
+Finish initialize NanoDet-Plus Head.
+nanodet_pretrained_s2_f3: best epoch 35, val mAP 77.6, 674 s
+model size is  1.0x
+init weights...
+=> loading pretrained model https://download.pytorch.org/models/shufflenetv2_x1-5666bf0f80.pth
+Finish initialize NanoDet-Plus Head.
+nanodet_pretrained_s2_f4: best epoch 45, val mAP 76.4, 562 s

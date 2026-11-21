@@ -32,6 +32,8 @@ def main():
     ap.add_argument("--folds", type=int, nargs="+", default=[0, 1, 2, 3, 4])
     ap.add_argument("--workers", type=int, default=3)
     ap.add_argument("--batch", type=int, default=16)
+    ap.add_argument("--data-subdir", default="yolo", help="fold lists under data/baselines/ (yolo_random: leakage run)")
+    ap.add_argument("--prefix", default="yolo", help="run name prefix (rand_yolo: leakage run)")
     args = ap.parse_args()
     from ultralytics import YOLO
 
@@ -39,7 +41,7 @@ def main():
     wdir.mkdir(exist_ok=True)
     for seed in args.seeds:
         for k in args.folds:
-            name = f"yolo_{args.init}_s{seed}_f{k}"
+            name = f"{args.prefix}_{args.init}_s{seed}_f{k}"
             out = ROOT / "runs" / name
             if (out / "pred_test.json").exists():
                 print(f"skip {name} (done)", flush=True)
@@ -47,11 +49,11 @@ def main():
             t0 = time.time()
             init = str(wdir / "yolov8n.pt") if args.init == "pretrained" else "yolov8n.yaml"
             model = YOLO(init)
-            model.train(data=str(DATA / "yolo" / f"fold{k}.yaml"), imgsz=384, epochs=args.epochs, batch=args.batch,
+            model.train(data=str(DATA / args.data_subdir / f"fold{k}.yaml"), imgsz=384, epochs=args.epochs, batch=args.batch,
                         seed=seed, deterministic=True, workers=args.workers, device=0, project=str(ROOT / "runs"),
                         name=name, exist_ok=True, pretrained=(args.init == "pretrained"), plots=False, verbose=False)
             best = YOLO(str(out / "weights" / "best.pt"))
-            test = [l for l in (DATA / "yolo" / f"fold{k}_test.txt").read_text().split("\n") if l]
+            test = [l for l in (DATA / args.data_subdir / f"fold{k}_test.txt").read_text().split("\n") if l]
             pred = {}
             for r in best.predict(source=test, imgsz=384, conf=0.001, iou=0.7, max_det=100, stream=True, verbose=False,
                                   device=0):
@@ -62,6 +64,7 @@ def main():
             (out / "pred_test.json").write_text(json.dumps(pred))
             (out / "info.json").write_text(json.dumps({"init": args.init, "seed": seed, "test_fold": k,
                                                         "val_fold": (k + 1) % 5, "epochs": args.epochs,
+                                                        "data": args.data_subdir,
                                                         "train_s": round(time.time() - t0, 1)}))
             print(f"{name}: done in {time.time() - t0:.0f} s", flush=True)
 

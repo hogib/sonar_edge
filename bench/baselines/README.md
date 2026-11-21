@@ -135,3 +135,123 @@ Collect with `python -m sonar_edge.baselines.collect pull|score|onnx`.
 
 The Pi 4 time is estimated as Det-S C int8 20.3 ms plus crops x 66.5 ms (MCNN on ONNX
 Runtime, one thread, M7). It was not measured end to end.
+
+## On-device latency (Pi 4, ONNX Runtime fp32)
+
+`src/sonar_edge/baselines/pi_latency.py` (export + bench); results in `pi_latency.json`
+(raw ORT: `pi_latency_raw_pi4.json`). The method matches M7 §3: ORT 1.31.1, CPU EP, fp32,
+ORT_ENABLE_ALL, 10 warm-up runs and then 3 x 50 timed runs, with intra-op threads 1 and 4.
+Each setting runs in its own process, and its peak RSS (VmHWM) is recorded. Only the
+network is timed: there is no NMS, and the timings cover the fold-0 seed-0 pretrained
+checkpoints. The board stayed unthrottled (0x0) and went from 48.2 to 56.4 °C.
+
+| Model | Params | MACs | Input | 1 thread ms | 4 threads ms | Peak RSS MiB |
+|---|---|---|---|---|---|---|
+| Det-S (reference) | 42 k | 78.4 M | 1x360x240 | 22.4 | 9.0 | 64.6 |
+| SSDLite-MobileNetV3 | 3.88 M | 488 M | 3x384x256 | 202.4 | 94.2 | 104.2 |
+| YOLOv8n | 3.14 M | 1038 M | 3x384x256 | 285.8 | 107.8 | 89.6 |
+
+- **Neither baseline reaches 15 frames/s** on all four cores before NMS: YOLOv8n gives
+  9.3 fps and SSDLite 10.6 fps.
+- **Det-S** under the same engine is 12.7x faster than YOLOv8n and 9.0x faster than
+  SSDLite on one core.
+- **Graph contents.** The YOLOv8n export includes DFL box decoding. The SSDLite graph
+  ends at the raw head outputs, so its anchor decoding and NMS come on top.
+- **Peak RSS** comes from this script. It is not comparable with M7's 58.1 MB, which
+  was measured another way; for Det-S this script reads 64.6 MiB.
+- **Pi 2 via ncnn.** No onnxruntime wheel exists for armv7l with Python 3.13 (PyPI
+  and piwheels), so the Pi 2 was timed with ncnn. The models were converted from ONNX
+  with pnnx, giving blobs in0 -> out0[, out1], and run with ncnn 1.0.20261020 (pip
+  wheel), fp32, fp16 off. To get a same-engine comparison across boards, ncnn was run
+  on the Pi 4 as well. On the Pi 4 the ncnn outputs matched ORT to within 0.1% of the
+  output range. The method was the same (10 warm-up + 3 x 50 runs), and neither board
+  throttled (0x0); the Pi 2 went from 42.8 to 47.6 °C.
+
+ncnn fp32, network only (ms; peak RSS of the process in MiB):
+
+| Model | Pi 4 1 thr | Pi 4 4 thr | Pi 2 1 thr | Pi 2 4 thr | RSS Pi 4 / Pi 2 |
+|---|---|---|---|---|---|
+| Det-S | 19.5 | 11.4 | 146.8 | 53.7 | 48.5 / 39.9 |
+| SSDLite-MobileNetV3 | 140.4 | 93.2 | 1020.8 | 426.7 | 77.2 / 69.5 |
+| YOLOv8n | 157.8 | 92.3 | 1260.8 | 439.3 | 106.3 / 97.9 |
+
+- **On the Pi 2, the baselines run at 2.3 fps (YOLOv8n) and 2.3 fps (SSDLite) on four
+  cores, and Det-S runs at 18.6 fps.** The deployed C int8 runtime does better still,
+  at 124.5 ms on one core and 30.7 fps with four workers (M5 §3.7).
+- **On the Pi 4, ncnn speeds up the baselines on one core:** YOLOv8n goes from 286 ms
+  under ORT to 158 ms, and SSDLite from 202 to 140 ms. On four cores, though, neither
+  baseline gets past about 11 fps under either engine. For Det-S, ncnn on four threads
+  (11.4 ms) is slower than ORT (9.0 ms), because the model is too small to split well.
+- **Raw results** are in `pi_latency_raw_pi4_ncnn.json` and
+  `pi_latency_raw_pi2_ncnn.json`, and the summary is in `pi_latency.json["ncnn"]`.
+  The ncnn files themselves (param/bin) are not kept in the repo; regenerate them with
+  `pnnx bench/baselines/onnx/<model>.onnx`.
+
+## int8 baselines (ncnn post-training quantization)
+
+Question answered: Det-S is deployed as int8 while the baselines above were timed in fp32.
+Does int8 change the comparison? Script: `src/sonar_edge/baselines/int8_ncnn.py`; results:
+`int8_ncnn.json` (accuracy, latency summary, settings), raw timings
+`int8_ncnn_raw_pi4.json` and `int8_ncnn_raw_pi2.json`.
+
+**Method.**
+- **Tools:** ncnn 1.0.20261020. `ncnn2table`/`ncnn2int8` come from the official release
+  `ncnn-20261020-ubuntu-2604.zip` (sha256 c4d6646e…dfaa19e); the pip wheel of the same
+  version was used on the laptop, the Pi 4 and the Pi 2.
+- **Models:** the seed-0 checkpoint of every fold, converted ONNX → ncnn with
+  `pnnx fp16=0`, since ncnn2int8 needs fp32 weights.
+- **Calibration:** on 64 training frames of the same fold, drawn exactly like the Det-S
+  calibration (`default_rng(0).choice`). Inputs are the training-time inputs: the
+  box-filtered frames for SSDLite and Det-S, and Ultralytics' LetterBox output (cv2
+  bilinear, from `.venv-yolo`) for YOLOv8n.
+- **Calibration methods tried:** ncnn's `kl` (default), `aciq` and `percentile`.
+  `eq` crashes `ncnn2table` (segfault in the weight-scale search).
+- **Accuracy:** every test frame, with each baseline's own postprocessing
+  (torchvision SSD postprocess; Ultralytics-style NMS with conf 0.001, IoU 0.7, max 100),
+  scored by `adapters.score`.
+
+**Accuracy, seed 0, pooled mAP over 5 folds (%):**
+
+| Model | PyTorch | ncnn fp32 | int8 KL | int8 ACIQ | int8 percentile |
+|---|---|---|---|---|---|
+| SSDLite-MobileNetV3 | 62.64 | 62.64 | 38.38 | 60.80 | **63.26** |
+| YOLOv8n | 64.00 | 64.01 | 48.37 | 64.03 | **63.75** |
+
+- **ncnn fp32 reproduces** the PyTorch / Ultralytics predictions, so the export,
+  inputs and postprocessing are right.
+- **With percentile calibration, int8 costs neither baseline any accuracy.** This is
+  the method closest to Det-S's own 99.99th-percentile calibration. ncnn's default KL
+  calibration loses 16–24 points on these sonar images. The baselines are therefore
+  credited with the best method.
+
+**Latency, ncnn, network only, no NMS (ms, mean of 3 × 50 runs).** Fold-0 models;
+baselines use the percentile tables, Det-S int8 uses a KL table (latency only):
+
+| Model | Pi 4 1 thr fp32 → int8 | Pi 4 4 thr fp32 → int8 | Pi 2 1 thr fp32 → int8 | Pi 2 4 thr fp32 → int8 |
+|---|---|---|---|---|
+| Det-S | 19.5 → 11.9 | 11.3 → 5.8 | 146.8 → 91.4 | 53.7 → 34.1 |
+| SSDLite-MobileNetV3 | 140.3 → 136.8 | 93.1 → 76.7 | 1020.8 → 1050.6 | 426.7 → 391.2 |
+| YOLOv8n | 157.4 → 131.6 | 92.0 → 68.2 | 1260.8 → 879.7 | 439.3 → 321.9 |
+
+- **Pi 4, int8, four cores:** YOLOv8n reaches 14.7 fps and SSDLite 13.0 fps for the
+  network alone. YOLOv8n is now just below the 15 fps of the sonar, before NMS and
+  preprocessing, and it needs all four cores to get there. On one core int8 gives
+  7.6 fps (YOLOv8n) and 7.3 fps (SSDLite).
+- **Det-S** under ncnn int8 runs at 11.9 ms on one Pi 4 core, 11× faster than int8
+  YOLOv8n and 11.5× faster than int8 SSDLite. The project's own C int8 runtime does
+  20.3 ms on the Pi 4 and 124.5 ms on the Pi 2; ncnn's int8 kernels are faster for
+  Det-S on both boards.
+- **Pi 2:** int8 baselines run at 3.1 fps (YOLOv8n) and 2.6 fps (SSDLite) on four
+  cores, against 29 fps for Det-S int8 under ncnn.
+- **Memory (peak RSS, int8, 1 thread):** Pi 4: Det-S 40.9 MiB, YOLOv8n 68.7 MiB,
+  SSDLite 60.6 MiB.
+- **Throttling:** none (0x0). The Pi 4 went from 46.7 to 56.0 °C and the Pi 2 from
+  40.1 to 45.5 °C.
+
+**Caveats.**
+- The Pi 2 fp32 column comes from the earlier run, whose models had fp16-stored
+  weights with fp32 arithmetic. The Pi 4 fp32 column was re-run alongside int8 and
+  matches the earlier run within 0.5 ms.
+- Accuracy was measured for seed 0 only.
+- Latency is the network alone. NMS and the SSD anchor decoding are extra for the
+  baselines, while Det-S's decoder is a small peak search.
