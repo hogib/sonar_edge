@@ -26,3 +26,5 @@ report/*.aux
 report/*.log
 report/*.out
 wip/
+# unpublished manuscript (co-authors' text and emails): keep out of the public repo
+paper/

@@ -1,0 +1,283 @@
+{
+ "groups": {
+  "micro": [
+   "Shampoo-bottle",
+   "Tire",
+   "Drink-carton"
+  ],
+  "other": [
+   "Can",
+   "Chain",
+   "Hook",
+   "Propeller",
+   "Valve",
+   "Standing-bottle"
+  ],
+  "excluded": [
+   "Bottle",
+   "Wall"
+  ]
+ },
+ "variant": "pi4",
+ "models": {
+  "MCNN": {
+   "task_a": {
+    "acc": {
+     "mean": 0.8256997455470737,
+     "sd": 0.03108598402766062
+    },
+    "micro_recall": {
+     "mean": 0.866107486797142,
+     "sd": 0.007532995124561758
+    },
+    "micro_precision": {
+     "mean": 0.8827227620859858,
+     "sd": 0.01843795898016355
+    },
+    "micro_f1": {
+     "mean": 0.8743065076469346,
+     "sd": 0.012448618202741612
+    },
+    "other_recall": {
+     "mean": 0.791958495460441,
+     "sd": 0.05098513725891536
+    }
+   },
+   "task_a_per_seed": [
+    {
+     "acc": 0.8040712468193384,
+     "micro_recall": 0.8592730661696178,
+     "micro_precision": 0.8755935422602089,
+     "micro_f1": 0.8673565380997177,
+     "other_recall": 0.757976653696498,
+     "n": 2358,
+     "n_micro": 1073,
+     "pred_on_bottle": 190
+    },
+    {
+     "acc": 0.811704834605598,
+     "micro_recall": 0.8648648648648649,
+     "micro_precision": 0.8689138576779026,
+     "micro_f1": 0.8668846333489024,
+     "other_recall": 0.7673151750972763,
+     "n": 2358,
+     "n_micro": 1073,
+     "pred_on_bottle": 170
+    },
+    {
+     "acc": 0.861323155216285,
+     "micro_recall": 0.8741845293569431,
+     "micro_precision": 0.9036608863198459,
+     "micro_f1": 0.8886783514921838,
+     "other_recall": 0.8505836575875486,
+     "n": 2358,
+     "n_micro": 1073,
+     "pred_on_bottle": 110
+    }
+   ],
+   "check_10class_acc": {
+    "mean": 0.7771880160415193,
+    "sd": 0.005020947547485874
+   }
+  },
+  "runs/small_360_cv": {
+   "seeds": [
+    "runs/small_360_cv",
+    "runs/small_360_s1_cv",
+    "runs/small_360_s2_cv"
+   ],
+   "task_a": {
+    "acc": {
+     "mean": 0.7579869946282161,
+     "sd": 0.016944079888827325
+    },
+    "micro_recall": {
+     "mean": 0.8490214352283317,
+     "sd": 0.01118359739049396
+    },
+    "micro_precision": {
+     "mean": 0.9098320147158921,
+     "sd": 0.01335041108716089
+    },
+    "micro_f1": {
+     "mean": 0.8783598541388855,
+     "sd": 0.011366154703540304
+    },
+    "other_recall": {
+     "mean": 0.6819714656290531,
+     "sd": 0.02529282647937437
+    }
+   },
+   "task_a_per_seed": [
+    {
+     "acc": 0.7442748091603053,
+     "micro_recall": 0.8490214352283317,
+     "micro_precision": 0.8993089832181639,
+     "micro_f1": 0.8734419942473634,
+     "other_recall": 0.6568093385214008,
+     "n": 2358,
+     "n_micro": 1073,
+     "pred_on_bottle": 164
+    },
+    {
+     "acc": 0.7769296013570822,
+     "micro_recall": 0.8602050326188257,
+     "micro_precision": 0.9248496993987976,
+     "micro_f1": 0.8913568324480927,
+     "other_recall": 0.7073929961089495,
+     "n": 2358,
+     "n_micro": 1073,
+     "pred_on_bottle": 91
+    },
+    {
+     "acc": 0.7527565733672604,
+     "micro_recall": 0.8378378378378378,
+     "micro_precision": 0.905337361530715,
+     "micro_f1": 0.8702807357212005,
+     "other_recall": 0.6817120622568094,
+     "n": 2358,
+     "n_micro": 1073,
+     "pred_on_bottle": 149
+    }
+   ],
+   "task_b": {
+    "ap_other": {
+     "mean": 0.40825434252438625,
+     "sd": 0.0161112634976135
+    },
+    "ap_micro": {
+     "mean": 0.7714124497080519,
+     "sd": 0.03644399258926802
+    },
+    "map": {
+     "mean": 0.5898333961162191,
+     "sd": 0.013280809084512494
+    }
+   },
+   "task_b_per_seed": [
+    {
+     "ap_other": 0.42674161344521194,
+     "ap_micro": 0.7430981071437436,
+     "map": 0.5849198602944777
+    },
+    {
+     "ap_other": 0.3972111454744391,
+     "ap_micro": 0.8125304833597571,
+     "map": 0.6048708144170981
+    },
+    {
+     "ap_other": 0.40081026865350766,
+     "ap_micro": 0.7586087586206551,
+     "map": 0.5797095136370813
+    }
+   ],
+   "check_10class_acc": {
+    "mean": 0.7419202642132579,
+    "sd": 0.01305599820903204
+   }
+  },
+  "runs/small_wide_360_cv": {
+   "seeds": [
+    "runs/small_wide_360_cv",
+    "runs/small_wide_360_s1_cv",
+    "runs/small_wide_360_s2_cv"
+   ],
+   "task_a": {
+    "acc": {
+     "mean": 0.8002544529262087,
+     "sd": 0.02469562911202827
+    },
+    "micro_recall": {
+     "mean": 0.9071140105622865,
+     "sd": 0.0028472045324360474
+    },
+    "micro_precision": {
+     "mean": 0.9372941528755963,
+     "sd": 0.015190828378950147
+    },
+    "micro_f1": {
+     "mean": 0.921899866332048,
+     "sd": 0.005891945025835836
+    },
+    "other_recall": {
+     "mean": 0.7110246433203632,
+     "sd": 0.047682968772498155
+    }
+   },
+   "task_a_per_seed": [
+    {
+     "acc": 0.8261238337574215,
+     "micro_recall": 0.9040074557315937,
+     "micro_precision": 0.9528487229862476,
+     "micro_f1": 0.9277857484457198,
+     "other_recall": 0.7610894941634241,
+     "n": 2358,
+     "n_micro": 1073,
+     "pred_on_bottle": 70
+    },
+    {
+     "acc": 0.7769296013570822,
+     "micro_recall": 0.9095992544268406,
+     "micro_precision": 0.9224952741020794,
+     "micro_f1": 0.9160018770530268,
+     "other_recall": 0.666147859922179,
+     "n": 2358,
+     "n_micro": 1073,
+     "pred_on_bottle": 166
+    },
+    {
+     "acc": 0.7977099236641222,
+     "micro_recall": 0.907735321528425,
+     "micro_precision": 0.9365384615384615,
+     "micro_f1": 0.9219119734973971,
+     "other_recall": 0.7058365758754864,
+     "n": 2358,
+     "n_micro": 1073,
+     "pred_on_bottle": 93
+    }
+   ],
+   "task_b": {
+    "ap_other": {
+     "mean": 0.407594189206461,
+     "sd": 0.026713584734574414
+    },
+    "ap_micro": {
+     "mean": 0.856688964879206,
+     "sd": 0.012976111859726747
+    },
+    "map": {
+     "mean": 0.6321415770428336,
+     "sd": 0.009902342740685343
+    }
+   },
+   "task_b_per_seed": [
+    {
+     "ap_other": 0.4272423672458988,
+     "ap_micro": 0.8417714681361419,
+     "map": 0.6345069176910203
+    },
+    {
+     "ap_other": 0.37717695972276233,
+     "ap_micro": 0.8653645522650057,
+     "map": 0.621270755993884
+    },
+    {
+     "ap_other": 0.418363240650722,
+     "ap_micro": 0.8629308742364705,
+     "map": 0.6406470574435963
+    }
+   ],
+   "check_10class_acc": {
+    "mean": 0.775654635527247,
+    "sd": 0.023887316110032086
+   }
+  }
+ },
+ "notes": {
+  "commands": [
+   "OMP_NUM_THREADS=4 uv run python -m sonar_edge.material"
+  ],
+  "task_b_within_group_nms": "Sensitivity check (not the definition): greedy NMS at IoU 0.5 inside each merged group before AP. small@360: other 42.4\u00b11.8, micro 77.2\u00b13.6, mean 59.8\u00b11.1; small_wide@360: other 42.0\u00b12.6, micro 85.7\u00b11.2, mean 63.9\u00b10.9 (vs 40.8/77.1/59.0 and 40.8/85.7/63.2 without). Duplicate same-object detections of different classes in one group cost about 1-1.5 AP on 'other' only.",
+  "pred_on_bottle": "Task (a): debris boxes (non-Bottle, non-Wall GT) predicted as Bottle count as errors; per seed counts in task_a_per_seed."
+ }
+}

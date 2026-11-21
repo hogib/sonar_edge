@@ -1,0 +1,6 @@
+{
+ "gt_as_pred_map": 1.0,
+ "gt_as_pred_acc": 1.0,
+ "small360_s0_adapter_map": 0.5464005602241714,
+ "small360_s0_cv_map": 0.5464005602241714
+}
