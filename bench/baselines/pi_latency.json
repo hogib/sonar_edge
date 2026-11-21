@@ -80,6 +80,41 @@
     ],
     "vmhwm_mib": 104.6
    }
+  },
+  "nanodet": {
+   "name": "NanoDet-Plus-m (pretrained s0 f0)",
+   "params": 1171152,
+   "macs": 419171328.0,
+   "input": "[1,3,384,256]",
+   "t1": {
+    "mean_ms": 158.61,
+    "median_ms": 158.59,
+    "repeats_ms": [
+     158.58,
+     158.64,
+     158.6
+    ],
+    "vmhwm_mib": 82.7
+   },
+   "t4": {
+    "mean_ms": 66.07,
+    "median_ms": 65.8,
+    "repeats_ms": [
+     65.8,
+     65.91,
+     66.52
+    ],
+    "vmhwm_mib": 82.8
+   },
+   "run": {
+    "board": "Raspberry Pi 4 Model B 4 GB, no fan",
+    "throttled": "0x0 before and after",
+    "temp_c": [
+     46.7,
+     53.5
+    ],
+    "date": "2026-11-22"
+   }
   }
  },
  "notes": [
@@ -87,7 +122,8 @@
   "SSDLite graph: normalisation + backbone + head (raw regression and logits), no anchor decoding / NMS",
   "Det-S re-run reproduces M7 (22.4 / 8.8 ms); its VmHWM here (64.6 MiB) is higher than M7's 58.1 MB because this script's child process measures differently; compare RSS within this file only",
   "Pi 2 has no onnxruntime wheel (armv7l, Python 3.13; PyPI and piwheels), so it was timed with ncnn only; ncnn was also run on the Pi 4 as a same-engine cross-board comparison",
-  "Deployed C int8 runtime for Det-S (M5): Pi 4 20.3 ms / Pi 2 124.5 ms on one core"
+  "Deployed C int8 runtime for Det-S (M5): Pi 4 20.3 ms / Pi 2 124.5 ms on one core",
+  "NanoDet-Plus-m graph: NanoDet's own ONNX forward (head._forward_onnx; aux head excluded), opset 17; output (1, 2040, 11 + 32) = sigmoid class scores + raw DFL logits; input normalisation, DFL decoding and NMS are outside the graph. Timed 2026-11-22 (separate run; see models.nanodet.run)"
  ],
  "ncnn": {
   "conversion": "ONNX -> ncnn with pnnx (pnnx model.onnx); blobs in0 -> out0[, out1]; outputs checked against ORT on the Pi 4 (max abs diff <= 0.1% of output range)",
@@ -166,6 +202,38 @@
       ],
       "vmhwm_mib": 77.3
      }
+    },
+    "nanodet": {
+     "t1": {
+      "mean_ms": 122.84,
+      "median_ms": 122.85,
+      "repeats_ms": [
+       122.83,
+       122.88,
+       122.8
+      ],
+      "vmhwm_mib": 55.6
+     },
+     "t4": {
+      "mean_ms": 74.21,
+      "median_ms": 74.2,
+      "repeats_ms": [
+       74.23,
+       74.2,
+       74.19
+      ],
+      "vmhwm_mib": 55.5
+     },
+     "run": {
+      "board": "Raspberry Pi 4 Model B 4 GB, no fan",
+      "throttled": "0x0 before and after",
+      "temp_c": [
+       46.7,
+       53.5
+      ],
+      "date": "2026-11-22",
+      "note": "fp32 model converted with pnnx fp16=0"
+     }
     }
    }
   },
@@ -242,6 +310,38 @@
        428.17
       ],
       "vmhwm_mib": 69.0
+     }
+    },
+    "nanodet": {
+     "t1": {
+      "mean_ms": 873.89,
+      "median_ms": 873.46,
+      "repeats_ms": [
+       873.65,
+       873.42,
+       874.61
+      ],
+      "vmhwm_mib": 47.9
+     },
+     "t4": {
+      "mean_ms": 372.23,
+      "median_ms": 358.51,
+      "repeats_ms": [
+       376.23,
+       378.03,
+       362.42
+      ],
+      "vmhwm_mib": 47.0
+     },
+     "run": {
+      "board": "Raspberry Pi 2 Model B rev 1.1",
+      "throttled": "0x0 before and after",
+      "temp_c": [
+       39.0,
+       43.3
+      ],
+      "date": "2026-11-22",
+      "note": "fp32 model converted with pnnx fp16=0"
      }
     }
    }

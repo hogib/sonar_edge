@@ -123,6 +123,68 @@
     "mcnn_acc": 0.8057324840764332,
     "mcnn_f1": 0.7860111232688234
    }
+  },
+  "nanodet": {
+   "pytorch": {
+    "map_pooled": 0.6332524370512144,
+    "map_per_fold": [
+     0.768894903719007,
+     0.7777524037614816,
+     0.6060498748210755,
+     0.5614084585652693,
+     0.7740243947433315
+    ],
+    "mcnn_acc": 0.8060863411181882,
+    "mcnn_f1": 0.7683307659542137
+   },
+   "fp32": {
+    "map_pooled": 0.633664140176629,
+    "map_per_fold": [
+     0.7688901876034475,
+     0.7778436809849177,
+     0.6090429041529267,
+     0.5613947536716614,
+     0.7739765764955309
+    ],
+    "mcnn_acc": 0.8064401981599434,
+    "mcnn_f1": 0.7691098149521542
+   },
+   "int8": {
+    "map_pooled": 0.6135444204913623,
+    "map_per_fold": [
+     0.7440882724828147,
+     0.7970329329424757,
+     0.6072670150477054,
+     0.5590483497305055,
+     0.7574217362765999
+    ],
+    "mcnn_acc": 0.802547770700637,
+    "mcnn_f1": 0.7631747424966238
+   },
+   "int8_aciq": {
+    "map_pooled": 0.5226553231928143,
+    "map_per_fold": [
+     0.6056125320826639,
+     0.684378213916492,
+     0.4945473920020968,
+     0.5288939670834405,
+     0.7693615798940487
+    ],
+    "mcnn_acc": 0.7204529370134466,
+    "mcnn_f1": 0.6700525230785755
+   },
+   "int8_percentile": {
+    "map_pooled": 0.587819021545725,
+    "map_per_fold": [
+     0.6386510008399369,
+     0.7525159029388166,
+     0.5650305270666474,
+     0.5431887613887958,
+     0.793546497651688
+    ],
+    "mcnn_acc": 0.767515923566879,
+    "mcnn_f1": 0.7250564291847625
+   }
   }
  },
  "latency_ms": {
@@ -161,6 +223,38 @@
    "pi2_fp32_t4": 426.7,
    "rss_pi4_int8": "62092 kB",
    "rss_pi2_int8": "54180 kB"
+  },
+  "nanodet": {
+   "pi4_int8_t1": 111.5,
+   "pi4_fp32_t1": 122.8,
+   "pi4_int8kl_t1": 111.9,
+   "pi4_int8_t4": 65.9,
+   "pi4_fp32_t4": 74.2,
+   "pi4_int8kl_t4": 62.7,
+   "rss_pi4_int8": "53608 kB",
+   "rss_pi4_fp32": "56940 kB",
+   "pi2_int8_t1": 752.9,
+   "pi2_fp32_t1": 873.9,
+   "pi2_int8kl_t1": 751.7,
+   "pi2_int8_t4": 319.8,
+   "pi2_fp32_t4": 372.2,
+   "pi2_int8kl_t4": 318.2,
+   "rss_pi2_int8": "46520 kB",
+   "rss_pi2_fp32": "49052 kB"
+  },
+  "mcnn_per_crop": {
+   "pi4_fp32_t1": 51.1,
+   "pi4_int8_t1": 32.4,
+   "pi4_fp32_t4": 21.0,
+   "pi4_int8_t4": 12.9,
+   "rss_pi4_fp32": "59784 kB",
+   "rss_pi4_int8": "55788 kB",
+   "pi2_fp32_t1": 382.5,
+   "pi2_int8_t1": 247.1,
+   "pi2_fp32_t4": 120.9,
+   "pi2_int8_t4": 77.5,
+   "rss_pi2_fp32": "50472 kB",
+   "rss_pi2_int8": "46660 kB"
   }
  },
  "meta": {
@@ -175,6 +269,35 @@
   },
   "latency_models": "fold-0 seed-0; baselines int8 = percentile tables; Det-S int8 = KL table (latency only); timing as pi_latency.py (10 warm-up + 3 x 50, fp16 off), network only, no NMS",
   "pi2_fp32": "from pi_latency_raw_pi2_ncnn.json (earlier run, fp16-stored weights, fp32 arithmetic)",
-  "throttling": "Pi 4 46.7->56.0 C, Pi 2 40.1->45.5 C, both 0x0"
+  "throttling": "Pi 4 46.7->56.0 C, Pi 2 40.1->45.5 C, both 0x0",
+  "nanodet": "fold-0 seed-0 NanoDet-Plus-m, ONNX via pi_latency.export_nanodet (NanoDet's ONNX forward, aux head excluded; 1,171,152 params, 419.2 M MACs); pnnx fp16=0; calibration mean=[103.53,116.28,123.675] norm=1/[57.375,57.12,58.395] on the same 64 frames as SSDLite; latency of both the percentile (int8) and KL (int8kl) tables timed. Run 2026-11-22: {\"pi4\": {\"board\": \"Raspberry Pi 4 Model B 4 GB, no fan\", \"throttled\": \"0x0 before and after\", \"temp_c\": [46.7, 53.5], \"date\": \"2026-11-22\"}, \"pi2\": {\"board\": \"Raspberry Pi 2 Model B rev 1.1\", \"throttled\": \"0x0 before and after\", \"temp_c\": [39.0, 43.3], \"date\": \"2026-11-22\"}}"
+ },
+ "mcnn_per_crop": {
+  "model": "runs/mcnn_cv_s0_f0/mcnn.onnx (same file as M7's ORT benchmark), pnnx inputshape=[1,1,305,305] fp16=0",
+  "input": "1x305x305 (one zero-padded crop)",
+  "int8": "percentile table on 64 training crops of fold 0 (folds 2-4), default_rng(0).choice; bench/baselines/mcnn_ncnn.py",
+  "accuracy_fold0_seed0": {
+   "fold": 0,
+   "seed": 0,
+   "n_test": 722,
+   "pytorch_acc": 0.8767313019390581,
+   "mcnn": {
+    "acc": 0.8767313019390581,
+    "agree_pytorch": 1.0
+   },
+   "mcnn_int8_percentile": {
+    "acc": 0.8767313019390581,
+    "agree_pytorch": 0.9916897506925207
+   },
+   "mcnn_int8_kl": {
+    "acc": 0.2950138504155125,
+    "agree_pytorch": 0.3157894736842105
+   }
+  },
+  "ort_pi4_reference_ms": {
+   "t1": 66.5,
+   "t4": 24.7,
+   "source": "docs/M7-comparison.md \u00a73"
+  }
  }
 }

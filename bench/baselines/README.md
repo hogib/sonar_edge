@@ -150,6 +150,7 @@ checkpoints. The board stayed unthrottled (0x0) and went from 48.2 to 56.4 °C.
 | Det-S (reference) | 42 k | 78.4 M | 1x360x240 | 22.4 | 9.0 | 64.6 |
 | SSDLite-MobileNetV3 | 3.88 M | 488 M | 3x384x256 | 202.4 | 94.2 | 104.2 |
 | YOLOv8n | 3.14 M | 1038 M | 3x384x256 | 285.8 | 107.8 | 89.6 |
+| NanoDet-Plus-m | 1.17 M | 419 M | 3x384x256 | 158.6 | 66.1 | 82.7 |
 
 - **Neither baseline reaches 15 frames/s** on all four cores before NMS: YOLOv8n gives
   9.3 fps and SSDLite 10.6 fps.
@@ -157,6 +158,12 @@ checkpoints. The board stayed unthrottled (0x0) and went from 48.2 to 56.4 °C.
   SSDLite on one core.
 - **Graph contents.** The YOLOv8n export includes DFL box decoding. The SSDLite graph
   ends at the raw head outputs, so its anchor decoding and NMS come on top.
+- **NanoDet-Plus-m** (added 2026-11-22, separate run; 46.7 -> 53.5 °C, 0x0): exported with
+  NanoDet's own ONNX forward (`pi_latency.py export-nanodet`, CPU on the server; the head
+  switches to `_forward_onnx`, the auxiliary head is not in the graph). 1,171,152 inference
+  parameters and 419.2 M MACs by `macs.py`. The output is (1, 2040, 11 + 32): sigmoid class
+  scores and raw DFL logits per prior. Input normalisation, DFL decoding and NMS are outside
+  the graph. It runs at 15.1 fps on four Pi 4 cores under ORT, before NMS.
 - **Peak RSS** comes from this script. It is not comparable with M7's 58.1 MB, which
   was measured another way; for Det-S this script reads 64.6 MiB.
 - **Pi 2 via ncnn.** No onnxruntime wheel exists for armv7l with Python 3.13 (PyPI
@@ -174,6 +181,7 @@ ncnn fp32, network only (ms; peak RSS of the process in MiB):
 | Det-S | 19.5 | 11.4 | 146.8 | 53.7 | 48.5 / 39.9 |
 | SSDLite-MobileNetV3 | 140.4 | 93.2 | 1020.8 | 426.7 | 77.2 / 69.5 |
 | YOLOv8n | 157.8 | 92.3 | 1260.8 | 439.3 | 106.3 / 97.9 |
+| NanoDet-Plus-m | 122.8 | 74.2 | 873.9 | 372.2 | 55.6 / 47.9 |
 
 - **On the Pi 2, the baselines run at 2.3 fps (YOLOv8n) and 2.3 fps (SSDLite) on four
   cores, and Det-S runs at 18.6 fps.** The deployed C int8 runtime does better still,
@@ -216,6 +224,17 @@ Does int8 change the comparison? Script: `src/sonar_edge/baselines/int8_ncnn.py`
 |---|---|---|---|---|---|
 | SSDLite-MobileNetV3 | 62.64 | 62.64 | 38.38 | 60.80 | **63.26** |
 | YOLOv8n | 64.00 | 64.01 | 48.37 | 64.03 | **63.75** |
+| NanoDet-Plus-m | 63.33 | 63.37 | **61.35** | 52.27 | 58.78 |
+
+NanoDet fold 0 alone (the timed model): PyTorch 76.89, ncnn fp32 76.89, int8 KL 74.41,
+int8 percentile 63.87.
+
+- **NanoDet is the exception to the calibration rule.** Percentile calibration costs it
+  4.6 points pooled (13 on fold 0) and ACIQ 11. KL is its best method, at -2.0 points.
+  The same 64 frames were used as for SSDLite, with NanoDet's mean and 1/std passed to
+  `ncnn2table`. The decoder is `int8_ncnn.nanodet_post`, a re-implementation of NanoDet's
+  `get_bboxes` + `multiclass_nms`; ncnn fp32 reproduces the PyTorch predictions (63.37 vs
+  63.33), so the inputs and decoder are right.
 
 - **ncnn fp32 reproduces** the PyTorch / Ultralytics predictions, so the export,
   inputs and postprocessing are right.
@@ -232,6 +251,7 @@ baselines use the percentile tables, Det-S int8 uses a KL table (latency only):
 | Det-S | 19.5 → 11.9 | 11.3 → 5.8 | 146.8 → 91.4 | 53.7 → 34.1 |
 | SSDLite-MobileNetV3 | 140.3 → 136.8 | 93.1 → 76.7 | 1020.8 → 1050.6 | 426.7 → 391.2 |
 | YOLOv8n | 157.4 → 131.6 | 92.0 → 68.2 | 1260.8 → 879.7 | 439.3 → 321.9 |
+| NanoDet-Plus-m | 122.8 → 111.5 | 74.2 → 65.9 | 873.9 → 752.9 | 372.2 → 319.8 |
 
 - **Pi 4, int8, four cores:** YOLOv8n reaches 14.7 fps and SSDLite 13.0 fps for the
   network alone. YOLOv8n is now just below the 15 fps of the sonar, before NMS and
@@ -244,7 +264,14 @@ baselines use the percentile tables, Det-S int8 uses a KL table (latency only):
 - **Pi 2:** int8 baselines run at 3.1 fps (YOLOv8n) and 2.6 fps (SSDLite) on four
   cores, against 29 fps for Det-S int8 under ncnn.
 - **Memory (peak RSS, int8, 1 thread):** Pi 4: Det-S 40.9 MiB, YOLOv8n 68.7 MiB,
-  SSDLite 60.6 MiB.
+  SSDLite 60.6 MiB, NanoDet-Plus-m 52.4 MiB (Pi 2: 45.4 MiB).
+- **NanoDet-Plus-m** (run 2026-11-22; Pi 4 46.7 -> 53.5 °C, Pi 2 39.0 -> 43.3 °C, both
+  0x0; both fp32 columns re-run with `pnnx fp16=0` models). The int8 row uses the
+  percentile table, as for the others. The KL table, which is NanoDet's accurate one,
+  times the same: Pi 4 111.9 / 62.7 ms, Pi 2 751.7 / 318.2 ms (1 / 4 threads). int8
+  gives NanoDet 9.0 fps on one Pi 4 core and 15.2 fps on four (16 fps with the KL table),
+  before NMS. On four Pi 4 cores, ORT fp32 (66.1 ms) is as fast as ncnn int8, and faster
+  than ncnn fp32 (74.2 ms). On the Pi 2 it runs at 3.1 fps on four cores.
 - **Throttling:** none (0x0). The Pi 4 went from 46.7 to 56.0 °C and the Pi 2 from
   40.1 to 45.5 °C.
 
@@ -255,3 +282,35 @@ baselines use the percentile tables, Det-S int8 uses a KL table (latency only):
 - Accuracy was measured for seed 0 only.
 - Latency is the network alone. NMS and the SSD anchor decoding are extra for the
   baselines, while Det-S's decoder is a small peak search.
+
+## MCNN per crop under ncnn (Pi 4 and Pi 2)
+
+The Pi 2 has no ORT, so MCNN's per-crop cost there was measured with ncnn, and on the Pi 4
+too for a same-engine comparison. Script: `bench/baselines/mcnn_ncnn.py`. Results are in
+`int8_ncnn.json` (`latency_ms.mcnn_per_crop`, `mcnn_per_crop`), with raw timings in
+`int8_ncnn_raw_pi{4,2}.json`.
+
+**Method.**
+- **Model:** `runs/mcnn_cv_s0_f0/mcnn.onnx`, the same file as M7's ORT benchmark, converted
+  with `pnnx inputshape=[1,1,305,305] fp16=0`.
+- **Input:** one 1x305x305 crop.
+- **Timing:** `pi_latency.py`, with 10 warm-up runs and then 3 x 50 timed runs.
+- **int8:** percentile table on 64 training crops of fold 0 (folds 2-4, `default_rng(0)`).
+
+**Accuracy, fold 0 seed 0, 722 test crops.**
+- **ncnn fp32:** 87.67%, identical to PyTorch.
+- **int8 percentile:** 87.67%, agreeing with PyTorch on 99.2% of crops.
+- **int8 KL:** collapses to 29.5%.
+
+**Latency, ms per crop:**
+
+| Engine | Pi 4 1 thr | Pi 4 4 thr | Pi 2 1 thr | Pi 2 4 thr | RSS Pi 4 / Pi 2 MiB (1 thr) |
+|---|---|---|---|---|---|
+| ORT fp32 (M7) | 66.5 | 24.7 | - | - | 75.5 MB (M7) |
+| ncnn fp32 | 51.1 | 21.0 | 382.5 | 120.9 | 58.4 / 49.3 |
+| ncnn int8 | 32.4 | 12.9 | 247.1 | 77.5 | 54.5 / 45.6 |
+
+- **Per frame on the Pi 2** (1.51 crops, M7 §3), ncnn fp32 costs 578 ms on one core and
+  183 ms on four. Det-S ncnn fp32 needs 146.8 / 53.7 ms for a whole frame.
+- **The proposal estimates above** (66.5 ms per crop on ORT) would drop to 32.4 ms per crop
+  with ncnn int8 on one Pi 4 core.

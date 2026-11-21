@@ -9,6 +9,8 @@ coordinates outside what the exported graph contains (see `export`).
   # YOLOv8n (server, .venv-yolo): Ultralytics ONNX export at imgsz (384, 256); the graph
   # includes the Detect head's DFL box decoding but no NMS
   .venv-yolo/bin/python src/sonar_edge/baselines/pi_latency.py export-yolo
+  # NanoDet-Plus-m (server, .venv-nanodet, CPU): NanoDet's ONNX forward, aux head excluded
+  CUDA_VISIBLE_DEVICES= .venv-nanodet/bin/python src/sonar_edge/baselines/pi_latency.py export-nanodet --folds 0 1 2 3 4
   # on the board (needs only numpy + onnxruntime)
   python pi_latency.py bench yolov8n.onnx ssdlite.onnx --out pi_latency_raw.json
   # ncnn (Pi 2 and Pi 4): pnnx-converted models, shapes CxHxW in model order
@@ -71,6 +73,32 @@ def cmd_export_yolo(args):
     OUT.mkdir(parents=True, exist_ok=True)
     shutil.copy(p, OUT / "yolov8n.onnx")
     print(f"wrote {(OUT / 'yolov8n.onnx').relative_to(ROOT)}")
+
+
+def export_nanodet(ckpt, dest):
+    """Network-only NanoDet-Plus-m graph with NanoDet's own ONNX forward (tools/export_onnx.py:
+    plain torch.onnx.export of the model, whose head switches to _forward_onnx during export):
+    backbone + PAN + head, no auxiliary head, output (1, 2040, C + 32) = sigmoid class scores
+    and raw DFL logits per prior. Input is the normalised 3x384x256 tensor ((x*255 - mean) / std
+    is done outside the graph, as in NanoDet's own ncnn/ONNX demos); no box decoding, no NMS.
+    Run in .venv-nanodet (needs ext/nanodet). Prints params / MACs (sonar_edge.baselines.macs)."""
+    import torch
+
+    sys.path.insert(0, str(ROOT / "src"))
+    from sonar_edge.baselines.macs import count_macs, count_params
+    from sonar_edge.baselines.nanodet_run import build
+
+    ck = torch.load(ckpt, map_location="cpu", weights_only=False)
+    m = build(len(ck["classes"]), False)
+    m.load_state_dict(ck["model"])
+    m.eval()
+    x = torch.zeros(1, 3, 384, 256)
+    inf = [m.backbone, m.fpn, m.head]
+    params = sum(count_params(p) for p in inf)
+    macs = count_macs(m, x)  # m.forward = backbone + fpn + head only
+    Path(dest).parent.mkdir(parents=True, exist_ok=True)
+    torch.onnx.export(m, (x,), dest, opset_version=17, dynamo=False, input_names=["data"], output_names=["output"])
+    print(f"wrote {dest}: inference params {params}, MACs {macs}")
 
 
 CHILD = r"""
@@ -149,6 +177,11 @@ def main():
     sub = ap.add_subparsers(required=True)
     sub.add_parser("export-ssdlite").set_defaults(func=cmd_export_ssdlite)
     sub.add_parser("export-yolo").set_defaults(func=cmd_export_yolo)
+    e = sub.add_parser("export-nanodet")
+    e.add_argument("--folds", type=int, nargs="+", default=[0])
+    e.set_defaults(func=lambda a: [export_nanodet(ROOT / "runs" / f"nanodet_pretrained_s0_f{k}" / "best.pt",
+                                                  OUT / ("nanodet.onnx" if k == 0 else f"nanodet_f{k}.onnx"))
+                                   for k in a.folds])
     b = sub.add_parser("bench")
     b.add_argument("models", nargs="+")
     b.add_argument("--threads", type=int, nargs="+", default=[1, 4])

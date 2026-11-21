@@ -2,7 +2,7 @@
 fp32 baselines are compared fairly with the int8 Det-S runtime.
 
 Pipeline per model and fold (seed 0 checkpoints):
-  ONNX (pi_latency.export_ssdlite / Ultralytics export at 384x256)
+  ONNX (pi_latency.export_ssdlite / Ultralytics export at 384x256 / pi_latency.export_nanodet)
   -> pnnx <model>.onnx fp16=0             (ncnn fp32 weights; ncnn2int8 needs fp32 weights)
   -> ncnn2table (KL calibration)           on 64 training frames of that fold, drawn as in
                                            train.quantize: default_rng(0).choice(len(train), 64)
@@ -10,7 +10,10 @@ Pipeline per model and fold (seed 0 checkpoints):
 Accuracy: ncnn fp32 and int8 models run on every test frame of their fold on the laptop CPU,
 with each baseline's own postprocessing (SSDLite: torchvision's SSD postprocess_detections,
 score 0.01, NMS 0.55, 100 per image; YOLOv8n: Ultralytics-style NMS, conf 0.001, IoU 0.7,
-100 per image), and are scored by adapters.score (pooled VOC AP@0.5, the CV evaluator).
+100 per image; NanoDet-Plus-m: NanoDet's get_bboxes + multiclass_nms, score 0.05, NMS 0.6,
+100 per image, re-implemented in nanodet_post) and are scored by adapters.score (pooled VOC
+AP@0.5, the CV evaluator). NanoDet's graph (pi_latency.export_nanodet) takes the normalised
+input, so its calibration passes mean/norm = NanoDet's mean and 1/std to ncnn2table.
 Inputs are exactly the training-time inputs: SSDLite and Det-S the dataset's box-filtered
 frames (uint8 at 256x384 / 240x360), YOLOv8n Ultralytics' LetterBox output (cv2 INTER_LINEAR,
 computed in .venv-yolo and stored as yolo_inputs.npz).
@@ -24,6 +27,7 @@ computed in .venv-yolo and stored as yolo_inputs.npz).
 
 import argparse
 import json
+import math
 import subprocess
 import time
 from pathlib import Path
@@ -34,8 +38,11 @@ from ..data import class_names, load_frames
 from ..split import load_split
 
 ROOT = Path(__file__).resolve().parents[3]
-SHAPES = {"ssdlite": (3, 384, 256), "yolov8n": (3, 384, 256), "dets": (1, 360, 240)}
-SCALES = {"ssdlite": 1.25, "yolov8n": 1.25, "dets": 4 / 3}
+SHAPES = {"ssdlite": (3, 384, 256), "yolov8n": (3, 384, 256), "nanodet": (3, 384, 256), "dets": (1, 360, 240)}
+SCALES = {"ssdlite": 1.25, "yolov8n": 1.25, "nanodet": 1.25, "dets": 4 / 3}
+# NanoDet normalises outside its graph (nanodet_run.to_input): (x * 255 - mean) / std per channel
+NANO_MEAN = (103.53, 116.28, 123.675)
+NANO_STD = (57.375, 57.12, 58.395)
 
 
 def fold_parts(frames, k):
@@ -68,6 +75,9 @@ class Inputs:
 def tensor(model, u8):
     c = SHAPES[model][0]
     x = u8.astype(np.float32) / 255.0
+    if model == "nanodet":
+        m, s = (np.array(v, np.float32).reshape(3, 1, 1) for v in (NANO_MEAN, NANO_STD))
+        return np.ascontiguousarray((x[None] * 255.0 - m) / s, dtype=np.float32)
     return np.ascontiguousarray(np.broadcast_to(x, (c, *x.shape)), dtype=np.float32)
 
 
@@ -111,6 +121,9 @@ def cmd_quantize(args):
             px = "RGB" if c == 3 else "GRAY"
             mean = ",".join(["0"] * c)
             norm = ",".join(["0.00392156862745098"] * c)
+            if model == "nanodet":
+                mean = ",".join(map(str, NANO_MEAN))
+                norm = ",".join(repr(1 / v) for v in NANO_STD)
             cmd = [str(tools / "ncnn2table"), f"{fp}.param", f"{fp}.bin", str(calib), str(table),
                    f"mean=[{mean}]", f"norm=[{norm}]", f"shape=[{w},{h},{c}]", f"pixel={px}",
                    f"thread={args.threads}", f"method={args.method}"]
@@ -196,6 +209,36 @@ def yolo_post(outs, conf=0.001, iou=0.7, max_det=100, max_wh=7680):
     return [(int(c), float(sc), *map(float, bb)) for c, sc, bb in zip(j[k], s[k], b)]
 
 
+def nanodet_post(outs, n_classes=11, reg_max=7, strides=(8, 16, 32, 64), h=384, w=256,
+                 score_thr=0.05, iou=0.6, max_num=100):
+    """NanoDet-Plus head.get_bboxes + multiclass_nms (ext/nanodet be9b4a9) on the exported graph's
+    output (N, C + 4 (reg_max + 1)) whose class part is already sigmoid (head._forward_onnx)."""
+    import torch
+    import torchvision
+
+    p = torch.from_numpy(np.asarray(outs[0], np.float32).reshape(-1, n_classes + 4 * (reg_max + 1)))
+    scores, reg = p[:, :n_classes], p[:, n_classes:]
+    pri = []
+    for s in strides:
+        fh, fw = math.ceil(h / s), math.ceil(w / s)
+        y, x = torch.meshgrid(torch.arange(fh, dtype=torch.float32) * s, torch.arange(fw, dtype=torch.float32) * s,
+                              indexing="ij")
+        pri.append(torch.stack([x.flatten(), y.flatten(), torch.full((fh * fw,), float(s))], -1))
+    pri = torch.cat(pri)
+    assert len(pri) == len(p), (len(pri), p.shape)
+    d = torch.softmax(reg.reshape(-1, 4, reg_max + 1), -1) @ torch.linspace(0, reg_max, reg_max + 1)
+    d = d * pri[:, 2:3]
+    b = torch.stack([(pri[:, 0] - d[:, 0]).clamp(0, w), (pri[:, 1] - d[:, 1]).clamp(0, h),
+                     (pri[:, 0] + d[:, 2]).clamp(0, w), (pri[:, 1] + d[:, 3]).clamp(0, h)], -1)
+    valid = scores > score_thr
+    pi, ci = valid.nonzero(as_tuple=True)
+    if len(pi) == 0:
+        return []
+    bb, sc = b[pi], scores[pi, ci]
+    keep = torchvision.ops.nms(bb + (ci.to(bb) * (bb.max() + 1))[:, None], sc, iou)[:max_num]
+    return [(int(ci[k]), float(sc[k]), *(float(v) * SCALES["nanodet"] for v in bb[k])) for k in keep]
+
+
 def cmd_eval(args):
     from ..cv import load_pred
     from .adapters import score
@@ -205,10 +248,11 @@ def cmd_eval(args):
     classes = class_names(frames)
     work = Path(args.work)
     out = {}
-    fam = {"ssdlite": "ssdlite_pretrained", "yolov8n": "yolo_pretrained"}
+    fam = {"ssdlite": "ssdlite_pretrained", "yolov8n": "yolo_pretrained", "nanodet": "nanodet_pretrained"}
     for model in args.models:
         inp = Inputs(model, frames, classes, work)
-        post = SSDPost(len(classes)) if model == "ssdlite" else yolo_post
+        post = {"ssdlite": lambda: SSDPost(len(classes)), "yolov8n": lambda: yolo_post,
+                "nanodet": lambda: (lambda o: nanodet_post(o, len(classes)))}[model]()
         res = {}
         ref = [load_pred(run_dir(fam[model], 0, k) / "pred_test.json") for k in range(5)]
         res["pytorch"] = score(ref, 1.0, frames, classes)
