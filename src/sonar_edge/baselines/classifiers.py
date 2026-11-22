@@ -9,6 +9,8 @@ like MCNN (main setting); the first convolution takes one grey channel.
   uv run --extra baselines python -m sonar_edge.baselines.classifiers train --arch mnv3s --seeds 0 1 2
   uv run --extra baselines python -m sonar_edge.baselines.classifiers summary --arch mnv3s
   uv run --extra baselines python -m sonar_edge.baselines.classifiers cost      # params, MACs
+  SONAR_EDGE_SPLIT=splits/random_folds_v1.json uv run --extra baselines python -m \
+      sonar_edge.baselines.classifiers train --arch mcnn --prefix rcls   # random image-level split
 """
 
 import argparse
@@ -85,7 +87,7 @@ def cmd_train(args):
     print(f"{args.arch}: {len(crops)} crops, per fold {np.bincount(folds).tolist()}", flush=True)
     for seed in args.seeds:
         for k in range(5):
-            out = ROOT / "runs" / f"cls_{args.arch}_s{seed}_f{k}"
+            out = ROOT / "runs" / f"{args.prefix}_{args.arch}_s{seed}_f{k}"
             if (out / "results.json").exists() and not args.force:
                 print(f"skip {out.name} (done)", flush=True)
                 continue
@@ -119,7 +121,8 @@ def summarize(arch, seeds, run_fmt):
 
 
 def cmd_summary(args):
-    fmt = "mcnn_cv_s{seed}_f{k}" if args.arch == "mcnn" else "cls_{arch}_s{seed}_f{k}"
+    fmt = ("mcnn_cv_s{seed}_f{k}" if args.arch == "mcnn" and args.prefix == "cls"
+           else args.prefix + "_{arch}_s{seed}_f{k}")
     s = summarize(args.arch, args.seeds, fmt)
     m = make(args.arch)
     s |= {"params": count_params(m), "macs_per_crop": count_macs(m, torch.zeros(1, 1, PAD, PAD))}
@@ -129,7 +132,7 @@ def cmd_summary(args):
           + f"  params {s['params']:,}  MACs {s['macs_per_crop'] / 1e6:.1f} M")
     for c, r in zip(s["classes"], s["recall_mean"]):
         print(f"   {c:16s} recall {100 * r:5.1f}")
-    dest = ROOT / "bench" / "baselines" / f"cls_{args.arch}_summary.json"
+    dest = ROOT / "bench" / "baselines" / f"{args.prefix}_{args.arch}_summary.json"
     dest.write_text(json.dumps(s, indent=1))
     print(f"wrote {dest.relative_to(ROOT)}")
 
@@ -151,10 +154,12 @@ def main():
     t.add_argument("--lr", type=float, default=1e-3)
     t.add_argument("--threads", type=int, default=4)
     t.add_argument("--force", action="store_true")
+    t.add_argument("--prefix", default="cls", help="run-name prefix, e.g. rcls for the random split (SONAR_EDGE_SPLIT)")
     t.set_defaults(func=cmd_train)
     s = sub.add_parser("summary")
     s.add_argument("--arch", required=True, choices=["mnv3s", "shufv2x05", "mcnn"])
     s.add_argument("--seeds", type=int, nargs="+", default=[0, 1, 2])
+    s.add_argument("--prefix", default="cls")
     s.set_defaults(func=cmd_summary)
     c = sub.add_parser("cost")
     c.set_defaults(func=cmd_cost)
